@@ -7,6 +7,7 @@
     android:orientation="vertical"
     android:layout_margin="16dp"
     app:cardElevation="6dp"
+    android:id="@+id/layout_item"
     app:cardCornerRadius="32dp"
     android:backgroundTint="#D7EEE8">
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -14,13 +15,14 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/tvName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:gravity="center"
             android:text="Warehouse"
             android:textSize="24sp"
+            android:fontFamily="@font/sen_bold"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -33,10 +35,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:src="@drawable/vectori"
+            android:src="@drawable/ic_info"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/textView"
+            app:layout_constraintStart_toEndOf="@+id/tvName"
             app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
@@ -48,7 +50,7 @@
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView">
+            app:layout_constraintTop_toBottomOf="@+id/tvName">
 
             <TextView
 
@@ -58,7 +60,8 @@
                 android:layout_marginLeft="16dp"
                 android:text="Row:"
                 android:textSize="24sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:fontFamily="@font/sen_extrabold"/>
 
             <TextView
                 android:id="@+id/tvRow"
@@ -66,6 +69,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:text="Row:"
+                android:fontFamily="@font/sen_regular"
                 android:textSize="24sp" />
         </LinearLayout>
 
@@ -88,7 +92,8 @@
                 android:layout_marginLeft="16dp"
                 android:text="Floors:"
                 android:textSize="24sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:fontFamily="@font/sen_extrabold"/>
 
             <TextView
                 android:id="@+id/tvFloors"
@@ -96,7 +101,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:text="Row:"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                android:fontFamily="@font/sen_regular"/>
         </LinearLayout>
 
         <LinearLayout
@@ -119,7 +125,8 @@
                 android:layout_marginLeft="16dp"
                 android:text="Position:"
                 android:textSize="24sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:fontFamily="@font/sen_bold"/>
 
             <TextView
                 android:id="@+id/tvPosition"
@@ -127,7 +134,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:text="Row:"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                android:fontFamily="@font/sen_regular"/>
         </LinearLayout>
 
         <LinearLayout
@@ -150,7 +158,8 @@
                 android:layout_marginLeft="16dp"
                 android:text="Used:"
                 android:textSize="24sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:fontFamily="@font/sen_bold"/>
 
             <TextView
                 android:id="@+id/tvUsed"
@@ -158,7 +167,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:text="Row:"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                android:fontFamily="@font/sen_regular"/>
         </LinearLayout>
 
         <LinearLayout
@@ -181,7 +191,8 @@
                 android:layout_marginLeft="16dp"
                 android:text="Available:"
                 android:textSize="24sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:fontFamily="@font/sen_regular"/>
 
             <TextView
                 android:id="@+id/tvAvailable"
@@ -189,7 +200,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:text="Row:"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                android:fontFamily="@font/sen_regular"/>
         </LinearLayout>
 
         <LinearLayout
@@ -212,7 +224,8 @@
                 android:layout_marginLeft="16dp"
                 android:text="Product types:"
                 android:textSize="24sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:fontFamily="@font/sen_bold"/>
 
             <TextView
                 android:id="@+id/tvProduct"
@@ -220,7 +233,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:text="Row:"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                android:fontFamily="@font/sen_regular"/>
         </LinearLayout>
 
         <LinearLayout
@@ -243,7 +257,8 @@
                 android:layout_marginLeft="16dp"
                 android:text="Broke:"
                 android:textSize="24sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:fontFamily="@font/sen_bold"/>
 
             <TextView
                 android:id="@+id/tvBroke"
@@ -251,7 +266,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:text="Row:"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                android:fontFamily="@font/sen_regular"/>
         </LinearLayout>
 
         <LinearLayout
@@ -274,7 +290,8 @@
                 android:layout_marginLeft="16dp"
                 android:text="Lost:"
                 android:textSize="24sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:fontFamily="@font/sen_bold"/>
 
             <TextView
                 android:id="@+id/tvLost"
@@ -282,7 +299,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:text="Row:"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                android:fontFamily="@font/sen_regular"/>
         </LinearLayout>
 
         <LinearLayout
@@ -307,7 +325,8 @@
                 android:layout_marginLeft="16dp"
                 android:text="Finished:"
                 android:textSize="24sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:fontFamily="@font/sen_bold"/>
 
             <TextView
                 android:id="@+id/tvFinished"
@@ -315,7 +334,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:text="Row:"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                android:fontFamily="@font/sen_regular"/>
         </LinearLayout>
 
 

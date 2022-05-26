@@ -28,6 +28,7 @@
         android:gravity="center"
         android:padding="16dp"
         android:text="abc"
+        android:fontFamily="@font/sen_regular"
         app:layout_constraintEnd_toStartOf="@+id/imgDropDown"
         app:layout_constraintStart_toEndOf="@+id/imgIcon"
         app:layout_constraintTop_toTopOf="parent" />

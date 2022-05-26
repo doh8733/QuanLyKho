@@ -8,9 +8,15 @@
         <entry key="..\:/QuanLyKho/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.2275" />
         <entry key="..\:/QuanLyKho/app/src/main/res/layout/activity_admin.xml" value="0.25416666666666665" />
         <entry key="..\:/QuanLyKho/app/src/main/res/layout/activity_main2.xml" value="0.1" />
-        <entry key="..\:/QuanLyKho/app/src/main/res/layout/fragment_admin.xml" value="0.2" />
+        <entry key="..\:/QuanLyKho/app/src/main/res/layout/activity_tong_quat_kho.xml" value="0.25226449275362317" />
+        <entry key="..\:/QuanLyKho/app/src/main/res/layout/dialog_add_depot.xml" value="0.2" />
+        <entry key="..\:/QuanLyKho/app/src/main/res/layout/dialog_edit_depot.xml" value="0.1" />
+        <entry key="..\:/QuanLyKho/app/src/main/res/layout/dialog_select_depot.xml" value="0.25226449275362317" />
+        <entry key="..\:/QuanLyKho/app/src/main/res/layout/fragment_admin.xml" value="0.4" />
         <entry key="..\:/QuanLyKho/app/src/main/res/layout/fragment_home.xml" value="0.4" />
-        <entry key="..\:/QuanLyKho/app/src/main/res/layout/row_tong_quat_kho.xml" value="0.11302083333333333" />
+        <entry key="..\:/QuanLyKho/app/src/main/res/layout/imtem_category_spn.xml" value="0.25226449275362317" />
+        <entry key="..\:/QuanLyKho/app/src/main/res/layout/item_selected.xml" value="0.25226449275362317" />
+        <entry key="..\:/QuanLyKho/app/src/main/res/layout/row_tong_quat_kho.xml" value="0.2" />
         <entry key="..\:/QuanLyKho/app/src/main/res/menu/activity_admin.xml" value="0.25416666666666665" />
         <entry key="..\:/QuanLyKho/app/src/main/res/menu/bottom_menu.xml" value="0.25416666666666665" />
         <entry key="..\:/QuanLyKho/app/src/main/res/menu/bottom_menu_admin.xml" value="0.25416666666666665" />
