@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#D7EEE8"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="3dp"
+        app:cardUseCompatPadding="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:gravity="center"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="20dp"
+                android:textStyle="bold"
+                android:text="Bill "
+                android:textColor="#000000"
+                android:textSize="24sp" />
+            <LinearLayout
+                android:weightSum="3"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="left"
+                    android:textStyle="bold"
+                    android:text="Time: "
+                    android:textColor="#000000"
+                    android:textSize="20sp" />
+                <TextView
+                    android:id="@+id/tv_time_entry_CT"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="11:23 14/05/2022"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:weightSum="3"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="left"
+                    android:textStyle="bold"
+                    android:text="Product: "
+                    android:textColor="#000000"
+                    android:textSize="20sp" />
+                <TextView
+                    android:id="@+id/tv_product_entry_CT"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="Toothpatse"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:weightSum="3"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="left"
+                    android:textStyle="bold"
+                    android:text="Quantity: "
+                    android:textColor="#000000"
+                    android:textSize="20sp" />
+                <TextView
+                    android:id="@+id/tv_quantity_entry_CT"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="100"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:weightSum="3"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="left"
+                    android:textStyle="bold"
+                    android:text="Free: "
+                    android:textColor="#000000"
+                    android:textSize="20sp" />
+                <TextView
+                    android:id="@+id/tv_free_entry_CT"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="100 $"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:weightSum="3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/tv_descriptions_entry_CT"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:gravity="left"
+                    android:text="Descriptions: A good marriage is one in which each spouse secretly thinks he or she got the better deal, and this is true also of our friendships. - Anne Lamott"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    />
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/button_pressed"
+                android:text="Close"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>
