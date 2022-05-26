@@ -33,13 +33,13 @@
     </com.google.android.material.textfield.TextInputLayout>
 
 
-    <TextView
+    <com.quannm18.quanlykho.custom_text.sen_extrablodText
         android:id="@+id/tvhello"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="36dp"
         android:text="wellcome"
-        android:textColor=" #FFFFFF"
+        android:textColor=" #000"
         android:layout_marginTop="6dp"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
