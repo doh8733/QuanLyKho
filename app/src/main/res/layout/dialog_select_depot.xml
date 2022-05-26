@@ -17,6 +17,7 @@
         android:textStyle="bold"
         android:gravity="center"
         android:layout_marginTop="42dp"
+        android:fontFamily="@font/sen_bold"
         />
     <Spinner
         android:id="@+id/spn_category"
@@ -35,6 +36,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginLeft="16dp"
+        android:fontFamily="@font/sen_bold"
         app:backgroundTint="@null"
         android:background="@drawable/color_btn_create"
         android:animateLayoutChanges="true"/>
@@ -46,6 +48,7 @@
         android:textColor="#969696"
         android:textSize="16sp"
         android:padding="16dp"
+        android:fontFamily="@font/sen_bold"
         android:layout_marginTop="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginLeft="16dp"

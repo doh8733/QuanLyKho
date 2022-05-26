@@ -27,17 +27,18 @@
             android:layout_height="52dp"
             android:background="@drawable/corner_tip_find"
             android:textColor="#15B082"
+            android:fontFamily="@font/sen_regular"
             android:textSize="16sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
 
-    <TextView
+    <com.quannm18.quanlykho.custom_text.sen_extrablodText
         android:id="@+id/tvhello"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="36dp"
         android:text="wellcome"
-        android:textColor=" #FFFFFF"
+        android:textColor="#fff"
         android:layout_marginTop="6dp"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -79,7 +80,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tvhello"
         app:layout_constraintVertical_bias="0.0" />
 
-    <TextView
+    <com.quannm18.quanlykho.custom_text.sen_regularText
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -124,6 +125,7 @@
                 android:layout_marginRight="16dp"
                 android:background="@drawable/btn_topl_left"
                 android:text="Bill"
+                android:fontFamily="@font/sen_bold"
                 android:textSize="32sp"
                 android:textStyle="bold"
                 app:backgroundTint="@null" />
@@ -136,6 +138,7 @@
                 android:layout_marginRight="16dp"
                 android:background="@drawable/btn_top_right"
                 android:text="Depot"
+                android:fontFamily="@font/sen_bold"
                 android:textSize="32sp"
                 android:textStyle="bold"
                 app:backgroundTint="@null" />
@@ -157,18 +160,20 @@
                 android:layout_marginRight="16dp"
                 android:background="@drawable/btn_bot_left"
                 android:text="Finance"
+                android:fontFamily="@font/sen_bold"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 app:backgroundTint="@null" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/imageView3"
-                android:layout_width="wrap_content"
+                android:layout_width="160dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:background="@drawable/btn_bot_right"
-                android:text="Employe"
+                android:text="Employee"
+                android:fontFamily="@font/sen_bold"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 app:backgroundTint="@null" />

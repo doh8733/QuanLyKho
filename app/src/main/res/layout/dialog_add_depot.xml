@@ -28,12 +28,14 @@
         app:boxCornerRadiusTopEnd="32dp"
         android:layout_marginHorizontal="28dp"
         app:placeholderText="Name of warehouse"
+        android:fontFamily="@font/sen_regular"
         >
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="52dp"
             android:background="@drawable/corner_tip_find"
+            android:fontFamily="@font/sen_regular"
             />
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
@@ -48,11 +50,13 @@
         app:boxCornerRadiusTopEnd="32dp"
         android:layout_marginHorizontal="28dp"
         app:placeholderText="Name of warehouse"
+        android:fontFamily="@font/sen_regular"
         >
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="52dp"
+            android:fontFamily="@font/sen_regular"
             android:background="@drawable/corner_tip_find"
             />
     </com.google.android.material.textfield.TextInputLayout>
@@ -68,12 +72,14 @@
         app:boxCornerRadiusTopEnd="32dp"
         android:layout_marginHorizontal="28dp"
         app:placeholderText="Name of warehouse"
+        android:fontFamily="@font/sen_regular"
         >
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="52dp"
             android:backgroundTint="@color/white"
+            android:fontFamily="@font/sen_regular"
             />
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
@@ -88,11 +94,13 @@
         app:boxCornerRadiusTopEnd="32dp"
         android:layout_marginHorizontal="28dp"
         app:placeholderText="Name of warehouse"
+        android:fontFamily="@font/sen_regular"
         >
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="52dp"
             android:backgroundTint="@color/white"
+            android:fontFamily="@font/sen_regular"
             />
     </com.google.android.material.textfield.TextInputLayout>
 <!--    <androidx.cardview.widget.CardView-->
@@ -120,6 +128,7 @@
             app:boxCornerRadiusBottomStart="32dp"
             app:boxCornerRadiusTopEnd="32dp"
             app:placeholderText="Name of warehouse"
+            android:fontFamily="@font/sen_regular"
             >
 
 
@@ -132,6 +141,7 @@
             android:layout_marginLeft="16dp"
             android:drawableTint="#28BB8E"
             android:textAlignment="textStart"
+            android:fontFamily="@font/sen_regular"
 
 
             />
@@ -147,7 +157,8 @@
         android:layout_marginVertical="16dp"
         app:backgroundTint="@null"
         android:background="@drawable/color_btn_create"
-        android:animateLayoutChanges="true"/>
+        android:animateLayoutChanges="true"
+        android:fontFamily="@font/sen_bold"/>
     <com.google.android.material.button.MaterialButton
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -161,6 +172,7 @@
         android:animateLayoutChanges="true"
         android:layout_marginBottom="16dp"
         android:paddingBottom="32dp"
+        android:fontFamily="@font/sen_bold"
         />
 
 
