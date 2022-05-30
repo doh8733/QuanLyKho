@@ -1,5 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/AndroidStudio/FileSave/Agile/QuanLyKho/app/src/main/res/drawable/edit_round.xml" value="0.177" />
+        <entry key="..\:/AndroidStudio/FileSave/Agile/QuanLyKho/app/src/main/res/drawable/edit_tab_round_bg.xml" value="0.177" />
+        <entry key="..\:/AndroidStudio/FileSave/Agile/QuanLyKho/app/src/main/res/drawable/tab_indicator.xml" value="0.177" />
+        <entry key="..\:/AndroidStudio/FileSave/Agile/QuanLyKho/app/src/main/res/layout/activity_add_employee.xml" value="0.21875" />
+        <entry key="..\:/AndroidStudio/FileSave/Agile/QuanLyKho/app/src/main/res/layout/activity_add_new_entry.xml" value="0.13949275362318841" />
+        <entry key="..\:/AndroidStudio/FileSave/Agile/QuanLyKho/app/src/main/res/layout/activity_add_new_outlet.xml" value="0.21875" />
+        <entry key="..\:/AndroidStudio/FileSave/Agile/QuanLyKho/app/src/main/res/layout/activity_admin.xml" value="0.21875" />
+        <entry key="..\:/AndroidStudio/FileSave/Agile/QuanLyKho/app/src/main/res/layout/activity_change_password.xml" value="0.21875" />
+        <entry key="..\:/AndroidStudio/FileSave/Agile/QuanLyKho/app/src/main/res/layout/activity_finance.xml" value="0.264" />
+        <entry key="..\:/AndroidStudio/FileSave/Agile/QuanLyKho/app/src/main/res/layout/activity_hoa_don.xml" value="0.13949275362318841" />
+        <entry key="..\:/AndroidStudio/FileSave/Agile/QuanLyKho/app/src/main/res/layout/activity_main.xml" value="0.21875" />
+        <entry key="..\:/AndroidStudio/FileSave/Agile/QuanLyKho/app/src/main/res/layout/activity_main2.xml" value="0.21875" />
+        <entry key="..\:/AndroidStudio/FileSave/Agile/QuanLyKho/app/src/main/res/layout/activity_personal.xml" value="0.21875" />
+        <entry key="..\:/AndroidStudio/FileSave/Agile/QuanLyKho/app/src/main/res/layout/activity_sign_in.xml" value="0.21875" />
+        <entry key="..\:/AndroidStudio/FileSave/Agile/QuanLyKho/app/src/main/res/layout/activity_splash.xml" value="0.2" />
+        <entry key="..\:/AndroidStudio/FileSave/Agile/QuanLyKho/app/src/main/res/layout/activity_tong_quat_kho.xml" value="0.21875" />
+        <entry key="..\:/AndroidStudio/FileSave/Agile/QuanLyKho/app/src/main/res/layout/custom_bill_entry.xml" value="0.21875" />
+        <entry key="..\:/AndroidStudio/FileSave/Agile/QuanLyKho/app/src/main/res/layout/dialog_add_depot.xml" value="0.21875" />
+        <entry key="..\:/AndroidStudio/FileSave/Agile/QuanLyKho/app/src/main/res/layout/dialog_select_depot.xml" value="0.13949275362318841" />
+        <entry key="..\:/AndroidStudio/FileSave/Agile/QuanLyKho/app/src/main/res/layout/fragment_admin.xml" value="0.13949275362318841" />
+        <entry key="..\:/AndroidStudio/FileSave/Agile/QuanLyKho/app/src/main/res/layout/fragment_monthly_finance.xml" value="0.152" />
+        <entry key="..\:/AndroidStudio/FileSave/Agile/QuanLyKho/app/src/main/res/layout/fragment_total_finance.xml" value="0.21875" />
+        <entry key="..\:/AndroidStudio/FileSave/Agile/QuanLyKho/app/src/main/res/layout/imtem_category_spn.xml" value="0.21875" />
+        <entry key="..\:/AndroidStudio/FileSave/Agile/QuanLyKho/app/src/main/res/layout/item_selected.xml" value="0.21875" />
+        <entry key="..\:/AndroidStudio/FileSave/Agile/QuanLyKho/app/src/main/res/layout/row_tong_quat_kho.xml" value="0.21875" />
+        <entry key="..\:/AndroidStudio/FileSave/Agile/QuanLyKho/app/src/main/res/menu/search_menu.xml" value="0.25416666666666665" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
