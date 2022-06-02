@@ -22,4 +22,6 @@ public class FinanceAdapter extends FragmentStateAdapter {
     public int getItemCount() {
         return 2;
     }
+
+
 }

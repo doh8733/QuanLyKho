@@ -48,6 +48,12 @@ public class FinanceActivity extends AppCompatActivity {
 
             }
         });
+        vpFinance.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+            @Override
+            public void onPageSelected(int position) {
+                tabLayout.selectTab(tabLayout.getTabAt(position));
+            }
+        });
 
     }
 }
