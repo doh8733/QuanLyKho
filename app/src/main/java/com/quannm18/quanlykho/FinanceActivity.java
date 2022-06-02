@@ -20,9 +20,9 @@ public class FinanceActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_finance);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_finance);
         tbFinance = (Toolbar) findViewById(R.id.tbFinance);
         tabLayout = (TabLayout) findViewById(R.id.tabLayout);
         vpFinance = (ViewPager2) findViewById(R.id.vpFinance);
@@ -46,6 +46,12 @@ public class FinanceActivity extends AppCompatActivity {
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
 
+            }
+        });
+        vpFinance.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+            @Override
+            public void onPageSelected(int position) {
+                tabLayout.selectTab(tabLayout.getTabAt(position));
             }
         });
 

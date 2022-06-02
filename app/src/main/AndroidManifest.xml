@@ -14,7 +14,7 @@
         android:theme="@style/Theme.QuanLyKho"
         tools:targetApi="31">
         <activity
-            android:name=".FinanceActivity"
+            android:name=".ChooseDepotActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,22 +23,25 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
-            android:exported="true"></activity>
-        <activity
-            android:name=".Activity_HoaDon"
+            android:name=".FinanceActivity"
             android:exported="true">
 
         </activity>
         <activity
-            android:name=".Activity_add_new_entry"
+            android:name=".MainActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity_HoaDon"
             android:exported="true"></activity>
+        <activity
+            android:name=".Activity_add_new_entry"
+            android:exported="true" />
         <activity
             android:name=".Activity_add_new_outlet"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".SplashActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
     </application>
 
 </manifest>
