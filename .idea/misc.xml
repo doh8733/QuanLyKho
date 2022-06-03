@@ -3,8 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/FPTSHOP/AndroidStudioProjects/QuanLyKho/app/src/main/res/layout/activity_add_employee.xml" value="0.17074275362318841" />
-        <entry key="..\:/Users/FPTSHOP/AndroidStudioProjects/QuanLyKho/app/src/main/res/layout/activity_sign_in.xml" value="0.1" />
+        <entry key="..\:/Users/FPTSHOP/AndroidStudioProjects/QuanLyKho/app/src/main/res/drawable/button.xml" value="0.161" />
+        <entry key="..\:/Users/FPTSHOP/AndroidStudioProjects/QuanLyKho/app/src/main/res/drawable/button2.xml" value="0.161" />
+        <entry key="..\:/Users/FPTSHOP/AndroidStudioProjects/QuanLyKho/app/src/main/res/drawable/ic_baseline_10k_24.xml" value="0.161" />
+        <entry key="..\:/Users/FPTSHOP/AndroidStudioProjects/QuanLyKho/app/src/main/res/drawable/rounded_corner.xml" value="0.161" />
+        <entry key="..\:/Users/FPTSHOP/AndroidStudioProjects/QuanLyKho/app/src/main/res/layout/activity_add_employee.xml" value="0.25" />
+        <entry key="..\:/Users/FPTSHOP/AndroidStudioProjects/QuanLyKho/app/src/main/res/layout/activity_change_password.xml" value="0.25" />
+        <entry key="..\:/Users/FPTSHOP/AndroidStudioProjects/QuanLyKho/app/src/main/res/layout/activity_employee.xml" value="0.22" />
+        <entry key="..\:/Users/FPTSHOP/AndroidStudioProjects/QuanLyKho/app/src/main/res/layout/activity_employee_list.xml" value="0.18" />
+        <entry key="..\:/Users/FPTSHOP/AndroidStudioProjects/QuanLyKho/app/src/main/res/layout/activity_personal.xml" value="0.1" />
+        <entry key="..\:/Users/FPTSHOP/AndroidStudioProjects/QuanLyKho/app/src/main/res/layout/activity_sign_in.xml" value="0.25" />
+        <entry key="..\:/Users/FPTSHOP/AndroidStudioProjects/QuanLyKho/app/src/main/res/layout/cardview.xml" value="0.17074275362318841" />
         <entry key="..\:/hoctap/Agile/QuanLyKho/app/src/main/res/layout/activity_hoa_don.xml" value="0.22826086956521738" />
         <entry key="..\:/hoctap/Agile/QuanLyKho/app/src/main/res/layout/activity_splash.xml" value="0.22826086956521738" />
         <entry key="..\:/hoctap/Agile/QuanLyKho/app/src/main/res/menu/search_menu.xml" value="0.25416666666666665" />
