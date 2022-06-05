@@ -24,7 +24,7 @@
         android:id="@+id/textInputLayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
-        android:layout_height="52dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:layout_marginTop="26dp"
         android:layout_marginEnd="28dp"
@@ -35,9 +35,9 @@
         app:startIconTint="#15b082">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edtName"
+            android:id="@+id/edName"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="56dp"
             android:background="@drawable/rounded_corner"
             android:hint="Name"
             android:fontFamily="@font/sen_regular"
@@ -45,7 +45,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/spGender"
         android:layout_width="match_parent"
         android:layout_height="52dp"
         android:layout_marginStart="28dp"
@@ -67,12 +67,12 @@
         android:layout_marginEnd="28dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner"
+        app:layout_constraintTop_toBottomOf="@+id/spGender"
         app:startIconDrawable="@drawable/vector4"
         app:startIconTint="#15b082">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edtAge"
+            android:id="@+id/edAge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_corner"
@@ -96,7 +96,7 @@
         app:startIconTint="#15b082">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edtAddress"
+            android:id="@+id/edAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_corner"
@@ -120,7 +120,7 @@
         app:startIconTint="#15b082">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edtStartWorkDate"
+            android:id="@+id/edStartWorkDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_corner"

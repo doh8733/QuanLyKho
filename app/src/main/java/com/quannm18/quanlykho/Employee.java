@@ -7,10 +7,27 @@ public class Employee implements Serializable {
     private String employeeName;
     private String employeePassword;
     private String employeeGender;
-    private int employeeAge;
+    private String employeeAge;
     private String employeeAddress;
     private String employeeStartWorkDate;
     private String employeeImage;
+    private String token;
+
+    public Employee() {
+    }
+
+    public Employee(String employeeName, String employeePassword) {
+        this.employeeName = employeeName;
+        this.employeePassword = employeePassword;
+    }
+
+    public Employee(String employeeName, String employeeGender, String employeeAge, String employeeAddress, String employeeStartWorkDate) {
+        this.employeeName = employeeName;
+        this.employeeGender = employeeGender;
+        this.employeeAge = employeeAge;
+        this.employeeAddress = employeeAddress;
+        this.employeeStartWorkDate = employeeStartWorkDate;
+    }
 
     public String getEmployeeName() {
         return employeeName;
@@ -36,11 +53,11 @@ public class Employee implements Serializable {
         this.employeeGender = employeeGender;
     }
 
-    public int getEmployeeAge() {
+    public String getEmployeeAge() {
         return employeeAge;
     }
 
-    public void setEmployeeAge(int employeeAge) {
+    public void setEmployeeAge(String employeeAge) {
         this.employeeAge = employeeAge;
     }
 
@@ -66,5 +83,13 @@ public class Employee implements Serializable {
 
     public void setEmployeeImage(String employeeImage) {
         this.employeeImage = employeeImage;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 }

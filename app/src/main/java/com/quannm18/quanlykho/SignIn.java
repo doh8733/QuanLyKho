@@ -1,5 +1,6 @@
 package com.quannm18.quanlykho;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -8,6 +9,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.quannm18.quanlykho.api.ApiInterface;
 import com.quannm18.quanlykho.api.ApiService;
 
 import java.util.ArrayList;
@@ -16,6 +20,8 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class SignIn extends AppCompatActivity {
 
@@ -24,6 +30,8 @@ public class SignIn extends AppCompatActivity {
     private Button btnSignIn;
 
     private List<Employee> mListEmployee;
+
+    String token = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +44,7 @@ public class SignIn extends AppCompatActivity {
 
         mListEmployee = new ArrayList<>();
 
-        getListEmployee();
+//        getListEmployee();
 
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,36 +57,74 @@ public class SignIn extends AppCompatActivity {
     private void clickLogin() {
         String strUsername = edtUsername.getText().toString().trim();
         String strPassword = edtPassword.getText().toString().trim();
+//
+//        if (mListEmployee == null || mListEmployee.isEmpty()) {
+//            return;
+//        }
+//
+//        boolean isEmployee = false;
+//        for (Employee employee : mListEmployee) {
+////            if (strUsername.equals())
+//        }
+//
+//        if (isEmployee) {
+//            //Intent + Bundle
+//        } else {
+//            Toast.makeText(SignIn.this, "Username or password is not correct", Toast.LENGTH_SHORT).show();
+//        }
 
-        if (mListEmployee == null || mListEmployee.isEmpty()) {
-            return;
-        }
-
-        boolean isEmployee = false;
-        for (Employee employee : mListEmployee) {
-//            if (strUsername.equals())
-        }
-
-        if (isEmployee) {
-            //Intent + Bundle
+        if (strUsername.isEmpty() || strPassword.isEmpty()) {
+            Toast.makeText(SignIn.this, "All fields must not be empty", Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(SignIn.this, "Username or password is not correct", Toast.LENGTH_SHORT).show();
+
         }
     }
 
-    //Nhớ chèn value
-    private void getListEmployee() {
-        ApiService.apiService.getListEmployee("value")
-                .enqueue(new Callback<List<Employee>>() {
-                    @Override
-                    public void onResponse(Call<List<Employee>> call, Response<List<Employee>> response) {
-                        mListEmployee = response.body();
-                    }
+//    //Nhớ chèn value
+//    private void getListEmployee() {
+//        ApiService.apiService.getListEmployee("628ef6b251fd3cfc4d53440b")
+//                .enqueue(new Callback<List<Employee>>() {
+//                    @Override
+//                    public void onResponse(Call<List<Employee>> call, Response<List<Employee>> response) {
+//                        mListEmployee = response.body();
+//                    }
+//
+//                    @Override
+//                    public void onFailure(Call<List<Employee>> call, Throwable t) {
+//                        Toast.makeText(SignIn.this, "Failure", Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+//    }
 
-                    @Override
-                    public void onFailure(Call<List<Employee>> call, Throwable t) {
-                        Toast.makeText(SignIn.this, "Failure", Toast.LENGTH_SHORT).show();
+    void postLogin(String username, String password) {
+        Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").create();
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://agile-server-beco.herokuapp.com/users/api-profile/")
+                .addConverterFactory(GsonConverterFactory.create(gson))
+                .build();
+        ApiInterface apiInterface = retrofit.create(ApiInterface.class);
+        Employee employee = new Employee(username, password);
+        Call<Employee> call = apiInterface.postLogin(employee);
+        call.enqueue(new Callback<Employee>() {
+            @Override
+            public void onResponse(Call<Employee> call, Response<Employee> response) {
+                try {
+                    Employee employee = response.body();
+                    token = employee.getToken();
+                    if (token != null) {
+                        startActivity(new Intent(SignIn.this, MainActivity.class));
+                    } else {
+                        Toast.makeText(SignIn.this, "Username or password is not correct", Toast.LENGTH_SHORT).show();
                     }
-                });
+                } catch (Exception e) {
+                    Toast.makeText(SignIn.this, "Username or password is not correct", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Employee> call, Throwable t) {
+                Toast.makeText(SignIn.this, "Failure", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
