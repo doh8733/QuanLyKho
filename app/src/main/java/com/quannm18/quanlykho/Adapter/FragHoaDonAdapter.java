@@ -9,6 +9,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import com.quannm18.quanlykho.Fragment.Frag_HDN_Entry;
 import com.quannm18.quanlykho.Fragment.Frag_HDX_Outlet;
+import com.quannm18.quanlykho.Fragment.Frag_hang;
 
 public class FragHoaDonAdapter extends FragmentStateAdapter {
     public FragHoaDonAdapter(@NonNull FragmentManager fragmentManager, @NonNull Lifecycle lifecycle) {

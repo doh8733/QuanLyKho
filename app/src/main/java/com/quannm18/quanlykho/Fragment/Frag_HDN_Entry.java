@@ -16,15 +16,12 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputEditText;
-import com.quannm18.quanlykho.Activity_HoaDon;
-import com.quannm18.quanlykho.Activity_add_new_entry;
 import com.quannm18.quanlykho.Adapter.FragHDN_Adapter;
 import com.quannm18.quanlykho.Interface.ApiInterface;
 import com.quannm18.quanlykho.Model.HoaDonNhap;
@@ -40,27 +37,28 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Frag_HDN_Entry extends Fragment {
-    TextInputEditText txt_hdn_name, txt_hdn_productType, txt_hdn_quantity, txt_hdn_free, txt_hdn_expiry, txt_hdn_descriptions;
-    FloatingActionButton actionButton;
+    TextInputEditText txt_hdn_name_add, txt_hdn_productType_add,txt_hdn_hang_add,txt_hdn_cot_add,
+            txt_hdn_vitri_add,txt_hdn_quantity_add,
+            txt_hdn_free_add,txt_hdn_ngayNhap_add, txt_hdn_descriptions_add;
+    FloatingActionButton fla_HDN_entry;
     RecyclerView rcvHDN;
     FragHDN_Adapter fragHDN_adapter;
-    ArrayList<HoaDonNhap> listHDN=new ArrayList<>();
+    List<HoaDonNhap> listHDN=new ArrayList<>();
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.frag_hdn_entry, container, false);
-        actionButton = view.findViewById(R.id.fla_HDN_entry);
+        fla_HDN_entry = view.findViewById(R.id.fla_HDN_entry);
         rcvHDN = view.findViewById(R.id.rcvHDN);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         rcvHDN.setLayoutManager(layoutManager);
         fragHDN_adapter = new FragHDN_Adapter(getContext(), listHDN);
-        rcvHDN.setAdapter(fragHDN_adapter);
 
-        GetData();
+        GetDataHDN();
 
-        actionButton.setOnClickListener(new View.OnClickListener() {
+        fla_HDN_entry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
@@ -70,27 +68,30 @@ public class Frag_HDN_Entry extends Fragment {
                 AlertDialog dialog = builder.create();
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 dialog.show();
-                txt_hdn_name = view1.findViewById(R.id.txt_hdn_name);
-                txt_hdn_productType = view1.findViewById(R.id.txt_hdn_productType);
-                txt_hdn_quantity = view1.findViewById(R.id.txt_hdn_quantity);
-                txt_hdn_free = view1.findViewById(R.id.txt_hdn_free);
-                txt_hdn_expiry = view1.findViewById(R.id.txt_hdn_expiry);
-                txt_hdn_descriptions = view1.findViewById(R.id.txt_hdn_descriptions);
+                txt_hdn_name_add = view1.findViewById(R.id.txt_hdn_name_add);
+                txt_hdn_productType_add = view1.findViewById(R.id.txt_hdn_productType_add);
+                txt_hdn_hang_add = view1.findViewById(R.id.txt_hdn_hang_add);
+                txt_hdn_cot_add = view1.findViewById(R.id.txt_hdn_cot_add);
+                txt_hdn_vitri_add = view1.findViewById(R.id.txt_hdn_vitri_add);
+                txt_hdn_quantity_add = view1.findViewById(R.id.txt_hdn_quantity_add);
+                txt_hdn_free_add = view1.findViewById(R.id.txt_hdn_free_add);
+                txt_hdn_ngayNhap_add = view1.findViewById(R.id.txt_hdn_ngayNhap_add);
+//                txt_hdn_descriptions_add = view1.findViewById(R.id.txt_hdn_descriptions_add);
                 AppCompatButton hdn_btn_add = view1.findViewById(R.id.hdn_btn_add);
-                AppCompatButton hdn_btn_close = view1.findViewById(R.id.hdn_btn_close);
+                AppCompatButton hdn_btn_close_add = view1.findViewById(R.id.hdn_btn_close_add);
 
                 hdn_btn_add.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        InsertData();
+                        InsertDataHDN();
 //                        InsertData(txt_hdn_name.getText().toString(),txt_hdn_productType.getText().toString(),Integer.parseInt(txt_hdn_quantity.getText().toString()),Integer.parseInt(txt_hdn_free.getText().toString()));
-                        Toast.makeText(getContext(), "Them", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), "Them HDN", Toast.LENGTH_SHORT).show();
                         dialog.dismiss();
                     }
                 });
 
 
-                hdn_btn_close.setOnClickListener(new View.OnClickListener() {
+                hdn_btn_close_add.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         dialog.dismiss();
@@ -103,32 +104,38 @@ public class Frag_HDN_Entry extends Fragment {
 
     }
 
-    public void InsertData() {
+    public void InsertDataHDN() {
         HoaDonNhap hoaDonNhap = new HoaDonNhap();
-        hoaDonNhap.setTenSP(txt_hdn_name.getText().toString());
-        hoaDonNhap.setLoaiSP(txt_hdn_productType.getText().toString());
-        hoaDonNhap.setSoluong(Integer.parseInt(txt_hdn_quantity.getText().toString()));
-        hoaDonNhap.setGia(Integer.parseInt(txt_hdn_free.getText().toString()));
+        hoaDonNhap.setTenSP(txt_hdn_name_add.getText().toString());
+        hoaDonNhap.setLoaiSP(txt_hdn_productType_add.getText().toString());
+        hoaDonNhap.setHang(txt_hdn_hang_add.getText().toString());
+        hoaDonNhap.setCot(txt_hdn_cot_add.getText().toString());
+        hoaDonNhap.setViTri(txt_hdn_vitri_add.getText().toString());
+        hoaDonNhap.setDonGia(Integer.parseInt(txt_hdn_free_add.getText().toString()));
+        hoaDonNhap.setSoLuong(Integer.parseInt(txt_hdn_quantity_add.getText().toString()));
+        hoaDonNhap.setNgayNhap(txt_hdn_ngayNhap_add.getText().toString());
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://agile-server-beco.herokuapp.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         ApiInterface apiInterface = retrofit.create(ApiInterface.class);
-        Call<HoaDonNhap> call= apiInterface.postReg(hoaDonNhap);
+        Call<HoaDonNhap> call= apiInterface.postHDN(hoaDonNhap);
         call.enqueue(new Callback<HoaDonNhap>() {
             @Override
             public void onResponse(Call<HoaDonNhap> call, Response<HoaDonNhap> response) {
-
+                listHDN.clear();
+                GetDataHDN();
+                fragHDN_adapter.notifyDataSetChanged();
             }
 
             @Override
             public void onFailure(Call<HoaDonNhap> call, Throwable t) {
-                Toast.makeText(getContext(), "Loi api", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Loi api HDN add", Toast.LENGTH_SHORT).show();
 
             }
         });
     }
-    public void GetData() {
+    public void GetDataHDN() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://agile-server-beco.herokuapp.com/")
                 .addConverterFactory(GsonConverterFactory.create())
@@ -138,16 +145,17 @@ public class Frag_HDN_Entry extends Fragment {
         call.enqueue(new Callback<List<HoaDonNhap>>() {
             @Override
             public void onResponse(Call<List<HoaDonNhap>> call, Response<List<HoaDonNhap>> response) {
-                if (response.isSuccessful() && response.body() != null) {
+//                if (response.isSuccessful() && response.body() != null) {
                     listHDN.addAll(response.body());
-                    fragHDN_adapter.notifyDataSetChanged();
+                    fragHDN_adapter.setDataHDN(listHDN);
+                    rcvHDN.setAdapter(fragHDN_adapter);
 
-                }
+//                }
             }
 
             @Override
             public void onFailure(Call<List<HoaDonNhap>> call, Throwable t) {
-                Toast.makeText(getContext(), "Loi api1", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Loi api HDN getall", Toast.LENGTH_SHORT).show();
 
             }
         });

@@ -19,12 +19,16 @@
         <entry key="..\:/QuanLyKho/app/src/main/res/menu/activity_admin.xml" value="0.25416666666666665" />
         <entry key="..\:/QuanLyKho/app/src/main/res/menu/bottom_menu.xml" value="0.25416666666666665" />
         <entry key="..\:/QuanLyKho/app/src/main/res/menu/bottom_menu_admin.xml" value="0.25416666666666665" />
-        <entry key="..\:/hoctap/Agile/QuanLyKho/app/src/main/res/layout/activity_add_new_entry.xml" value="0.18342391304347827" />
+        <entry key="..\:/hoctap/Agile/QuanLyKho/app/src/main/res/layout/activity_add_hang.xml" value="0.1" />
+        <entry key="..\:/hoctap/Agile/QuanLyKho/app/src/main/res/layout/activity_add_new_entry.xml" value="0.16" />
         <entry key="..\:/hoctap/Agile/QuanLyKho/app/src/main/res/layout/activity_add_new_outlet.xml" value="0.25416666666666665" />
         <entry key="..\:/hoctap/Agile/QuanLyKho/app/src/main/res/layout/activity_hoa_don.xml" value="0.25416666666666665" />
-        <entry key="..\:/hoctap/Agile/QuanLyKho/app/src/main/res/layout/custom_bill_entry.xml" value="0.264" />
+        <entry key="..\:/hoctap/Agile/QuanLyKho/app/src/main/res/layout/custom_bill_entry.xml" value="0.2" />
+        <entry key="..\:/hoctap/Agile/QuanLyKho/app/src/main/res/layout/custom_hang.xml" value="0.264" />
+        <entry key="..\:/hoctap/Agile/QuanLyKho/app/src/main/res/layout/frag_hang.xml" value="0.25416666666666665" />
         <entry key="..\:/hoctap/Agile/QuanLyKho/app/src/main/res/layout/frag_hdn_entry.xml" value="0.25416666666666665" />
         <entry key="..\:/hoctap/Agile/QuanLyKho/app/src/main/res/layout/frag_hdx_outlet.xml" value="0.25416666666666665" />
+        <entry key="..\:/hoctap/Agile/QuanLyKho/app/src/main/res/layout/item_loading.xml" value="0.25271739130434784" />
       </map>
     </option>
   </component>

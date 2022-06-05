@@ -7,198 +7,280 @@
     android:background="@drawable/edit_round_bg"
     android:orientation="vertical">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="42dp"
-            android:fontFamily="@font/sen_bold"
-            android:gravity="center"
-            android:text="Add new entry "
-            android:textColor="#000000"
-            android:textSize="24sp" />
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="26dp"
-            android:orientation="horizontal">
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="42dp"
+                android:fontFamily="@font/sen_bold"
+                android:gravity="center"
+                android:text="Add new entry "
+                android:textColor="#000000"
+                android:textSize="24sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_height="match_parent"
+                android:layout_marginTop="26dp"
+                android:orientation="horizontal">
 
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:boxStrokeWidth="1.5dp"
-                    app:counterMaxLength="20"
-                    app:endIconMode="clear_text"
-                    app:hintTextColor="@color/black"
-
-                    app:startIconDrawable="@drawable/ic_package"
-                    app:startIconTint="#28BB8E">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="52dp"
-                        android:background="@drawable/edit_round"
-                        android:hint="Name of product"
-                        android:fontFamily="@font/sen_regular"
-                        android:inputType="text"
-                        android:id="@+id/txt_hdn_name"
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:boxStrokeWidth="1.5dp"
-                    app:counterMaxLength="20"
-                    android:layout_marginTop="16dp"
-                    app:hintTextColor="@color/black"
-                    app:endIconMode="clear_text"
-                    app:startIconDrawable="@drawable/ic_number"
-                    app:startIconTint="#28BB8E">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="52dp"
-                        android:background="@drawable/edit_round"
-                        android:hint="Product type"
-                        android:id="@+id/txt_hdn_productType"
-                        android:fontFamily="@font/sen_regular"
-                        android:inputType="text"
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-                </com.google.android.material.textfield.TextInputLayout>
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:boxStrokeWidth="1.5dp"
-                    app:counterMaxLength="20"
-                    android:layout_marginTop="16dp"
-                    app:hintTextColor="@color/black"
-                    app:endIconMode="clear_text"
-                    app:startIconDrawable="@drawable/ic_arrow_up_down"
-                    app:startIconTint="#28BB8E">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="52dp"
-                        android:background="@drawable/edit_round"
-                        android:hint="Quantity"
-                        android:id="@+id/txt_hdn_quantity"
-                        android:fontFamily="@font/sen_regular"
-                        android:inputType="text"
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-                </com.google.android.material.textfield.TextInputLayout>
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:boxStrokeWidth="1.5dp"
-                    app:counterMaxLength="20"
-                    app:hintTextColor="@color/black"
-                    android:layout_marginTop="16dp"
-                    app:endIconMode="clear_text"
-                    app:startIconDrawable="@drawable/ic_dollar"
-                    app:startIconTint="#28BB8E">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="52dp"
-                        android:background="@drawable/edit_round"
-                        android:hint="Free"
-                        android:id="@+id/txt_hdn_free"
-                        android:fontFamily="@font/sen_regular"
-                        android:inputType="text"
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-                </com.google.android.material.textfield.TextInputLayout>
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:boxStrokeWidth="1.5dp"
-                    app:counterMaxLength="20"
-                    android:layout_marginTop="16dp"
-                    app:endIconMode="clear_text"
-                    app:hintTextColor="@color/black"
-                    app:startIconDrawable="@drawable/ic_calendar"
-                    app:startIconTint="#28BB8E">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="52dp"
-                        android:background="@drawable/edit_round"
-                        android:hint="Expiry"
-                        android:id="@+id/txt_hdn_expiry"
-                        android:fontFamily="@font/sen_regular"
-                        android:inputType="text"
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-                </com.google.android.material.textfield.TextInputLayout>
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:boxStrokeWidth="1.5dp"
-                    app:counterMaxLength="20"
-                    android:layout_marginTop="16dp"
-                    app:endIconMode="clear_text"
-                    app:hintTextColor="@color/black"
-                    app:startIconDrawable="@drawable/ic_arrow_right"
-                    app:startIconTint="#28BB8E">
+                    android:orientation="vertical">
 
-                    <com.google.android.material.textfield.TextInputEditText
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:boxStrokeWidth="1.5dp"
+                        app:counterMaxLength="20"
+                        app:endIconMode="clear_text"
+                        app:hintTextColor="@color/black"
+
+                        app:startIconDrawable="@drawable/ic_package"
+                        app:startIconTint="#28BB8E">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/txt_hdn_name_add"
+                            android:layout_width="match_parent"
+                            android:layout_height="52dp"
+                            android:background="@drawable/edit_round"
+                            android:fontFamily="@font/sen_regular"
+                            android:hint="Name of product"
+                            android:inputType="text"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="16dp"
+                        app:boxStrokeWidth="1.5dp"
+                        app:counterMaxLength="20"
+                        app:endIconMode="clear_text"
+                        app:hintTextColor="@color/black"
+                        app:startIconDrawable="@drawable/ic_number"
+                        app:startIconTint="#28BB8E">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/txt_hdn_productType_add"
+                            android:layout_width="match_parent"
+                            android:layout_height="52dp"
+                            android:background="@drawable/edit_round"
+                            android:fontFamily="@font/sen_regular"
+                            android:hint="Product type"
+                            android:inputType="text"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="16dp"
+                        app:boxStrokeWidth="1.5dp"
+                        app:counterMaxLength="20"
+                        app:endIconMode="clear_text"
+                        app:hintTextColor="@color/black"
+                        app:startIconDrawable="@drawable/ic_number"
+                        app:startIconTint="#28BB8E">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/txt_hdn_hang_add"
+                            android:layout_width="match_parent"
+                            android:layout_height="52dp"
+                            android:background="@drawable/edit_round"
+                            android:fontFamily="@font/sen_regular"
+                            android:hint="Hang"
+                            android:inputType="text"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="16dp"
+                        app:boxStrokeWidth="1.5dp"
+                        app:counterMaxLength="20"
+                        app:endIconMode="clear_text"
+                        app:hintTextColor="@color/black"
+                        app:startIconDrawable="@drawable/ic_number"
+                        app:startIconTint="#28BB8E">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/txt_hdn_cot_add"
+                            android:layout_width="match_parent"
+                            android:layout_height="52dp"
+                            android:background="@drawable/edit_round"
+                            android:fontFamily="@font/sen_regular"
+                            android:hint="Cot"
+                            android:inputType="text"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="16dp"
+                        app:boxStrokeWidth="1.5dp"
+                        app:counterMaxLength="20"
+                        app:endIconMode="clear_text"
+                        app:hintTextColor="@color/black"
+                        app:startIconDrawable="@drawable/ic_number"
+                        app:startIconTint="#28BB8E">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/txt_hdn_vitri_add"
+                            android:layout_width="match_parent"
+                            android:layout_height="52dp"
+                            android:background="@drawable/edit_round"
+                            android:fontFamily="@font/sen_regular"
+                            android:hint="Vi tri"
+                            android:inputType="text"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="16dp"
+                        app:boxStrokeWidth="1.5dp"
+                        app:counterMaxLength="20"
+                        app:endIconMode="clear_text"
+                        app:hintTextColor="@color/black"
+                        app:startIconDrawable="@drawable/ic_arrow_up_down"
+                        app:startIconTint="#28BB8E">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/txt_hdn_quantity_add"
+                            android:layout_width="match_parent"
+                            android:layout_height="52dp"
+                            android:background="@drawable/edit_round"
+                            android:fontFamily="@font/sen_regular"
+                            android:hint="Quantity"
+                            android:inputType="text"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="16dp"
+                        app:boxStrokeWidth="1.5dp"
+                        app:counterMaxLength="20"
+                        app:endIconMode="clear_text"
+                        app:hintTextColor="@color/black"
+                        app:startIconDrawable="@drawable/ic_dollar"
+                        app:startIconTint="#28BB8E">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/txt_hdn_free_add"
+                            android:layout_width="match_parent"
+                            android:layout_height="52dp"
+                            android:background="@drawable/edit_round"
+                            android:fontFamily="@font/sen_regular"
+                            android:hint="Free"
+                            android:inputType="text"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="16dp"
+                        app:boxStrokeWidth="1.5dp"
+                        app:counterMaxLength="20"
+                        app:endIconMode="clear_text"
+                        app:hintTextColor="@color/black"
+                        app:startIconDrawable="@drawable/ic_dollar"
+                        app:startIconTint="#28BB8E">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/txt_hdn_ngayNhap_add"
+                            android:layout_width="match_parent"
+                            android:layout_height="52dp"
+                            android:background="@drawable/edit_round"
+                            android:fontFamily="@font/sen_regular"
+                            android:hint="Ngay nhap"
+                            android:inputType="text"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/edit_round"
-                        android:hint="Descriptions"
-                        android:id="@+id/txt_hdn_descriptions"
-                        android:fontFamily="@font/sen_regular"
-                        android:inputType="text"
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
-                </com.google.android.material.textfield.TextInputLayout>
-                <androidx.appcompat.widget.AppCompatButton
-                    android:layout_width="match_parent"
-                    android:layout_height="52dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="16dp"
-                    android:background="@drawable/button_pressed"
-                    android:text="Add"
-                    android:id="@+id/hdn_btn_add"
-                    android:textSize="20sp"
-                    android:textColor="@color/white"
-                    android:fontFamily="@font/sen_bold" />
-                <androidx.appcompat.widget.AppCompatButton
-                    android:layout_width="match_parent"
-                    android:layout_height="52dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginBottom="16dp"
-                    android:background="@drawable/button_normal"
-                    android:text="Close"
-                    android:id="@+id/hdn_btn_close"
-                    android:textSize="20sp"
-                    android:textColor="#969696"
-                    android:fontFamily="@font/sen_bold" />
-            </LinearLayout>
-        </LinearLayout>
+                        android:layout_marginTop="16dp"
+                        app:boxStrokeWidth="1.5dp"
+                        app:counterMaxLength="20"
+                        app:endIconMode="clear_text"
+                        app:hintTextColor="@color/black"
+                        app:startIconDrawable="@drawable/ic_arrow_right"
+                        app:startIconTint="#28BB8E">
 
-    </LinearLayout>
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/txt_hdn_descriptions_add"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/edit_round"
+                            android:fontFamily="@font/sen_regular"
+                            android:hint="Descriptions"
+                            android:inputType="text"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/hdn_btn_add"
+                        android:layout_width="match_parent"
+                        android:layout_height="52dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="16dp"
+                        android:background="@drawable/button_pressed"
+                        android:fontFamily="@font/sen_bold"
+                        android:text="Add"
+                        android:textColor="@color/white"
+                        android:textSize="20sp" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/hdn_btn_close_add"
+                        android:layout_width="match_parent"
+                        android:layout_height="52dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:background="@drawable/button_normal"
+                        android:fontFamily="@font/sen_bold"
+                        android:text="Close"
+                        android:textColor="#969696"
+                        android:textSize="20sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
 </LinearLayout>

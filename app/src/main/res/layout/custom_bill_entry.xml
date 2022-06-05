@@ -21,7 +21,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:weightSum="5"
+            android:weightSum="9"
             android:orientation="vertical">
 
             <TextView
@@ -51,7 +51,67 @@
                 android:layout_marginRight="16dp"
                 android:layout_marginTop="12dp"
                 android:layout_marginBottom="2dp"
-                android:text="Product: "
+                android:text="Ten SP: "
+                android:textColor="#000000"
+                android:textSize="16sp" />
+            <TextView
+                android:id="@+id/hdn_txt_product_type"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:gravity="left"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="2dp"
+                android:text="Loai SP: "
+                android:textColor="#000000"
+                android:textSize="16sp" />
+            <TextView
+                android:id="@+id/hdn_txt_hang"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:gravity="left"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="2dp"
+                android:text="Hang: "
+                android:textColor="#000000"
+                android:textSize="16sp" />
+            <TextView
+                android:id="@+id/hdn_txt_cot"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:gravity="left"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="2dp"
+                android:text="Cot: "
+                android:textColor="#000000"
+                android:textSize="16sp" />
+            <TextView
+                android:id="@+id/hdn_txt_vitri"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:gravity="left"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="2dp"
+                android:text="Vi tri: "
                 android:textColor="#000000"
                 android:textSize="16sp" />
             <TextView
@@ -66,7 +126,22 @@
                 android:layout_marginRight="16dp"
                 android:layout_marginTop="12dp"
                 android:layout_marginBottom="2dp"
-                android:text="Quantity: "
+                android:text="So luong: "
+                android:textColor="#000000"
+                android:textSize="16sp" />
+            <TextView
+                android:id="@+id/hdn_txt_ngayNhap"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:gravity="left"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="2dp"
+                android:text="Ngay nhap: "
                 android:textColor="#000000"
                 android:textSize="16sp" />
             <TextView
@@ -81,7 +156,7 @@
                 android:layout_marginRight="16dp"
                 android:layout_marginTop="12dp"
                 android:layout_marginBottom="2dp"
-                android:text="Free: "
+                android:text="Don gia: "
                 android:textColor="#000000"
                 android:textSize="16sp" />
             <TextView

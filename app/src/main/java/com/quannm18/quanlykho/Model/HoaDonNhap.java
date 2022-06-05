@@ -1,108 +1,100 @@
 package com.quannm18.quanlykho.Model;
 
 public class HoaDonNhap {
-    private String maHDN;
-    private String loaiSP;
-    private String hang;
-    private String cot;
-    private String vitri;
-    private String tenSP;
-    private int soluong;
-    private String ngayNhap;
-    private int gia;
-
-//    public HoaDonNhap(String loaiSP, String tenSP, int soluong, int gia) {
-//        this.loaiSP = loaiSP;
-//        this.tenSP = tenSP;
-//        this.soluong = soluong;
-//        this.gia = gia;
-//    }
-
+    private String MaHoaDonNhap;
+    private String LoaiSP;
+    private String Hang;
+    private String Cot;
+    private String ViTri;
+    private String TenSP;
+    private int SoLuong;
+    private String NgayNhap;
+    private int DonGia;
 
     public HoaDonNhap() {
     }
 
-    public HoaDonNhap(String maHDN, String loaiSP, String hang, String cot, String vitri, String tenSP, int soluong, String ngayNhap, int gia) {
-        this.maHDN = maHDN;
-        this.loaiSP = loaiSP;
-        this.hang = hang;
-        this.cot = cot;
-        this.vitri = vitri;
-        this.tenSP = tenSP;
-        this.soluong = soluong;
-        this.ngayNhap = ngayNhap;
-        this.gia = gia;
+    public HoaDonNhap(String maHoaDonNhap, String loaiSP, String hang, String cot, String viTri, String tenSP, int soLuong, String ngayNhap, int donGia) {
+        MaHoaDonNhap = maHoaDonNhap;
+        LoaiSP = loaiSP;
+        Hang = hang;
+        Cot = cot;
+        ViTri = viTri;
+        TenSP = tenSP;
+        SoLuong = soLuong;
+        NgayNhap = ngayNhap;
+        DonGia = donGia;
     }
 
-    public String getMaHDN() {
-        return maHDN;
+    public String getMaHoaDonNhap() {
+        return MaHoaDonNhap;
     }
 
-    public void setMaHDN(String maHDN) {
-        this.maHDN = maHDN;
+    public void setMaHoaDonNhap(String maHoaDonNhap) {
+        MaHoaDonNhap = maHoaDonNhap;
     }
 
     public String getLoaiSP() {
-        return loaiSP;
+        return LoaiSP;
     }
 
     public void setLoaiSP(String loaiSP) {
-        this.loaiSP = loaiSP;
+        LoaiSP = loaiSP;
     }
 
     public String getHang() {
-        return hang;
+        return Hang;
     }
 
     public void setHang(String hang) {
-        this.hang = hang;
+        Hang = hang;
     }
 
     public String getCot() {
-        return cot;
+        return Cot;
     }
 
     public void setCot(String cot) {
-        this.cot = cot;
+        Cot = cot;
     }
 
-    public String getVitri() {
-        return vitri;
+    public String getViTri() {
+        return ViTri;
     }
 
-    public void setVitri(String vitri) {
-        this.vitri = vitri;
+    public void setViTri(String viTri) {
+        ViTri = viTri;
     }
 
     public String getTenSP() {
-        return tenSP;
+        return TenSP;
     }
 
     public void setTenSP(String tenSP) {
-        this.tenSP = tenSP;
+        TenSP = tenSP;
     }
 
-    public int getSoluong() {
-        return soluong;
+    public int getSoLuong() {
+        return SoLuong;
     }
 
-    public void setSoluong(int soluong) {
-        this.soluong = soluong;
+    public void setSoLuong(int soLuong) {
+        SoLuong = soLuong;
     }
 
     public String getNgayNhap() {
-        return ngayNhap;
+        return NgayNhap;
     }
 
     public void setNgayNhap(String ngayNhap) {
-        this.ngayNhap = ngayNhap;
+        NgayNhap = ngayNhap;
     }
 
-    public int getGia() {
-        return gia;
+    public int getDonGia() {
+        return DonGia;
     }
 
-    public void setGia(int gia) {
-        this.gia = gia;
+    public void setDonGia(int donGia) {
+        DonGia = donGia;
     }
 }
