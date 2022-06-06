@@ -10,11 +10,12 @@ public class HoaDonNhap {
     private int SoLuong;
     private String NgayNhap;
     private int DonGia;
+    private String moTa;
 
     public HoaDonNhap() {
     }
 
-    public HoaDonNhap(String maHoaDonNhap, String loaiSP, String hang, String cot, String viTri, String tenSP, int soLuong, String ngayNhap, int donGia) {
+    public HoaDonNhap(String maHoaDonNhap, String loaiSP, String hang, String cot, String viTri, String tenSP, int soLuong, String ngayNhap, int donGia, String moTa) {
         MaHoaDonNhap = maHoaDonNhap;
         LoaiSP = loaiSP;
         Hang = hang;
@@ -24,6 +25,7 @@ public class HoaDonNhap {
         SoLuong = soLuong;
         NgayNhap = ngayNhap;
         DonGia = donGia;
+        this.moTa = moTa;
     }
 
     public String getMaHoaDonNhap() {
@@ -96,5 +98,13 @@ public class HoaDonNhap {
 
     public void setDonGia(int donGia) {
         DonGia = donGia;
+    }
+
+    public String getMoTa() {
+        return moTa;
+    }
+
+    public void setMoTa(String moTa) {
+        this.moTa = moTa;
     }
 }

@@ -47,7 +47,7 @@ public class FragHDN_Adapter extends RecyclerView.Adapter<FragHDN_Adapter.FragHD
         holder.hdn_txt_quantity.setText("Amount: " + hoaDonNhap.getSoLuong());
         holder.hdn_txt_ngayNhap.setText("Ngay nhap: " + hoaDonNhap.getNgayNhap());
         holder.hdn_txt_free.setText("Price: " + hoaDonNhap.getDonGia()+ "$");
-//        holder.hdn_txt_descriptions.setText("Mo ta: "+hoaDonNhap.get);
+        holder.hdn_txt_descriptions.setText("Descriptions: "+hoaDonNhap.getMoTa());
     }
 
     @Override
@@ -56,12 +56,11 @@ public class FragHDN_Adapter extends RecyclerView.Adapter<FragHDN_Adapter.FragHD
     }
 
     public class FragHDNHolder extends RecyclerView.ViewHolder {
-        TextView hdn_txt_Time, hdn_txt_product, hdn_txt_product_type, hdn_txt_hang, hdn_txt_cot, hdn_txt_vitri, hdn_txt_quantity, hdn_txt_ngayNhap,
+        TextView hdn_txt_product, hdn_txt_product_type, hdn_txt_hang, hdn_txt_cot, hdn_txt_vitri, hdn_txt_quantity, hdn_txt_ngayNhap,
                 hdn_txt_free, hdn_txt_descriptions;
 
         public FragHDNHolder(@NonNull View itemView) {
             super(itemView);
-            hdn_txt_Time = itemView.findViewById(R.id.hdn_txt_Time);
             hdn_txt_product = itemView.findViewById(R.id.hdn_txt_product);
             hdn_txt_product_type = itemView.findViewById(R.id.hdn_txt_product_type);
             hdn_txt_hang = itemView.findViewById(R.id.hdn_txt_hang);

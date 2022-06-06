@@ -76,7 +76,7 @@ public class Frag_HDN_Entry extends Fragment {
                 txt_hdn_quantity_add = view1.findViewById(R.id.txt_hdn_quantity_add);
                 txt_hdn_free_add = view1.findViewById(R.id.txt_hdn_free_add);
                 txt_hdn_ngayNhap_add = view1.findViewById(R.id.txt_hdn_ngayNhap_add);
-//                txt_hdn_descriptions_add = view1.findViewById(R.id.txt_hdn_descriptions_add);
+                txt_hdn_descriptions_add = view1.findViewById(R.id.txt_hdn_descriptions_add);
                 AppCompatButton hdn_btn_add = view1.findViewById(R.id.hdn_btn_add);
                 AppCompatButton hdn_btn_close_add = view1.findViewById(R.id.hdn_btn_close_add);
 
@@ -114,6 +114,7 @@ public class Frag_HDN_Entry extends Fragment {
         hoaDonNhap.setDonGia(Integer.parseInt(txt_hdn_free_add.getText().toString()));
         hoaDonNhap.setSoLuong(Integer.parseInt(txt_hdn_quantity_add.getText().toString()));
         hoaDonNhap.setNgayNhap(txt_hdn_ngayNhap_add.getText().toString());
+        hoaDonNhap.setMoTa(txt_hdn_descriptions_add.getText().toString());
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://agile-server-beco.herokuapp.com/")
                 .addConverterFactory(GsonConverterFactory.create())
@@ -145,12 +146,12 @@ public class Frag_HDN_Entry extends Fragment {
         call.enqueue(new Callback<List<HoaDonNhap>>() {
             @Override
             public void onResponse(Call<List<HoaDonNhap>> call, Response<List<HoaDonNhap>> response) {
-//                if (response.isSuccessful() && response.body() != null) {
+                if (response.isSuccessful() && response.body() != null) {
                     listHDN.addAll(response.body());
                     fragHDN_adapter.setDataHDN(listHDN);
                     rcvHDN.setAdapter(fragHDN_adapter);
 
-//                }
+                }
             }
 
             @Override

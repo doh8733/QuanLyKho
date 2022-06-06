@@ -1,6 +1,5 @@
 package com.quannm18.quanlykho.Interface;
 
-import com.quannm18.quanlykho.Model.Hang;
 import com.quannm18.quanlykho.Model.HoaDonNhap;
 
 import java.util.List;
