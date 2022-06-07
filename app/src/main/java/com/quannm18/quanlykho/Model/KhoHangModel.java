@@ -4,22 +4,17 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class KhoHangModel {
-    @Expose
+
     @SerializedName("_id")
     private String _id;
-    @Expose
     @SerializedName("name")
     private String name;
-    @Expose
     @SerializedName("row")
     private String row;
-    @Expose
     @SerializedName("floors")
     private String floors;
-    @Expose
     @SerializedName("position")
     private String position;
-    @Expose
     @SerializedName("description")
     private String description;
 

@@ -17,14 +17,25 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputLayout;
+import com.quannm18.quanlykho.Interface.GetDepot;
+import com.quannm18.quanlykho.Interface.PostDepotUpdate;
 import com.quannm18.quanlykho.Model.KhoHangModel;
 import com.quannm18.quanlykho.Model.DepotVolleyManager;
 import com.quannm18.quanlykho.POST.KhoHangUpdate;
 import com.quannm18.quanlykho.POST.CallApi;
+import com.quannm18.quanlykho.POST.RequestDepotPOSTUpdate;
+import com.quannm18.quanlykho.POST.ResponeDepotUpdate;
 import com.quannm18.quanlykho.R;
+import com.quannm18.quanlykho.TongQuatKhoActivity;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class DepotAdapter extends RecyclerView.Adapter<DepotAdapter.KhoViewholder> {
     Context context;
@@ -62,22 +73,13 @@ public class DepotAdapter extends RecyclerView.Adapter<DepotAdapter.KhoViewholde
 
     @Override
     public void onBindViewHolder(@NonNull KhoViewholder holder, int post) {
-//        final  Depot kho = listKho.get(post);
-//        context = holder.itemView.getContext();
-//        holder.tvRow.setText(String.valueOf(kho.getRow()));
-//        holder.tvFloors.setText(String.valueOf(kho.getFloors()));
-//        holder.tvPosition.setText(String.valueOf(kho.getPosition()));
-//        holder.tvUsed.setText(String.valueOf(kho.getUsed()));
-//        holder.tvAvailable.setText(String.valueOf(kho.getAvailable()));
-//        holder.tvProductTypes.setText(String.valueOf(kho.getProduct()));
-//        holder.tvBroken.setText(String.valueOf(kho.getBroken()));
-//        holder.tvFinished.setText(String.valueOf(kho.getFinished()));
+
         final KhoHangModel depot = listKho.get(post);
         context = holder.itemView.getContext();
         holder.tvName.setText(String.valueOf(depot.getName()));
         holder.tvRow.setText(String.valueOf(depot.getRow()));
         holder.tvFloors.setText(String.valueOf(depot.getFloors()));
-        holder.tvPosition.setText(String.valueOf(depot.getPosition()));
+        holder.tvPosition.setText(depot.getPosition());
 
         holder.layout.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
@@ -88,8 +90,8 @@ public class DepotAdapter extends RecyclerView.Adapter<DepotAdapter.KhoViewholde
                 builder.setPositiveButton("yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        DepotVolleyManager depotVolleyManager = new DepotVolleyManager();
-                        depotVolleyManager.deleteVolley(view.getContext(), depot.get_id());
+                        CallApi callApi = new CallApi();
+                        callApi.deleteDepot(new KhoHangModel(depot.get_id(),depot.getName(),depot.getRow(),depot.getFloors(),depot.getPosition(),depot.getDescription()));
                         listKho.remove(holder.getAdapterPosition());
                         notifyItemChanged(holder.getAdapterPosition());
                         notifyItemRemoved(holder.getAdapterPosition());
@@ -117,7 +119,7 @@ public class DepotAdapter extends RecyclerView.Adapter<DepotAdapter.KhoViewholde
                 alertDialog = builder.create();
                 alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
-                tvview = v.findViewById(R.id.tvview);
+
                 tilEditNameWarehouse = (TextInputLayout) v.findViewById(R.id.tilEditNameWarehouse);
                 tilEditRow = (TextInputLayout) v.findViewById(R.id.tilEditRow);
                 tilEditFloors = (TextInputLayout) v.findViewById(R.id.tilEditFloors);
@@ -143,8 +145,11 @@ public class DepotAdapter extends RecyclerView.Adapter<DepotAdapter.KhoViewholde
                         String floors = tilEditFloors.getEditText().getText().toString();
                         String position = tilEditPosition.getEditText().getText().toString();
                         String description = tilEditDescription.getEditText().getText().toString();
-                        CallApi update = new CallApi();
-                        update.Update_Depot(context.getApplicationContext(), new KhoHangModel(_id,name,row,floors,position,description));
+
+                        CallApi callApi = new CallApi();
+                        callApi.Update_Depot(context,new KhoHangModel(_id,name,row,floors,position,description));
+                        listKho.clear();
+                        listKho = getAllDaTa(view.getContext());
                         notifyDataSetChanged();
                         alertDialog.dismiss();
                     }
@@ -156,6 +161,32 @@ public class DepotAdapter extends RecyclerView.Adapter<DepotAdapter.KhoViewholde
         });
 
 
+    }
+
+    public List<KhoHangModel> getAllDaTa(Context context) {
+        List<KhoHangModel> khoHangModelList = new ArrayList<>();
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://agile-server-beco.herokuapp.com/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        GetDepot getDepot = retrofit.create(GetDepot.class);
+        Call<List<KhoHangModel>> call = getDepot.getKho();
+        call.enqueue(new Callback<List<KhoHangModel>>() {
+            @Override
+            public void onResponse(Call<List<KhoHangModel>> call, Response<List<KhoHangModel>> response) {
+                List<KhoHangModel> lisdepot = response.body();
+                for (KhoHangModel khoHangModel : lisdepot){
+                    khoHangModelList.add(khoHangModel);
+                }
+                notifyDataSetChanged();
+            }
+
+            @Override
+            public void onFailure(Call<List<KhoHangModel>> call, Throwable t) {
+                Toast.makeText(context.getApplicationContext(), "Loi", Toast.LENGTH_SHORT).show();
+            }
+        });
+        return khoHangModelList;
     }
 
     @Override
@@ -192,20 +223,4 @@ public class DepotAdapter extends RecyclerView.Adapter<DepotAdapter.KhoViewholde
 
         }
     }
-//    public void updateDpot(String id,String name,String row,String floors,String position,String description){
-//            PostDepotUpdate postDepotUpdate = ApiClient.getApiClient().create(PostDepotUpdate.class);
-//            Call<KhoHangUpdate> call = postDepotUpdate.updateKhoHang(id,name,row,floors,position,description);
-//
-//            call.enqueue(new Callback<KhoHangUpdate>() {
-//                @Override
-//                public void onResponse(Call<KhoHangUpdate> call,@NonNull Response<KhoHangUpdate> response) {
-//
-//                }
-//
-//                @Override
-//                public void onFailure(Call<KhoHangUpdate> call,@NonNull Throwable t) {
-//
-//                }
-//            });
-  //  }
 }

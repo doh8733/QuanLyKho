@@ -10,14 +10,14 @@ public class KhoHangPOST {
     private String position;
     private String description;
 
-    public KhoHangPOST( String name, String row, String floors, String position, String description) {
-
+    public KhoHangPOST(String name, String row, String floors, String position, String description) {
         this.name = name;
         this.row = row;
         this.floors = floors;
         this.position = position;
         this.description = description;
     }
+
     public String getName() {
         return name;
     }

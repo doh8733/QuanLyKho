@@ -1,9 +1,11 @@
 package com.quannm18.quanlykho.POST;
 
-public class ResponeDelete {
-    private KhoHangDelete khohangs;
+import com.quannm18.quanlykho.Model.KhoHangModel;
 
-    public KhoHangDelete getKhohangs() {
+public class ResponeDelete {
+    private KhoHangModel khohangs;
+
+    public KhoHangModel getKhohangs() {
         return khohangs;
     }
 }

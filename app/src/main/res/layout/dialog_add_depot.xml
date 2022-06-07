@@ -28,9 +28,9 @@
         app:boxCornerRadiusBottomStart="32dp"
         app:boxCornerRadiusTopEnd="32dp"
         android:layout_marginHorizontal="28dp"
-        app:placeholderText="Name of warehouse"
-        android:theme="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:hint="Name of warehouse"
         android:fontFamily="@font/sen_regular"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         >
 
         <com.google.android.material.textfield.TextInputEditText
