@@ -3,12 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Entry"
-        android:textSize="50dp" />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcvHDN"
         android:layout_width="match_parent"

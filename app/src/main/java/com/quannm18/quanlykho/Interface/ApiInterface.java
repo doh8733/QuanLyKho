@@ -1,6 +1,7 @@
 package com.quannm18.quanlykho.Interface;
 
 import com.quannm18.quanlykho.Model.HoaDonNhap;
+import com.quannm18.quanlykho.Model.HoaDonXuat;
 
 import java.util.List;
 
@@ -14,6 +15,12 @@ public interface ApiInterface {
     Call<HoaDonNhap> postHDN(@Body HoaDonNhap HDN);
     @GET("warehouse")
     Call<List<HoaDonNhap>>  getHDN();
+
+
+    @POST("add")
+    Call<HoaDonXuat> postHDX(@Body HoaDonXuat HDX);
+    @GET("HDX")
+    Call<List<HoaDonXuat>>  getHDX();
 
 
 

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,52 +21,63 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.quannm18.quanlykho.Adapter.FragHDX_Adapter;
+import com.quannm18.quanlykho.Interface.ApiInterface;
+import com.quannm18.quanlykho.Model.HoaDonNhap;
 import com.quannm18.quanlykho.Model.HoaDonXuat;
 import com.quannm18.quanlykho.R;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Frag_HDX_Outlet extends Fragment {
-    FloatingActionButton actionButton;
+    TextInputEditText hdx_ngayNhap_add, hdx_ngayXuat_add, hdx_thanhtien_add, hdx_trangthai_add, hdx_descriptions_add;
+    FloatingActionButton fla_HDX_outlet;
     RecyclerView rcvHDX;
     FragHDX_Adapter fragHDX_adapter;
-    ArrayList<HoaDonXuat> listHDX;
+    List<HoaDonXuat> listHDX=new ArrayList<>();
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view= inflater.inflate(R.layout.frag_hdx_outlet,container,false);
-        actionButton=view.findViewById(R.id.fla_HDX_outlet);
-        rcvHDX=view.findViewById(R.id.rcvHDX);
+        View view = inflater.inflate(R.layout.frag_hdx_outlet, container, false);
+        fla_HDX_outlet = view.findViewById(R.id.fla_HDX_outlet);
+        rcvHDX = view.findViewById(R.id.rcvHDX);
 
-        RecyclerView.LayoutManager layoutManager=new LinearLayoutManager(getContext());
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         rcvHDX.setLayoutManager(layoutManager);
-        listHDX=new ArrayList<>();
-        fragHDX_adapter=new FragHDX_Adapter(getContext(),listHDX);
-        rcvHDX.setAdapter(fragHDX_adapter);
+        fragHDX_adapter = new FragHDX_Adapter(getContext(), listHDX);
 
-        actionButton.setOnClickListener(new View.OnClickListener() {
+        GetDataHDX();
+        fla_HDX_outlet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder builder=new AlertDialog.Builder(getContext());
-                View view1=LayoutInflater.from(getContext()).inflate(R.layout.activity_add_new_outlet,null);
+                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                View view1 = LayoutInflater.from(getContext()).inflate(R.layout.activity_add_new_outlet, null);
                 builder.setView(view1);
                 builder.setCancelable(true);
-                AlertDialog dialog=builder.create();
+                AlertDialog dialog = builder.create();
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 dialog.show();
-                TextInputEditText hdx_name=view1.findViewById(R.id.hdx_name);
-                TextInputEditText hdx_productType=view1.findViewById(R.id.hdx_productType);
-                TextInputEditText hdx_quantity=view1.findViewById(R.id.hdx_quantity);
-                TextInputEditText hdx_free=view1.findViewById(R.id.hdx_free);
-                TextInputEditText hdx_expiry=view1.findViewById(R.id.hdx_expiry);
-                TextInputEditText hdx_descriptions=view1.findViewById(R.id.hdx_descriptions);
-                AppCompatButton hdx_btn_add=view1.findViewById(R.id.hdx_btn_add);
-                AppCompatButton hdx_btn_close=view1.findViewById(R.id.hdx_btn_close);
+                hdx_ngayNhap_add = view1.findViewById(R.id.hdx_ngayNhap_add);
+                hdx_ngayXuat_add = view1.findViewById(R.id.hdx_ngayXuat_add);
+                hdx_thanhtien_add = view1.findViewById(R.id.hdx_thanhtien_add);
+                hdx_trangthai_add = view1.findViewById(R.id.hdx_trangthai_add);
+                hdx_descriptions_add = view1.findViewById(R.id.hdx_descriptions_add);
+                AppCompatButton hdx_btn_add = view1.findViewById(R.id.hdx_btn_add);
+                AppCompatButton hdx_btn_close = view1.findViewById(R.id.hdx_btn_close);
 
                 hdx_btn_add.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-
+                        InsertDataHDX();
+                        Toast.makeText(getContext(), "Them HDX", Toast.LENGTH_SHORT).show();
+                        dialog.dismiss();
                     }
                 });
                 hdx_btn_close.setOnClickListener(new View.OnClickListener() {
@@ -79,5 +91,62 @@ public class Frag_HDX_Outlet extends Fragment {
         return view;
 
 
+    }
+
+    public void InsertDataHDX() {
+        HoaDonXuat hoaDonXuat = new HoaDonXuat();
+        hoaDonXuat.setNgayNhap(hdx_ngayNhap_add.getText().toString());
+        hoaDonXuat.setNgayXuat(hdx_ngayXuat_add.getText().toString());
+        hoaDonXuat.setThanhTien(Integer.parseInt(hdx_thanhtien_add.getText().toString()));
+        hoaDonXuat.setTrangThai(hdx_trangthai_add.getText().toString());
+        hoaDonXuat.setMoTa(hdx_descriptions_add.getText().toString());
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://agile-server-beco.herokuapp.com/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        ApiInterface apiInterface = retrofit.create(ApiInterface.class);
+        Call<HoaDonXuat> callHDX = apiInterface.postHDX(hoaDonXuat);
+        callHDX.enqueue(new Callback<HoaDonXuat>() {
+            @Override
+            public void onResponse(Call<HoaDonXuat> call, Response<HoaDonXuat> response) {
+                listHDX.clear();
+                GetDataHDX();
+                fragHDX_adapter.notifyDataSetChanged();
+                Toast.makeText(getContext(), "aaaaaaaaaaaa", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(Call<HoaDonXuat> call, Throwable t) {
+                Toast.makeText(getContext(), "Loi api HDX add", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+    }
+
+    public void GetDataHDX() {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://agile-server-beco.herokuapp.com/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        ApiInterface apiInterface = retrofit.create(ApiInterface.class);
+        Call<List<HoaDonXuat>> call = apiInterface.getHDX();
+        call.enqueue(new Callback<List<HoaDonXuat>>() {
+            @Override
+            public void onResponse(Call<List<HoaDonXuat>> call, Response<List<HoaDonXuat>> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    listHDX.addAll(response.body());
+                    fragHDX_adapter.setDataHDX(listHDX);
+                    rcvHDX.setAdapter(fragHDX_adapter);
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<HoaDonXuat>> call, Throwable t) {
+                Toast.makeText(getContext(), "Loi api HDX getall", Toast.LENGTH_SHORT).show();
+
+            }
+        });
     }
 }

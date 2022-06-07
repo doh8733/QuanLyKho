@@ -23,7 +23,10 @@ public class FragHDX_Adapter extends RecyclerView.Adapter<FragHDX_Adapter.FragHD
         this.context = context;
         this.listHDX = listHDX;
     }
-
+    public void setDataHDX(List<HoaDonXuat> listHDX) {
+        this.listHDX = listHDX;
+        notifyDataSetChanged();
+    }
     @NonNull
     @Override
     public FragHDX_Adapter.FragHDXHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -34,7 +37,11 @@ public class FragHDX_Adapter extends RecyclerView.Adapter<FragHDX_Adapter.FragHD
     @Override
     public void onBindViewHolder(@NonNull FragHDX_Adapter.FragHDXHolder holder, int position) {
         HoaDonXuat hoaDonXuat=listHDX.get(position);
-
+        holder.hdx_txt_ngayNhap.setText("Ngay nhap: " + hoaDonXuat.getNgayNhap());
+        holder.hdx_txt_ngayXuat.setText("Ngay xuat: " + hoaDonXuat.getNgayXuat());
+        holder.hdx_txt_thanhtien.setText("Thanh tien: " + hoaDonXuat.getThanhTien());
+        holder.hdx_txt_trangthai.setText("Trang thai: " + hoaDonXuat.getTrangThai());
+        holder.hdx_txt_descriptions.setText("Mo ta: " + hoaDonXuat.getMoTa());
     }
 
     @Override
@@ -43,15 +50,15 @@ public class FragHDX_Adapter extends RecyclerView.Adapter<FragHDX_Adapter.FragHD
     }
 
     public class FragHDXHolder extends RecyclerView.ViewHolder {
-        TextView hdx_txt_Time, hdx_txt_product,hdx_txt_quantity,
-                hdx_txt_free, hdx_txt_descriptions;
+        TextView hdx_txt_ngayNhap, hdx_txt_ngayXuat,hdx_txt_thanhtien,
+                hdx_txt_trangthai, hdx_txt_descriptions;
 
         public FragHDXHolder(@NonNull View itemView) {
             super(itemView);
-            hdx_txt_Time = itemView.findViewById(R.id.hdx_txt_Time);
-            hdx_txt_product = itemView.findViewById(R.id.hdx_txt_product);
-            hdx_txt_quantity = itemView.findViewById(R.id.hdx_txt_quantity);
-            hdx_txt_free = itemView.findViewById(R.id.hdx_txt_free);
+            hdx_txt_ngayNhap = itemView.findViewById(R.id.hdx_txt_ngayNhap);
+            hdx_txt_ngayXuat = itemView.findViewById(R.id.hdx_txt_ngayXuat);
+            hdx_txt_thanhtien = itemView.findViewById(R.id.hdx_txt_thanhtien);
+            hdx_txt_trangthai = itemView.findViewById(R.id.hdx_txt_trangthai);
             hdx_txt_descriptions = itemView.findViewById(R.id.hdx_txt_descriptions);
 
 

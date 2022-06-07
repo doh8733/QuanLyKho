@@ -1,71 +1,81 @@
 package com.quannm18.quanlykho.Model;
 
 public class HoaDonXuat {
-    private String maHDX;
-    private String maHDN;
-    private String ngayNhap;
-    private String ngayXuat;
-    private String thanhTien;
-    private String trangThai;
+    private String MaHDX;
+    private String MaHDN;
+    private String NgayNhap;
+    private String NgayXuat;
+    private int ThanhTien;
+    private String TrangThai;
+    private String moTa;
 
     public HoaDonXuat() {
     }
 
-    public HoaDonXuat(String maHDX, String maHDN, String ngayNhap, String ngayXuat, String thanhTien, String trangThai) {
-        this.maHDX = maHDX;
-        this.maHDN = maHDN;
-        this.ngayNhap = ngayNhap;
-        this.ngayXuat = ngayXuat;
-        this.thanhTien = thanhTien;
-        this.trangThai = trangThai;
+    public HoaDonXuat(String maHDX, String maHDN, String ngayNhap, String ngayXuat, int thanhTien, String trangThai, String moTa) {
+        MaHDX = maHDX;
+        MaHDN = maHDN;
+        NgayNhap = ngayNhap;
+        NgayXuat = ngayXuat;
+        ThanhTien = thanhTien;
+        TrangThai = trangThai;
+        this.moTa = moTa;
     }
 
     public String getMaHDX() {
-        return maHDX;
+        return MaHDX;
     }
 
     public void setMaHDX(String maHDX) {
-        this.maHDX = maHDX;
+        MaHDX = maHDX;
     }
 
     public String getMaHDN() {
-        return maHDN;
+        return MaHDN;
     }
 
     public void setMaHDN(String maHDN) {
-        this.maHDN = maHDN;
+        MaHDN = maHDN;
     }
 
     public String getNgayNhap() {
-        return ngayNhap;
+        return NgayNhap;
     }
 
     public void setNgayNhap(String ngayNhap) {
-        this.ngayNhap = ngayNhap;
+        NgayNhap = ngayNhap;
     }
 
     public String getNgayXuat() {
-        return ngayXuat;
+        return NgayXuat;
     }
 
     public void setNgayXuat(String ngayXuat) {
-        this.ngayXuat = ngayXuat;
+        NgayXuat = ngayXuat;
     }
 
-    public String getThanhTien() {
-        return thanhTien;
+    public int getThanhTien() {
+        return ThanhTien;
     }
 
-    public void setThanhTien(String thanhTien) {
-        this.thanhTien = thanhTien;
+    public void setThanhTien(int thanhTien) {
+        ThanhTien = thanhTien;
     }
 
     public String getTrangThai() {
-        return trangThai;
+        return TrangThai;
     }
 
     public void setTrangThai(String trangThai) {
-        this.trangThai = trangThai;
+        TrangThai = trangThai;
+    }
+
+    public String getMoTa() {
+        return moTa;
+    }
+
+    public void setMoTa(String moTa) {
+        this.moTa = moTa;
     }
 }
 
