@@ -36,6 +36,38 @@
                     android:layout_weight="1.3"
                     android:gravity="left"
                     android:fontFamily="@font/sen_bold"
+                    android:text="Ma HDN: "
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginBottom="2dp"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+                <TextView
+                    android:id="@+id/hdn_txt_maHDN"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginBottom="2dp"
+                    android:layout_weight="1.7"
+                    android:fontFamily="@font/sen_regular"
+                    android:gravity="left"
+                    android:text="Ma HDN: "
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+            </LinearLayout>
+            <LinearLayout
+                android:weightSum="3"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.3"
+                    android:gravity="left"
+                    android:fontFamily="@font/sen_bold"
                     android:text="Product: "
                     android:layout_marginLeft="16dp"
                     android:layout_marginTop="12dp"

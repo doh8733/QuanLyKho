@@ -52,6 +52,31 @@
                         app:startIconTint="#28BB8E">
 
                         <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/txt_hdn_maHDN_add"
+                            android:layout_width="match_parent"
+                            android:layout_height="52dp"
+                            android:background="@drawable/edit_round"
+                            android:fontFamily="@font/sen_regular"
+                            android:hint="MaHoaDonNhap"
+                            android:inputType="text"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:boxStrokeWidth="1.5dp"
+                        app:counterMaxLength="20"
+                        android:layout_marginTop="16dp"
+                        app:endIconMode="clear_text"
+                        app:hintTextColor="@color/black"
+
+                        app:startIconDrawable="@drawable/ic_package"
+                        app:startIconTint="#28BB8E">
+
+                        <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/txt_hdn_name_add"
                             android:layout_width="match_parent"
                             android:layout_height="52dp"
@@ -86,6 +111,7 @@
                             android:textColor="@color/black"
                             android:textSize="20sp" />
                     </com.google.android.material.textfield.TextInputLayout>
+
                     <com.google.android.material.textfield.TextInputLayout
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
@@ -109,6 +135,7 @@
                             android:textColor="@color/black"
                             android:textSize="20sp" />
                     </com.google.android.material.textfield.TextInputLayout>
+
                     <com.google.android.material.textfield.TextInputLayout
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
@@ -132,6 +159,7 @@
                             android:textColor="@color/black"
                             android:textSize="20sp" />
                     </com.google.android.material.textfield.TextInputLayout>
+
                     <com.google.android.material.textfield.TextInputLayout
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
@@ -155,6 +183,7 @@
                             android:textColor="@color/black"
                             android:textSize="20sp" />
                     </com.google.android.material.textfield.TextInputLayout>
+
                     <com.google.android.material.textfield.TextInputLayout
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
