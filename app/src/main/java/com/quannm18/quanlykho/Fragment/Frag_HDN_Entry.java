@@ -37,7 +37,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Frag_HDN_Entry extends Fragment {
-    TextInputEditText txt_hdn_name_add, txt_hdn_productType_add,txt_hdn_hang_add,txt_hdn_cot_add,
+    TextInputEditText txt_hdn_maHDN_add,txt_hdn_name_add, txt_hdn_productType_add,txt_hdn_hang_add,txt_hdn_cot_add,
             txt_hdn_vitri_add,txt_hdn_quantity_add,
             txt_hdn_free_add,txt_hdn_ngayNhap_add, txt_hdn_descriptions_add;
     FloatingActionButton fla_HDN_entry;
@@ -68,6 +68,7 @@ public class Frag_HDN_Entry extends Fragment {
                 AlertDialog dialog = builder.create();
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 dialog.show();
+                txt_hdn_maHDN_add = view1.findViewById(R.id.txt_hdn_maHDN_add);
                 txt_hdn_name_add = view1.findViewById(R.id.txt_hdn_name_add);
                 txt_hdn_productType_add = view1.findViewById(R.id.txt_hdn_productType_add);
                 txt_hdn_hang_add = view1.findViewById(R.id.txt_hdn_hang_add);
@@ -106,6 +107,7 @@ public class Frag_HDN_Entry extends Fragment {
 
     public void InsertDataHDN() {
         HoaDonNhap hoaDonNhap = new HoaDonNhap();
+        hoaDonNhap.setMaHoaDonNhap(txt_hdn_maHDN_add.getText().toString());
         hoaDonNhap.setTenSP(txt_hdn_name_add.getText().toString());
         hoaDonNhap.setLoaiSP(txt_hdn_productType_add.getText().toString());
         hoaDonNhap.setHang(txt_hdn_hang_add.getText().toString());
