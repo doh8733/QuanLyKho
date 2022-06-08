@@ -14,8 +14,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class CallApi {
 
-    public void Update_Depot(Context context,KhoHangModel khoHangModel){
-        Retrofit retrofit = new  Retrofit.Builder()
+    public void Update_Depot(Context context, KhoHangModel khoHangModel) {
+        Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://agile-server-beco.herokuapp.com/khoHang/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
@@ -45,7 +45,7 @@ public class CallApi {
         });
     }
 
-    public void deleteDepot(KhoHangModel khoHangModel){
+    public void deleteDepot(KhoHangModel khoHangModel) {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://agile-server-beco.herokuapp.com/khoHang/")
                 .addConverterFactory(GsonConverterFactory.create())
