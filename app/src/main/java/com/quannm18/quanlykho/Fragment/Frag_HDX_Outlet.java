@@ -36,7 +36,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Frag_HDX_Outlet extends Fragment {
-    TextInputEditText hdx_ngayNhap_add, hdx_ngayXuat_add, hdx_thanhtien_add, hdx_trangthai_add, hdx_descriptions_add;
+    TextInputEditText hdx_maHDX_add,hdx_ngayNhap_add, hdx_ngayXuat_add, hdx_thanhtien_add, hdx_trangthai_add, hdx_descriptions_add;
     FloatingActionButton fla_HDX_outlet;
     RecyclerView rcvHDX;
     FragHDX_Adapter fragHDX_adapter;
@@ -64,6 +64,7 @@ public class Frag_HDX_Outlet extends Fragment {
                 AlertDialog dialog = builder.create();
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 dialog.show();
+                hdx_maHDX_add = view1.findViewById(R.id.hdx_maHDX_add);
                 hdx_ngayNhap_add = view1.findViewById(R.id.hdx_ngayNhap_add);
                 hdx_ngayXuat_add = view1.findViewById(R.id.hdx_ngayXuat_add);
                 hdx_thanhtien_add = view1.findViewById(R.id.hdx_thanhtien_add);
@@ -95,6 +96,7 @@ public class Frag_HDX_Outlet extends Fragment {
 
     public void InsertDataHDX() {
         HoaDonXuat hoaDonXuat = new HoaDonXuat();
+        hoaDonXuat.setMaHDX(hdx_maHDX_add.getText().toString());
         hoaDonXuat.setNgayNhap(hdx_ngayNhap_add.getText().toString());
         hoaDonXuat.setNgayXuat(hdx_ngayXuat_add.getText().toString());
         hoaDonXuat.setThanhTien(Integer.parseInt(hdx_thanhtien_add.getText().toString()));
@@ -102,7 +104,7 @@ public class Frag_HDX_Outlet extends Fragment {
         hoaDonXuat.setMoTa(hdx_descriptions_add.getText().toString());
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://agile-server-beco.herokuapp.com/")
+                .baseUrl("https://agile-server-beco.herokuapp.com/HDX/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         ApiInterface apiInterface = retrofit.create(ApiInterface.class);

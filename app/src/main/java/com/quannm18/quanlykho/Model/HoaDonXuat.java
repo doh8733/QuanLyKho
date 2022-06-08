@@ -1,18 +1,30 @@
 package com.quannm18.quanlykho.Model;
 
+import com.google.gson.annotations.SerializedName;
+
 public class HoaDonXuat {
+    @SerializedName("_id")
+    private String id;
+    @SerializedName("MaHDX")
     private String MaHDX;
+    @SerializedName("MaHDN")
     private String MaHDN;
+    @SerializedName("NgayNhap")
     private String NgayNhap;
+    @SerializedName("NgayXuat")
     private String NgayXuat;
+    @SerializedName("ThanhTien")
     private int ThanhTien;
+    @SerializedName("TrangThai")
     private String TrangThai;
+    @SerializedName("moTa")
     private String moTa;
 
     public HoaDonXuat() {
     }
 
-    public HoaDonXuat(String maHDX, String maHDN, String ngayNhap, String ngayXuat, int thanhTien, String trangThai, String moTa) {
+    public HoaDonXuat(String id, String maHDX, String maHDN, String ngayNhap, String ngayXuat, int thanhTien, String trangThai, String moTa) {
+        this.id = id;
         MaHDX = maHDX;
         MaHDN = maHDN;
         NgayNhap = ngayNhap;
@@ -20,6 +32,14 @@ public class HoaDonXuat {
         ThanhTien = thanhTien;
         TrangThai = trangThai;
         this.moTa = moTa;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getMaHDX() {
