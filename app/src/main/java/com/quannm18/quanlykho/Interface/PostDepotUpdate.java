@@ -15,6 +15,7 @@ public interface PostDepotUpdate {
     @FormUrlEncoded
     @POST("edit/{id}")
     Call<ResponeDepotUpdate> updateKhoHang(
+
             @Path(value = "id") String _id,
             @Field("name") String name,
             @Field("row") String row,
