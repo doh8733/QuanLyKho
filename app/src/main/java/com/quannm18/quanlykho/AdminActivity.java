@@ -1,7 +1,9 @@
 package com.quannm18.quanlykho;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,16 +11,19 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.textfield.TextInputLayout;
 import com.quannm18.quanlykho.Adapter.VpadminAdapter;
 
 public class AdminActivity extends AppCompatActivity {
     private ViewPager vpViewAdmin;
     private BottomNavigationView navadmin;
+    private TextInputLayout tilFind;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin);
 
+        tilFind = (TextInputLayout) findViewById(R.id.tilFind);
         vpViewAdmin =  findViewById(R.id.vpViewAdmin);
         navadmin =  findViewById(R.id.navadmin);
         setUpVpAdmin();
@@ -36,6 +41,17 @@ public class AdminActivity extends AppCompatActivity {
                         vpViewAdmin.setCurrentItem(2);
                         break;
                 }
+            }
+        });
+        tilFind.getEditText().setEnabled(true);
+        tilFind.getEditText().setTextIsSelectable(true);
+        tilFind.getEditText().setFocusable(false);
+        tilFind.getEditText().setFocusableInTouchMode(false);
+        tilFind.getEditText().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AdminActivity.this,FindActivity.class);
+                startActivity(intent);
             }
         });
 

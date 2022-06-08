@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:backgroundTint="#d7eee8"
+    android:layout_marginLeft="10dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginBottom="10dp"
+    app:cardCornerRadius="24dp">
+
+    <ImageView
+        android:id="@+id/ivAvatar"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="40dp"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="112dp"
+        android:fontFamily="@font/sen_regular"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:text="Name:" />
+
+    <TextView
+        android:id="@+id/tvGender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:layout_marginLeft="112dp"
+        android:fontFamily="@font/sen_regular"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:text="Gender:" />
+
+    <TextView
+        android:id="@+id/tvAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="76dp"
+        android:layout_marginLeft="112dp"
+        android:fontFamily="@font/sen_regular"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:text="Address:" />
+
+    <TextView
+        android:id="@+id/tvStartWorkDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="108dp"
+        android:layout_marginLeft="112dp"
+        android:layout_marginRight="16dp"
+        android:fontFamily="@font/sen_regular"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:text="Start Work Date:" />
+</androidx.cardview.widget.CardView>

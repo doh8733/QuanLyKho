@@ -3,8 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:background="@drawable/corner_bg_layout">
+    android:background="@drawable/corner_bg_layout"
+    android:orientation="vertical">
+
+
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -13,6 +16,7 @@
         android:textStyle="bold"
         android:textColor="@color/black"
         android:gravity="center"
+        android:fontFamily="@font/sen_extrabold"
         android:layout_marginTop="42dp"
         />
 
@@ -28,8 +32,8 @@
         app:boxCornerRadiusBottomStart="32dp"
         app:boxCornerRadiusTopEnd="32dp"
         android:layout_marginHorizontal="28dp"
-        android:hint="Name of warehouse"
         android:fontFamily="@font/sen_regular"
+        android:hint="Name of warehouse"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         >
 
@@ -52,8 +56,9 @@
         app:boxCornerRadiusBottomStart="32dp"
         app:boxCornerRadiusTopEnd="32dp"
         android:layout_marginHorizontal="28dp"
-        app:placeholderText="Name of warehouse"
         android:fontFamily="@font/sen_regular"
+        android:hint="Row"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
 
         >
 
@@ -61,9 +66,7 @@
             android:layout_width="match_parent"
             android:layout_height="52dp"
             android:fontFamily="@font/sen_regular"
-            android:background="@drawable/corner_tip_find"
-            android:theme="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            />
+            android:background="@drawable/corner_tip_find" />
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilFloors"
@@ -77,8 +80,9 @@
         app:boxCornerRadiusBottomStart="32dp"
         app:boxCornerRadiusTopEnd="32dp"
         android:layout_marginHorizontal="28dp"
-        app:placeholderText="Name of warehouse"
         android:fontFamily="@font/sen_regular"
+        android:hint="Floors"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         >
 
         <com.google.android.material.textfield.TextInputEditText
@@ -86,6 +90,7 @@
             android:layout_height="52dp"
             android:backgroundTint="@color/white"
             android:fontFamily="@font/sen_regular"
+            android:background="@drawable/corner_tip_find"
             />
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
@@ -100,14 +105,16 @@
         app:boxCornerRadiusBottomStart="32dp"
         app:boxCornerRadiusTopEnd="32dp"
         android:layout_marginHorizontal="28dp"
-        app:placeholderText="Name of warehouse"
         android:fontFamily="@font/sen_regular"
+        android:hint="Position"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         >
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="52dp"
             android:backgroundTint="@color/white"
             android:fontFamily="@font/sen_regular"
+            android:background="@drawable/corner_tip_find"
             />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -123,11 +130,12 @@
             app:boxCornerRadiusTopEnd="32dp"
             app:placeholderText="Name of warehouse"
             android:fontFamily="@font/sen_regular"
+            android:hint="Position"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             >
 
 
         <com.google.android.material.textfield.TextInputEditText
-
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:backgroundTint="@color/white"
@@ -137,43 +145,41 @@
             android:drawableTint="#28BB8E"
             android:textAlignment="textStart"
             android:fontFamily="@font/sen_regular"
-
+            android:background="@drawable/corner_tip_find"
 
             />
         </com.google.android.material.textfield.TextInputLayout>
-<!--    </androidx.cardview.widget.CardView>-->
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnCreate"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="52dp"
         android:text="Create"
-        android:textSize="16sp"
-        android:padding="16dp"
+        android:textAlignment="center"
+        android:textSize="20sp"
         android:layout_marginHorizontal="26dp"
         android:layout_marginVertical="16dp"
         app:backgroundTint="@null"
         android:background="@drawable/color_btn_create"
         android:animateLayoutChanges="true"
         android:fontFamily="@font/sen_bold"/>
+
     <com.google.android.material.button.MaterialButton
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="52dp"
         android:text="Close"
+        android:textAlignment="center"
         android:id="@+id/btnClose"
         android:textColor="#969696"
-        android:textSize="16sp"
-        android:padding="16dp"
+        android:textSize="20sp"
         android:layout_marginHorizontal="26dp"
         app:backgroundTint="@null"
         android:background="@drawable/color_btn_close"
         android:animateLayoutChanges="true"
         android:layout_marginBottom="16dp"
-        android:paddingBottom="32dp"
         android:fontFamily="@font/sen_bold"
         />
 
+    </LinearLayout>
 
 
-
-
-</LinearLayout>
