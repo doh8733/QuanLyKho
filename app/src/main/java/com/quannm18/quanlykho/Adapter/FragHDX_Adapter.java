@@ -1,12 +1,17 @@
 package com.quannm18.quanlykho.Adapter;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.widget.AppCompatButton;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.quannm18.quanlykho.Model.HoaDonNhap;
@@ -37,11 +42,55 @@ public class FragHDX_Adapter extends RecyclerView.Adapter<FragHDX_Adapter.FragHD
     @Override
     public void onBindViewHolder(@NonNull FragHDX_Adapter.FragHDXHolder holder, int position) {
         HoaDonXuat hoaDonXuat=listHDX.get(position);
-        holder.hdx_txt_ngayNhap.setText("Ngay nhap: " + hoaDonXuat.getNgayNhap());
-        holder.hdx_txt_ngayXuat.setText("Ngay xuat: " + hoaDonXuat.getNgayXuat());
-        holder.hdx_txt_thanhtien.setText("Thanh tien: " + hoaDonXuat.getThanhTien());
-        holder.hdx_txt_trangthai.setText("Trang thai: " + hoaDonXuat.getTrangThai());
-        holder.hdx_txt_descriptions.setText("Mo ta: " + hoaDonXuat.getMoTa());
+        holder.hdx_txt_ngayNhap.setText(hoaDonXuat.getNgayNhap());
+        holder.hdx_txt_ngayXuat.setText(hoaDonXuat.getNgayXuat());
+        holder.hdx_txt_thanhtien.setText(hoaDonXuat.getThanhTien()+"");
+        holder.hdx_txt_trangthai.setText(hoaDonXuat.getTrangThai());
+        holder.hdx_txt_descriptions.setText(hoaDonXuat.getMoTa());
+        holder.cv_hdx_CT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                View view1 = LayoutInflater.from(context).inflate(R.layout.custom_bill_outlet_chitiet, null);
+                builder.setView(view1);
+                builder.setCancelable(false);
+                AlertDialog dialog = builder.create();
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.show();
+                String ngayNhap=holder.hdx_txt_ngayNhap.getText().toString();
+                String ngayXuat=holder.hdx_txt_ngayXuat.getText().toString();
+                int thanhTien= Integer.parseInt(holder.hdx_txt_thanhtien.getText().toString());
+                String trangThai=holder.hdx_txt_trangthai.getText().toString();
+                String moTa=holder.hdx_txt_descriptions.getText().toString();
+
+
+                TextView hdx_tv_ngayNhap_CT = view1.findViewById(R.id.hdx_tv_ngayNhap_CT);
+                TextView hdx_tv_ngayXuat_CT = view1.findViewById(R.id.hdx_tv_ngayXuat_CT);
+                TextView hdx_tv_product_CT = view1.findViewById(R.id.hdx_tv_product_CT);
+                TextView hdx_tv_trangthai_CT = view1.findViewById(R.id.hdx_tv_trangthai_CT);
+                TextView hdx_tv_Descriptions_CT = view1.findViewById(R.id.hdx_tv_Descriptions_CT);
+
+
+                AppCompatButton hdx_btn_close_CT = view1.findViewById(R.id.hdx_btn_close_CT);
+
+                hdx_tv_ngayNhap_CT.setText(ngayNhap);
+                hdx_tv_ngayXuat_CT.setText(ngayXuat);
+                hdx_tv_product_CT.setText(thanhTien+"");
+                hdx_tv_trangthai_CT.setText(trangThai);
+                hdx_tv_Descriptions_CT.setText(moTa);
+
+
+                hdx_btn_close_CT.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+
+
+
+            }
+        });
     }
 
     @Override
@@ -52,6 +101,7 @@ public class FragHDX_Adapter extends RecyclerView.Adapter<FragHDX_Adapter.FragHD
     public class FragHDXHolder extends RecyclerView.ViewHolder {
         TextView hdx_txt_ngayNhap, hdx_txt_ngayXuat,hdx_txt_thanhtien,
                 hdx_txt_trangthai, hdx_txt_descriptions;
+        CardView cv_hdx_CT;
 
         public FragHDXHolder(@NonNull View itemView) {
             super(itemView);
@@ -60,6 +110,7 @@ public class FragHDX_Adapter extends RecyclerView.Adapter<FragHDX_Adapter.FragHD
             hdx_txt_thanhtien = itemView.findViewById(R.id.hdx_txt_thanhtien);
             hdx_txt_trangthai = itemView.findViewById(R.id.hdx_txt_trangthai);
             hdx_txt_descriptions = itemView.findViewById(R.id.hdx_txt_descriptions);
+            cv_hdx_CT = itemView.findViewById(R.id.cv_hdx_CT);
 
 
         }

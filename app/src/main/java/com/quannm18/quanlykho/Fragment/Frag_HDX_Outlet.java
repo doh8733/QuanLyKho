@@ -102,7 +102,7 @@ public class Frag_HDX_Outlet extends Fragment {
         hoaDonXuat.setMoTa(hdx_descriptions_add.getText().toString());
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://agile-server-beco.herokuapp.com/")
+                .baseUrl("https://agile-server-beco.herokuapp.com/HDX/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         ApiInterface apiInterface = retrofit.create(ApiInterface.class);

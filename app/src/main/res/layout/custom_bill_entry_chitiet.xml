@@ -6,6 +6,7 @@
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cv_hdn_CT"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -16,7 +17,6 @@
         android:backgroundTint="#D7EEE8"
         app:cardCornerRadius="24dp"
         app:cardElevation="3dp"
-        android:id="@+id/cv_hdn_CT"
         app:cardUseCompatPadding="true">
 
         <LinearLayout
@@ -25,24 +25,40 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="20dp"
+                android:gravity="center"
+                android:text="Bill "
+                android:textColor="#000000"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
             <LinearLayout
-                android:weightSum="3"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:weightSum="3">
+
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1.4"
-                    android:gravity="left"
-                    android:fontFamily="@font/sen_bold"
-                    android:text="Product: "
                     android:layout_marginLeft="16dp"
                     android:layout_marginTop="12dp"
                     android:layout_marginRight="16dp"
                     android:layout_marginBottom="2dp"
+                    android:layout_weight="1.4"
+                    android:fontFamily="@font/sen_bold"
+                    android:gravity="left"
+                    android:text="Product: "
                     android:textColor="#000000"
                     android:textSize="16sp" />
+
                 <TextView
                     android:id="@+id/hdn_txt_product_CT"
                     android:layout_width="0dp"
@@ -57,22 +73,24 @@
                     android:textColor="#000000"
                     android:textSize="16sp" />
             </LinearLayout>
+
             <LinearLayout
-                android:weightSum="3"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:weightSum="3">
+
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1.4"
-                    android:gravity="left"
-                    android:fontFamily="@font/sen_bold"
-                    android:text="Product type: "
                     android:layout_marginLeft="16dp"
                     android:layout_marginTop="12dp"
                     android:layout_marginRight="16dp"
                     android:layout_marginBottom="2dp"
+                    android:layout_weight="1.4"
+                    android:fontFamily="@font/sen_bold"
+                    android:gravity="left"
+                    android:text="Product type: "
                     android:textColor="#000000"
                     android:textSize="16sp" />
 
@@ -86,31 +104,34 @@
                     android:layout_marginRight="16dp"
                     android:layout_marginBottom="2dp"
                     android:layout_weight="1.6"
+                    android:fontFamily="@font/sen_regular"
                     android:gravity="left"
                     android:text="Loai SP: "
-                    android:fontFamily="@font/sen_regular"
                     android:textColor="#000000"
                     android:textSize="16sp" />
 
             </LinearLayout>
+
             <LinearLayout
-                android:weightSum="3"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:weightSum="3">
+
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1.4"
-                    android:gravity="left"
-                    android:fontFamily="@font/sen_bold"
-                    android:text="Row: "
                     android:layout_marginLeft="16dp"
                     android:layout_marginTop="12dp"
                     android:layout_marginRight="16dp"
                     android:layout_marginBottom="2dp"
+                    android:layout_weight="1.4"
+                    android:fontFamily="@font/sen_bold"
+                    android:gravity="left"
+                    android:text="Row: "
                     android:textColor="#000000"
                     android:textSize="16sp" />
+
                 <TextView
                     android:id="@+id/hdn_txt_hang_CT"
                     android:layout_width="0dp"
@@ -121,30 +142,33 @@
                     android:layout_marginRight="16dp"
                     android:layout_marginBottom="2dp"
                     android:layout_weight="1.6"
-                    android:gravity="left"
                     android:fontFamily="@font/sen_regular"
+                    android:gravity="left"
                     android:text="Hang: "
                     android:textColor="#000000"
                     android:textSize="16sp" />
             </LinearLayout>
+
             <LinearLayout
-                android:weightSum="3"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:weightSum="3">
+
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1.4"
-                    android:gravity="left"
-                    android:fontFamily="@font/sen_bold"
-                    android:text="Column: "
                     android:layout_marginLeft="16dp"
                     android:layout_marginTop="12dp"
                     android:layout_marginRight="16dp"
                     android:layout_marginBottom="2dp"
+                    android:layout_weight="1.4"
+                    android:fontFamily="@font/sen_bold"
+                    android:gravity="left"
+                    android:text="Column: "
                     android:textColor="#000000"
                     android:textSize="16sp" />
+
                 <TextView
                     android:id="@+id/hdn_txt_cot_CT"
                     android:layout_width="0dp"
@@ -155,32 +179,34 @@
                     android:layout_marginRight="16dp"
                     android:layout_marginBottom="2dp"
                     android:layout_weight="1.6"
+                    android:fontFamily="@font/sen_regular"
                     android:gravity="left"
                     android:text="Cot: "
-                    android:fontFamily="@font/sen_regular"
                     android:textColor="#000000"
                     android:textSize="16sp" />
 
             </LinearLayout>
 
             <LinearLayout
-                android:weightSum="3"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:weightSum="3">
+
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1.4"
-                    android:gravity="left"
-                    android:fontFamily="@font/sen_bold"
-                    android:text="Position: "
                     android:layout_marginLeft="16dp"
                     android:layout_marginTop="12dp"
                     android:layout_marginRight="16dp"
                     android:layout_marginBottom="2dp"
+                    android:layout_weight="1.4"
+                    android:fontFamily="@font/sen_bold"
+                    android:gravity="left"
+                    android:text="Position: "
                     android:textColor="#000000"
                     android:textSize="16sp" />
+
                 <TextView
                     android:id="@+id/hdn_txt_vitri_CT"
                     android:layout_width="0dp"
@@ -196,24 +222,27 @@
                     android:textColor="#000000"
                     android:textSize="16sp" />
             </LinearLayout>
+
             <LinearLayout
-                android:weightSum="3"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:weightSum="3">
+
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1.4"
-                    android:gravity="left"
-                    android:fontFamily="@font/sen_bold"
-                    android:text="Amount: "
                     android:layout_marginLeft="16dp"
                     android:layout_marginTop="12dp"
                     android:layout_marginRight="16dp"
                     android:layout_marginBottom="2dp"
+                    android:layout_weight="1.4"
+                    android:fontFamily="@font/sen_bold"
+                    android:gravity="left"
+                    android:text="Amount: "
                     android:textColor="#000000"
                     android:textSize="16sp" />
+
                 <TextView
                     android:id="@+id/hdn_txt_quantity_CT"
                     android:layout_width="0dp"
@@ -224,31 +253,33 @@
                     android:layout_marginRight="16dp"
                     android:layout_marginBottom="2dp"
                     android:layout_weight="1.6"
+                    android:fontFamily="@font/sen_regular"
                     android:gravity="left"
                     android:text="So luong: "
-                    android:fontFamily="@font/sen_regular"
                     android:textColor="#000000"
                     android:textSize="16sp" />
             </LinearLayout>
 
             <LinearLayout
-                android:weightSum="3"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:weightSum="3">
+
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1.4"
-                    android:gravity="left"
-                    android:fontFamily="@font/sen_bold"
-                    android:text="Ngay nhap: "
                     android:layout_marginLeft="16dp"
                     android:layout_marginTop="12dp"
                     android:layout_marginRight="16dp"
                     android:layout_marginBottom="2dp"
+                    android:layout_weight="1.4"
+                    android:fontFamily="@font/sen_bold"
+                    android:gravity="left"
+                    android:text="Ngay nhap: "
                     android:textColor="#000000"
                     android:textSize="16sp" />
+
                 <TextView
                     android:id="@+id/hdn_txt_ngayNhap_CT"
                     android:layout_width="0dp"
@@ -259,31 +290,33 @@
                     android:layout_marginRight="16dp"
                     android:layout_marginBottom="2dp"
                     android:layout_weight="1.6"
+                    android:fontFamily="@font/sen_regular"
                     android:gravity="left"
                     android:text="Ngay nhap: "
-                    android:fontFamily="@font/sen_regular"
                     android:textColor="#000000"
                     android:textSize="16sp" />
             </LinearLayout>
 
             <LinearLayout
-                android:weightSum="3"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:weightSum="3">
+
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1.4"
-                    android:gravity="left"
-                    android:fontFamily="@font/sen_bold"
-                    android:text="Price: "
                     android:layout_marginLeft="16dp"
                     android:layout_marginTop="12dp"
                     android:layout_marginRight="16dp"
                     android:layout_marginBottom="2dp"
+                    android:layout_weight="1.4"
+                    android:fontFamily="@font/sen_bold"
+                    android:gravity="left"
+                    android:text="Price: "
                     android:textColor="#000000"
                     android:textSize="16sp" />
+
                 <TextView
                     android:id="@+id/hdn_txt_free_CT"
                     android:layout_width="0dp"
@@ -294,32 +327,34 @@
                     android:layout_marginRight="16dp"
                     android:layout_marginBottom="2dp"
                     android:layout_weight="1.6"
+                    android:fontFamily="@font/sen_regular"
                     android:gravity="left"
                     android:text="Don gia: "
-                    android:fontFamily="@font/sen_regular"
                     android:textColor="#000000"
                     android:textSize="16sp" />
 
             </LinearLayout>
 
             <LinearLayout
-                android:weightSum="3"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:weightSum="3">
+
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1.4"
-                    android:gravity="left"
-                    android:fontFamily="@font/sen_bold"
-                    android:text="Descriptions: "
                     android:layout_marginLeft="16dp"
                     android:layout_marginTop="12dp"
                     android:layout_marginRight="16dp"
                     android:layout_marginBottom="2dp"
+                    android:layout_weight="1.4"
+                    android:fontFamily="@font/sen_bold"
+                    android:gravity="left"
+                    android:text="Descriptions: "
                     android:textColor="#000000"
                     android:textSize="16sp" />
+
                 <TextView
                     android:id="@+id/hdn_txt_descriptions_CT"
                     android:layout_width="0dp"
@@ -336,20 +371,20 @@
                     android:textColor="#000000"
                     android:textSize="16sp" />
             </LinearLayout>
+
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/hdn_btn_close_CT"
                 android:layout_width="match_parent"
                 android:layout_height="52dp"
                 android:layout_gravity="center"
                 android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
                 android:layout_marginTop="40dp"
+                android:layout_marginRight="16dp"
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/button_pressed"
-                android:id="@+id/hdn_btn_close_CT"
                 android:text="Close"
                 android:textColor="#FFFFFF"
                 android:textStyle="bold" />
-
 
 
         </LinearLayout>
