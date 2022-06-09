@@ -1,7 +1,9 @@
 package com.quannm18.quanlykho;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,11 +11,13 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.textfield.TextInputLayout;
 import com.quannm18.quanlykho.Adapter.VpAdapter;
 
 public class NhanVienActivity extends AppCompatActivity {
     private BottomNavigationView navView;
     private ViewPager vpView;
+    private TextInputLayout tilFind;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +25,10 @@ public class NhanVienActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
         navView = findViewById(R.id.nav);
         vpView = findViewById(R.id.vpView);
+
+
+        tilFind = (TextInputLayout) findViewById(R.id.tilFind);
+
         setUpViewPager();
         navView.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
             @Override
@@ -29,8 +37,23 @@ public class NhanVienActivity extends AppCompatActivity {
                     case R.id.home:
                         vpView.setCurrentItem(0);
                         break;
+                    case R.id.bill:
+                        vpView.setCurrentItem(1);
+                        break;
 
                 }
+            }
+        });
+        tilFind.getEditText().setEnabled(true);
+        tilFind.getEditText().setTextIsSelectable(true);
+        tilFind.getEditText().setFocusable(false);
+        tilFind.getEditText().setFocusableInTouchMode(false);
+        tilFind.getEditText().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(NhanVienActivity.this,FindBillActivity.class);
+                startActivity(intent);
+
             }
         });
     }
@@ -49,6 +72,9 @@ public class NhanVienActivity extends AppCompatActivity {
                 switch (position) {
                     case 0:
                         navView.getMenu().findItem(R.id.home).setChecked(true);
+                        break;
+                    case 1:
+                        navView.getMenu().findItem(R.id.bill).setChecked(true);
                         break;
                 }
             }

@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
+import com.quannm18.quanlykho.Fragment.FindHDNFragment;
+import com.quannm18.quanlykho.Fragment.Frag_HDN_Entry;
 import com.quannm18.quanlykho.Fragment.HomeFragment;
 
 public class VpAdapter extends FragmentStatePagerAdapter {
@@ -18,8 +20,8 @@ public class VpAdapter extends FragmentStatePagerAdapter {
     @Override
     public Fragment getItem(int position) {
         switch (position){
-            case 0:
-                return new HomeFragment();
+            case 1:
+                return new Frag_HDN_Entry();
             default:
                 return new HomeFragment();
         }

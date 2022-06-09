@@ -15,7 +15,9 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.textfield.TextInputLayout;
 import com.quannm18.quanlykho.Adapter.DepotAdapter;
 import com.quannm18.quanlykho.Adapter.FindingAdapter;
+import com.quannm18.quanlykho.Interface.ApiInterface;
 import com.quannm18.quanlykho.Interface.GetDepot;
+import com.quannm18.quanlykho.Model.HoaDonXuat;
 import com.quannm18.quanlykho.Model.KhoHangModel;
 import com.quannm18.quanlykho.R;
 
@@ -44,7 +46,7 @@ public class FindActivity extends AppCompatActivity {
 
         tilFinding = (TextInputLayout) findViewById(R.id.tilFinding);
         rcvFind = (RecyclerView) findViewById(R.id.rcvFind);
-        navFind = (BottomNavigationView) findViewById(R.id.navFind);
+
 
         hangModelList = new ArrayList<>();
         hangModelList = getAllDaTa(FindActivity.this);
@@ -52,6 +54,7 @@ public class FindActivity extends AppCompatActivity {
         LinearLayoutManager layoutManager = new LinearLayoutManager(FindActivity.this);
         rcvFind.setLayoutManager(layoutManager);
         getAllDaTa();
+
         tilFinding.getEditText().setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
@@ -82,6 +85,7 @@ public class FindActivity extends AppCompatActivity {
                 return false;
             }
         });
+
 
     }
 
@@ -131,5 +135,32 @@ public class FindActivity extends AppCompatActivity {
                 Toast.makeText(FindActivity.this, "Loi", Toast.LENGTH_SHORT).show();
             }
         });
+
     }
+
+//    public void GetDataHDX() {
+//        Retrofit retrofit = new Retrofit.Builder()
+//                .baseUrl("https://agile-server-beco.herokuapp.com/")
+//                .addConverterFactory(GsonConverterFactory.create())
+//                .build();
+//        ApiInterface apiInterface = retrofit.create(ApiInterface.class);
+//        Call<List<HoaDonXuat>> call = apiInterface.getHDX();
+//        call.enqueue(new Callback<List<HoaDonXuat>>() {
+//            @Override
+//            public void onResponse(Call<List<HoaDonXuat>> call, Response<List<HoaDonXuat>> response) {
+//                if (response.isSuccessful() && response.body() != null) {
+//                    listHDX.addAll(response.body());
+//                    fragHDX_adapter.setDataHDX(listHDX);
+//                    rcvHDX.setAdapter(fragHDX_adapter);
+//
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<List<HoaDonXuat>> call, Throwable t) {
+//                Toast.makeText(getContext(), "Loi api HDX getall", Toast.LENGTH_SHORT).show();
+//
+//            }
+//        });
+//    }
 }

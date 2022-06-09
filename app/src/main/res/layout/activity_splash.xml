@@ -28,8 +28,8 @@
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lottie_layer_name"
-        android:layout_width="294dp"
-        android:layout_height="443dp"
+        android:layout_width="340dp"
+        android:layout_height="340dp"
         android:layout_marginTop="46dp"
         android:layout_marginEnd="32dp"
         android:layout_marginStart="32dp"
@@ -61,10 +61,10 @@
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="4dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:foreground="#15B082"
+        android:background="@drawable/custom_progressbar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -1,9 +1,11 @@
 package com.quannm18.quanlykho;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,6 +20,7 @@ public class AdminActivity extends AppCompatActivity {
     private ViewPager vpViewAdmin;
     private BottomNavigationView navadmin;
     private TextInputLayout tilFind;
+    private TextView tvName;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +29,10 @@ public class AdminActivity extends AppCompatActivity {
         tilFind = (TextInputLayout) findViewById(R.id.tilFind);
         vpViewAdmin =  findViewById(R.id.vpViewAdmin);
         navadmin =  findViewById(R.id.navadmin);
+        tvName = findViewById(R.id.tvName);
+        SharedPreferences sdf = getSharedPreferences("USER_FILE",MODE_PRIVATE);
+
+        tvName.setText(sdf.getString("USER", ""));
         setUpVpAdmin();
         navadmin.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
             @Override
@@ -37,9 +44,6 @@ public class AdminActivity extends AppCompatActivity {
                     case R.id.billad:
                         vpViewAdmin.setCurrentItem(1);
                         break;
-                    case R.id.personnalad:l:
-                        vpViewAdmin.setCurrentItem(2);
-                        break;
                 }
             }
         });
@@ -50,8 +54,9 @@ public class AdminActivity extends AppCompatActivity {
         tilFind.getEditText().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(AdminActivity.this,FindActivity.class);
+                Intent intent = new Intent(AdminActivity.this,FindBillActivity.class);
                 startActivity(intent);
+
             }
         });
 

@@ -27,7 +27,7 @@
             android:orientation="horizontal">
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/imageView2"
+                android:id="@+id/btn_bill_admin"
                 android:layout_width="160dp"
                 android:layout_height="160dp"
                 android:layout_marginLeft="16dp"
@@ -62,7 +62,7 @@
             android:orientation="horizontal">
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/imageView5"
+                android:id="@+id/btnFinance"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
@@ -75,7 +75,7 @@
                 app:backgroundTint="@null" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/imageView3"
+                android:id="@+id/btnempoloyee"
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"

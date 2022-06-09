@@ -34,13 +34,14 @@
     </com.google.android.material.textfield.TextInputLayout>
 
 
-    <com.quannm18.quanlykho.custom_text.sen_extrablodText
+    <TextView
         android:id="@+id/tvhello"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="36dp"
-        android:text="wellcome"
+        android:text="Welcome"
         android:textColor="#fff"
+        android:fontFamily="@font/sen_regular"
         android:layout_marginTop="6dp"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -65,7 +66,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tilFind"
         app:layout_constraintVertical_bias="0.0"
         app:tint="@color/white" />
-    <com.quannm18.quanlykho.custom_text.sen_regularText
+    <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -74,8 +75,9 @@
         android:layout_marginTop="16dp"
         android:layout_toEndOf="@+id/profile_image"
         android:text="Do Quoc Huy"
-        android:textColor="#100F0F"
+        android:textColor="#FFFF"
         android:textSize="20sp"
+        android:fontFamily="@font/sen_regular"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -96,7 +98,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvhello"
         app:layout_constraintVertical_bias="0.0"
-        app:cardCornerRadius="64dp">
+        app:cardCornerRadius="32dp">
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"

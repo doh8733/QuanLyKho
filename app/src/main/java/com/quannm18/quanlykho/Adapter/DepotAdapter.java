@@ -19,6 +19,7 @@ import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputLayout;
 import com.quannm18.quanlykho.Interface.GetDepot;
 import com.quannm18.quanlykho.Interface.PostDepotUpdate;
+import com.quannm18.quanlykho.Model.HoaDonNhap;
 import com.quannm18.quanlykho.Model.KhoHangModel;
 import com.quannm18.quanlykho.Model.DepotVolleyManager;
 import com.quannm18.quanlykho.POST.KhoHangUpdate;
@@ -63,6 +64,7 @@ public class DepotAdapter extends RecyclerView.Adapter<DepotAdapter.KhoViewholde
         this.listKho = listKho;
     }
 
+
     @NonNull
     @Override
     public KhoViewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -80,6 +82,7 @@ public class DepotAdapter extends RecyclerView.Adapter<DepotAdapter.KhoViewholde
         holder.tvRow.setText(String.valueOf(depot.getRow()));
         holder.tvFloors.setText(String.valueOf(depot.getFloors()));
         holder.tvPosition.setText(depot.getPosition());
+        holder.tvDescription.setText(depot.getDescription());
 
         holder.layout.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
@@ -91,7 +94,7 @@ public class DepotAdapter extends RecyclerView.Adapter<DepotAdapter.KhoViewholde
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         CallApi callApi = new CallApi();
-                        callApi.deleteDepot(new KhoHangModel(depot.get_id(),depot.getName(),depot.getRow(),depot.getFloors(),depot.getPosition(),depot.getDescription()));
+                        callApi.deleteDepot(new KhoHangModel(depot.get_id(), depot.getName(), depot.getRow(), depot.getFloors(), depot.getPosition(), depot.getDescription()));
                         listKho.remove(holder.getAdapterPosition());
                         notifyItemChanged(holder.getAdapterPosition());
                         notifyItemRemoved(holder.getAdapterPosition());
@@ -145,9 +148,39 @@ public class DepotAdapter extends RecyclerView.Adapter<DepotAdapter.KhoViewholde
                         String floors = tilEditFloors.getEditText().getText().toString();
                         String position = tilEditPosition.getEditText().getText().toString();
                         String description = tilEditDescription.getEditText().getText().toString();
+                        if (name.trim().isEmpty()) {
+                            tilEditNameWarehouse.setError("Vui lòng không để trắng thông tin!!!");
+                            return;
+                        } else {
+                            tilEditNameWarehouse.setErrorEnabled(false);
+                        }
+                        if (row.trim().isEmpty()) {
+                            tilEditRow.setError("Vui lòng không để trắng thông tin!!!");
+                            return;
+                        } else {
+                            tilEditRow.setErrorEnabled(false);
+                        }
+                        if (floors.trim().isEmpty()) {
+                            tilEditFloors.setError("Vui lòng không để trắng thông tin!!!");
+                            return;
+                        } else {
+                            tilEditFloors.setErrorEnabled(false);
+                        }
+                        if (position.trim().isEmpty()) {
+                            tilEditPosition.setError("Vui lòng không để trắng thông tin!!!");
+                            return;
+                        } else {
+                            tilEditPosition.setErrorEnabled(false);
+                        }
+                        if (description.trim().isEmpty()) {
+                            tilEditDescription.setError("Vui lòng không để trắng thông tin!!!");
+                            return;
+                        } else {
+                            tilEditDescription.setErrorEnabled(false);
+                        }
 
                         CallApi callApi = new CallApi();
-                        callApi.Update_Depot(context,new KhoHangModel(_id,name,row,floors,position,description));
+                        callApi.Update_Depot(context, new KhoHangModel(_id, name, row, floors, position, description));
                         listKho.clear();
                         listKho = getAllDaTa(view.getContext());
                         notifyDataSetChanged();
@@ -175,7 +208,7 @@ public class DepotAdapter extends RecyclerView.Adapter<DepotAdapter.KhoViewholde
             @Override
             public void onResponse(Call<List<KhoHangModel>> call, Response<List<KhoHangModel>> response) {
                 List<KhoHangModel> lisdepot = response.body();
-                for (KhoHangModel khoHangModel : lisdepot){
+                for (KhoHangModel khoHangModel : lisdepot) {
                     khoHangModelList.add(khoHangModel);
                 }
                 notifyDataSetChanged();
@@ -198,28 +231,22 @@ public class DepotAdapter extends RecyclerView.Adapter<DepotAdapter.KhoViewholde
         private TextView tvRow;
         private TextView tvFloors;
         private TextView tvPosition;
-        private TextView tvUsed;
-        private TextView tvAvailable;
-        private TextView tvProductTypes;
-        private TextView tvBroken;
-        private TextView tvFinished;
+        private TextView tvDescription;
+
         private TextView tvName;
         private CardView layout;
 
         public KhoViewholder(@NonNull View itemView) {
 
             super(itemView);
+
+
+            tvDescription = (TextView)  itemView.findViewById(R.id.tvDescription);
             layout = itemView.findViewById(R.id.layout_item);
             tvName = itemView.findViewById(R.id.tvName);
             tvRow = (TextView) itemView.findViewById(R.id.tvRow);
             tvFloors = (TextView) itemView.findViewById(R.id.tvFloors);
             tvPosition = (TextView) itemView.findViewById(R.id.tvPosition);
-            tvUsed = (TextView) itemView.findViewById(R.id.tvUsed);
-            tvAvailable = (TextView) itemView.findViewById(R.id.tvAvailable);
-            tvProductTypes = (TextView) itemView.findViewById(R.id.tvProduct);
-            tvBroken = (TextView) itemView.findViewById(R.id.tvBroke);
-            tvFinished = (TextView) itemView.findViewById(R.id.tvFinished);
-
 
         }
     }

@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/imageView2"
+            android:id="@+id/btn_bill"
             android:layout_width="142dp"
             android:layout_height="226dp"
             android:layout_gravity="center"
@@ -38,7 +38,7 @@
             app:layout_constraintVertical_bias="0.592" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/materialButton"
+            android:id="@+id/btn_depot"
             android:layout_width="142dp"
             android:layout_height="226dp"
             android:layout_gravity="center"

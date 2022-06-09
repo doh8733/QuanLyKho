@@ -12,6 +12,7 @@
     <item android:title="Home"
         android:id="@+id/homead"
         app:showAsAction="ifRoom"
+        android:checked="true"
         android:iconTint="#969696"
         android:icon="@drawable/ic_baseline_home_24"/>
 

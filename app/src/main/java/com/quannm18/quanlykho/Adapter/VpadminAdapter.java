@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
 import com.quannm18.quanlykho.Fragment.AdminFragment;
+import com.quannm18.quanlykho.Fragment.Frag_HDN_Entry;
 
 public class VpadminAdapter extends FragmentStatePagerAdapter {
     public VpadminAdapter(@NonNull FragmentManager fm, int behavior) {
@@ -17,11 +18,11 @@ public class VpadminAdapter extends FragmentStatePagerAdapter {
     public Fragment getItem(int position) {
        switch (position){
            case 0:
-               return  new AdminFragment();
+               return new AdminFragment();
+           case 1:
+               return  new Frag_HDN_Entry();
            default:
                return new AdminFragment();
-
-
        }
     }
 
