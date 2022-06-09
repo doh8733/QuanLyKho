@@ -64,11 +64,7 @@ public class FindingAdapter extends RecyclerView.Adapter<FindingAdapter.FindingH
             tvRow = (TextView) itemView.findViewById(R.id.tvRow);
             tvFloors = (TextView) itemView.findViewById(R.id.tvFloors);
             tvPosition = (TextView) itemView.findViewById(R.id.tvPosition);
-            tvUsed = (TextView) itemView.findViewById(R.id.tvUsed);
-            tvAvailable = (TextView) itemView.findViewById(R.id.tvAvailable);
-            tvProductTypes = (TextView) itemView.findViewById(R.id.tvProduct);
-            tvBroken = (TextView) itemView.findViewById(R.id.tvBroke);
-            tvFinished = (TextView) itemView.findViewById(R.id.tvFinished);
+
         }
     }
 }
