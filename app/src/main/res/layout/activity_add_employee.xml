@@ -37,7 +37,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edName"
             android:layout_width="match_parent"
-            android:layout_height="56dp"
+            android:layout_height="52dp"
             android:background="@drawable/rounded_corner"
             android:hint="Name"
             android:fontFamily="@font/sen_regular"
@@ -130,40 +130,22 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnChooseImage"
-        android:layout_width="match_parent"
-        android:layout_height="52dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="28dp"
-        android:background="@drawable/rounded_corner"
-        android:text="Choose Image"
-        android:fontFamily="@font/sen_regular"
-        android:textColor="#969696"
-        android:textAllCaps="false"
-        android:textSize="20sp"
-        android:textStyle="normal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout4" />
-
-    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnCreate"
         android:layout_width="0dp"
         android:layout_height="52dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/button"
+        android:fontFamily="@font/sen_bold"
         android:gravity="center"
         android:text="Create"
-        android:fontFamily="@font/sen_bold"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnChooseImage" />
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout4" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnClose"
@@ -182,4 +164,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnCreate" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

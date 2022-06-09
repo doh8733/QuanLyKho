@@ -27,7 +27,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class AddEmployee extends AppCompatActivity {
     TextInputEditText edName, edAge, edAddress, edStartWorkDate;
     Spinner spGender;
-    Button btnChooseImage, btnCreate, btnClose;
+    Button btnCreate, btnClose;
     List<String> genders;
 
     @Override
@@ -40,7 +40,6 @@ public class AddEmployee extends AppCompatActivity {
         edAge = findViewById(R.id.edAge);
         edAddress = findViewById(R.id.edAddress);
         edStartWorkDate = findViewById(R.id.edStartWorkDate);
-        btnChooseImage = findViewById(R.id.btnChooseImage);
         btnCreate = findViewById(R.id.btnCreate);
         btnClose = findViewById(R.id.btnClose);
 
@@ -62,7 +61,7 @@ public class AddEmployee extends AppCompatActivity {
                 if (name.isEmpty() || age.isEmpty() || address.isEmpty() || startWorkDate.isEmpty()) {
                     Toast.makeText(AddEmployee.this, "All fields must not be empty", Toast.LENGTH_SHORT).show();
                 } else {
-                    postData(name, gender, age, address, startWorkDate);
+//                    postData(name, gender, age, address, startWorkDate);
                     Toast.makeText(AddEmployee.this, "Registration Completed", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(AddEmployee.this, SignIn.class));
                 }
@@ -70,25 +69,18 @@ public class AddEmployee extends AppCompatActivity {
         });
     }
 
-    private void postData(String name, String gender, String age, String address, String startWorkDate) {
-        Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").create();
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://agile-server-beco.herokuapp.com/users/")
-                .addConverterFactory(GsonConverterFactory.create(gson))
-                .build();
-        ApiInterface apiInterface = retrofit.create(ApiInterface.class);
-        Employee employee = new Employee(name, gender, age, address, startWorkDate);
-        Call<Employee> call = apiInterface.postReg(employee);
-        call.enqueue(new Callback<Employee>() {
-            @Override
-            public void onResponse(Call<Employee> call, Response<Employee> response) {
-
-            }
-
-            @Override
-            public void onFailure(Call<Employee> call, Throwable t) {
-
-            }
-        });
-    }
+//    private void postData(String name, String gender, String age, String address, String startWorkDate) {
+//
+//        call.enqueue(new Callback<Employee>() {
+//            @Override
+//            public void onResponse(Call<Employee> call, Response<Employee> response) {
+//
+//            }
+//
+//            @Override
+//            public void onFailure(Call<Employee> call, Throwable t) {
+//
+//            }
+//        });
+//    }
 }

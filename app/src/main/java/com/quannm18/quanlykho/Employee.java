@@ -1,11 +1,18 @@
 package com.quannm18.quanlykho;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
 //Serialize
 public class Employee implements Serializable {
+    @SerializedName("hoTen")
     private String employeeName;
+
+    @SerializedName("matKhau")
     private String employeePassword;
+
+    @SerializedName("gioiTinh")
     private String employeeGender;
     private String employeeAge;
     private String employeeAddress;
