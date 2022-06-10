@@ -4,18 +4,20 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.quannm18.quanlykho.Model.HoaDonNhap;
 import com.quannm18.quanlykho.Model.HoaDonXuat;
+import com.quannm18.quanlykho.Model.NhanVien;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.Body;
-import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface ApiInterface {
     Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss")
@@ -42,6 +44,11 @@ public interface ApiInterface {
     Call<List<HoaDonXuat>>  getHDX();
     @POST("HDX/delete/{id}")
     Call<String>  deleteHDX(@Path("id") String _id);
+
+
+    @POST("users/api-login")
+    Call<NhanVien>  postLogin(@Body NhanVien nhanVien);
+
 
 
 
