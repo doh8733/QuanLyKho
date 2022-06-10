@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <item android:title="Bill"
+        android:id="@+id/bill"
+        app:showAsAction="ifRoom"
+        android:iconTint="#969696"
+        android:icon="@drawable/ic_bill"/>
+
+    <item android:title="Home"
+        android:id="@+id/home"
+        app:showAsAction="ifRoom"
+        android:iconTint="#969696"
+        android:icon="@drawable/ic_baseline_home_24"/>
+
+
+    <item android:title="Personal"
+        android:iconTint="#969696"
+        android:id="@+id/personnal"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_user"/>
+</menu>
