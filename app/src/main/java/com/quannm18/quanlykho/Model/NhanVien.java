@@ -2,29 +2,31 @@ package com.quannm18.quanlykho.Model;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 public class NhanVien {
     @SerializedName("_id")
     private String _id;
-    @SerializedName("_id")
+    @SerializedName("fullName")
     private String fullName;
-    @SerializedName("_id")
+    @SerializedName("userName")
     private String userName;
-    @SerializedName("_id")
+    @SerializedName("password")
     private String password;
-    @SerializedName("_id")
+    @SerializedName("gender")
     private String gender;
-    @SerializedName("_id")
+    @SerializedName("age")
     private String age;
-    @SerializedName("_id")
+    @SerializedName("address")
     private String address;
-    @SerializedName("_id")
+    @SerializedName("startWorkDate")
     private String startWorkDate;
-    @SerializedName("_id")
+    @SerializedName("role")
     private String role;
-    @SerializedName("_id")
-    private String tokens;
+    @SerializedName("tokens")
+    private List<Token> tokens;
 
-    public NhanVien(String _id, String fullName, String userName, String password, String gender, String age, String address, String startWorkDate, String role, String tokens) {
+    public NhanVien(String _id, String fullName, String userName, String password, String gender, String age, String address, String startWorkDate, String role, List<Token> tokens) {
         this._id = _id;
         this.fullName = fullName;
         this.userName = userName;
@@ -109,11 +111,11 @@ public class NhanVien {
         this.role = role;
     }
 
-    public String getTokens() {
+    public List<Token> getTokens() {
         return tokens;
     }
 
-    public void setTokens(String tokens) {
+    public void setTokens( List<Token>  tokens) {
         this.tokens = tokens;
     }
 }
