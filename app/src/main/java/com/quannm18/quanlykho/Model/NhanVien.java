@@ -25,6 +25,8 @@ public class NhanVien {
     private String role;
     @SerializedName("tokens")
     private List<Token> tokens;
+    public NhanVien() {
+    }
 
     public NhanVien(String _id, String fullName, String userName, String password, String gender, String age, String address, String startWorkDate, String role, List<Token> tokens) {
         this._id = _id;
@@ -115,7 +117,7 @@ public class NhanVien {
         return tokens;
     }
 
-    public void setTokens( List<Token>  tokens) {
+    public void setTokens(List<Token> tokens) {
         this.tokens = tokens;
     }
 }
