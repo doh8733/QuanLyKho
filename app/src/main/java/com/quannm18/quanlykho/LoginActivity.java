@@ -87,37 +87,41 @@ public class LoginActivity extends AppCompatActivity {
                     Api.api.postLogin(userName,password).enqueue(new Callback<LoginRespone>() {
                         @Override
                         public void onResponse(Call<LoginRespone> call, Response<LoginRespone> response) {
-
-                            Intent intent;
-                            LoginRespone loginRespone = response.body();
-                            if (loginRespone.getNhanVien().getRole().equalsIgnoreCase("admin")){
-                                intent = new Intent(LoginActivity.this, MainActivity.class);
-                                SharedPreferences sharedPreferences = getSharedPreferences("FILE_MODE",MODE_PRIVATE);
-                                SharedPreferences.Editor editor = sharedPreferences.edit();
-                                editor.clear();
-                                editor.putString("ID",loginRespone.getNhanVien().get_id());
-                                editor.putString("PASSWORD",loginRespone.getNhanVien().getPassword());
-                                editor.putString("ROLE",loginRespone.getNhanVien().getRole());
-                                editor.putString("NAME",loginRespone.getNhanVien().getFullName());
-                                editor.putString("GENDER",loginRespone.getNhanVien().getGender());
-                                editor.putString("AGE",loginRespone.getNhanVien().getAge());
-                                editor.putString("ADDRESS",loginRespone.getNhanVien().getAge());
-                                editor.commit();
-                            }else{
-                                intent = new Intent(LoginActivity.this, MainActivity2.class);
-                                SharedPreferences sharedPreferences = getSharedPreferences("FILE_MODE",MODE_PRIVATE);
-                                SharedPreferences.Editor editor = sharedPreferences.edit();
-                                editor.clear();
-                                editor.putString("ID",loginRespone.getNhanVien().get_id());
-                                editor.putString("PASSWORD",loginRespone.getNhanVien().getPassword());
-                                editor.putString("ROLE",loginRespone.getNhanVien().getRole());
-                                editor.putString("NAME",loginRespone.getNhanVien().getFullName());
-                                editor.putString("GENDER",loginRespone.getNhanVien().getGender());
-                                editor.putString("AGE",loginRespone.getNhanVien().getAge());
-                                editor.putString("ADDRESS",loginRespone.getNhanVien().getAge());
-                                editor.commit();
+                            if (response.body().getNhanVien()!=null){
+                                Intent intent;
+                                LoginRespone loginRespone = response.body();
+                                if (loginRespone.getNhanVien().getRole().equalsIgnoreCase("admin")){
+                                    intent = new Intent(LoginActivity.this, MainActivity.class);
+                                    SharedPreferences sharedPreferences = getSharedPreferences("FILE_MODE",MODE_PRIVATE);
+                                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                                    editor.clear();
+                                    editor.putString("ID",loginRespone.getNhanVien().get_id());
+                                    editor.putString("PASSWORD",loginRespone.getNhanVien().getPassword());
+                                    editor.putString("ROLE",loginRespone.getNhanVien().getRole());
+                                    editor.putString("NAME",loginRespone.getNhanVien().getFullName());
+                                    editor.putString("GENDER",loginRespone.getNhanVien().getGender());
+                                    editor.putString("AGE",loginRespone.getNhanVien().getAge());
+                                    editor.putString("ADDRESS",loginRespone.getNhanVien().getAddress());
+                                    editor.commit();
+                                }else{
+                                    intent = new Intent(LoginActivity.this, MainActivity2.class);
+                                    SharedPreferences sharedPreferences = getSharedPreferences("FILE_MODE",MODE_PRIVATE);
+                                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                                    editor.clear();
+                                    editor.putString("ID",loginRespone.getNhanVien().get_id());
+                                    editor.putString("PASSWORD",loginRespone.getNhanVien().getPassword());
+                                    editor.putString("ROLE",loginRespone.getNhanVien().getRole());
+                                    editor.putString("NAME",loginRespone.getNhanVien().getFullName());
+                                    editor.putString("GENDER",loginRespone.getNhanVien().getGender());
+                                    editor.putString("AGE",loginRespone.getNhanVien().getAge());
+                                    editor.putString("ADDRESS",loginRespone.getNhanVien().getAddress());
+                                    editor.commit();
+                                    //hhhg
+                                }
+                                startActivity(intent);
+                            }else {
+                                Toast.makeText(LoginActivity.this, "Username or password is not correct", Toast.LENGTH_SHORT).show();
                             }
-                            startActivity(intent);
                         }
 
                         @Override
