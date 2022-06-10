@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".EmployeeActivity"
-    android:background="@drawable/bg_employee_list">
+    android:background="@drawable/bg">
     <ImageButton
         android:id="@+id/btnBack"
         android:layout_width="wrap_content"
