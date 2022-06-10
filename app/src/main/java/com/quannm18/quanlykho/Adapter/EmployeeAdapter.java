@@ -33,10 +33,10 @@ public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final NhanVien employee = employees.get(position);
-        holder.tvName.setText(employee.getFullName());
-        holder.tvGender.setText(employee.getGender());
-        holder.tvAddress.setText(employee.getAddress());
-        holder.tvStartWorkDate.setText(employee.getStartWorkDate());
+        holder.tvName.setText("Name: \n"+employee.getFullName());
+        holder.tvGender.setText("Gender: "+employee.getGender());
+        holder.tvAddress.setText("Address: \n"+employee.getAddress());
+        holder.tvStartWorkDate.setText("Start Work Date: \n"+employee.getStartWorkDate());
     }
 
     @Override
