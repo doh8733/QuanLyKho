@@ -16,7 +16,7 @@ public class MainActivity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-        tvView = (TextView) findViewById(R.id.tvView);
+        tvView = (TextView) findViewById(R.id.textView3);
         SharedPreferences sdf = getSharedPreferences("FILE_MODE",MODE_PRIVATE);
         String a =  sdf.getString("ROLE","");
         String b =sdf.getString("NAME","");

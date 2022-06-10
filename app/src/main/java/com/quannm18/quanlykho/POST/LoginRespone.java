@@ -3,7 +3,9 @@ package com.quannm18.quanlykho.POST;
 import com.google.gson.annotations.SerializedName;
 import com.quannm18.quanlykho.Model.NhanVien;
 
-public class LoginRespone {
+import java.io.Serializable;
+
+public class LoginRespone implements Serializable {
     @SerializedName("user")
     private NhanVien nhanVien;
 
