@@ -24,6 +24,8 @@ import com.quannm18.quanlykho.Model.HoaDonNhap;
 import com.quannm18.quanlykho.Model.HoaDonXuat;
 import com.quannm18.quanlykho.R;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 
 import retrofit2.Call;
@@ -36,6 +38,8 @@ public class FragHDN_Adapter extends RecyclerView.Adapter<FragHDN_Adapter.FragHD
     private Context context;
     List<HoaDonNhap> listHDN;
     HoaDonNhap hoaDonNhap;
+    Calendar calendar = Calendar.getInstance();
+    SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
     public FragHDN_Adapter(Context context, List<HoaDonNhap> listHDN) {
         this.context = context;
         this.listHDN = listHDN;
@@ -56,6 +60,10 @@ public class FragHDN_Adapter extends RecyclerView.Adapter<FragHDN_Adapter.FragHD
     @Override
     public void onBindViewHolder(@NonNull FragHDN_Adapter.FragHDNHolder holder, int position) {
         hoaDonNhap = listHDN.get(position);
+
+        String datatime=format.format(calendar.getTime());
+
+
         holder.hdn_txt_maHDN.setText( hoaDonNhap.getMaHoaDonNhap());
         holder.hdn_txt_product.setText( hoaDonNhap.getTenSP());
         holder.hdn_txt_product_type.setText( hoaDonNhap.getLoaiSP());
@@ -63,7 +71,7 @@ public class FragHDN_Adapter extends RecyclerView.Adapter<FragHDN_Adapter.FragHD
         holder.hdn_txt_cot.setText( hoaDonNhap.getCot());
         holder.hdn_txt_vitri.setText(hoaDonNhap.getViTri());
         holder.hdn_txt_quantity.setText( String.valueOf(hoaDonNhap.getSoLuong()));
-        holder.hdn_txt_ngayNhap.setText(hoaDonNhap.getNgayNhap());
+        holder.hdn_txt_ngayNhap.setText(String.format(datatime, hoaDonNhap.getNgayNhap()));
         holder.hdn_txt_free.setText(String.valueOf(hoaDonNhap.getDonGia()));
         holder.hdn_txt_descriptions.setText(hoaDonNhap.getMoTa());
 
@@ -130,7 +138,6 @@ public class FragHDN_Adapter extends RecyclerView.Adapter<FragHDN_Adapter.FragHD
             @Override
             public boolean onLongClick(View view) {
                 deleteHDN();
-                notifyDataSetChanged();
                 return true;
             }
         });
@@ -171,14 +178,16 @@ public class FragHDN_Adapter extends RecyclerView.Adapter<FragHDN_Adapter.FragHD
                 ApiInterface.ApiInterface.deleteHDN(hoaDonNhap.getId()).enqueue(new Callback<String>() {
                     @Override
                     public void onResponse(Call<String> call, Response<String> response) {
-                        Log.d("TAG", "onResponse: "+response);
-//                        listHDN.clear();
+                        listHDN.clear();
+                        GetDataHDN();
                         notifyDataSetChanged();
                     }
 
                     @Override
                     public void onFailure(Call<String> call, Throwable t) {
-
+                        listHDN.clear();
+                        GetDataHDN();
+                        notifyDataSetChanged();
                     }
                 });
             }
@@ -193,5 +202,28 @@ public class FragHDN_Adapter extends RecyclerView.Adapter<FragHDN_Adapter.FragHD
         AlertDialog dialog = builder.create();
         dialog.show();
     }
+    public void GetDataHDN() {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://agile-server-beco.herokuapp.com/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        ApiInterface apiInterface = retrofit.create(ApiInterface.class);
+        Call<List<HoaDonNhap>> call= apiInterface.getHDN();
+        call.enqueue(new Callback<List<HoaDonNhap>>() {
+            @Override
+            public void onResponse(Call<List<HoaDonNhap>> call, Response<List<HoaDonNhap>> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    listHDN.addAll(response.body());
+                   notifyDataSetChanged();
 
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<HoaDonNhap>> call, Throwable t) {
+                Toast.makeText(context, "Loi api HDN getall", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+    }
 }
