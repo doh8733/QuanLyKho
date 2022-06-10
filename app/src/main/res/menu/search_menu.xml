@@ -7,7 +7,7 @@
         android:icon="@drawable/ic_searchh"
         android:iconTint="#28BB8E"
         app:showAsAction="ifRoom|collapseActionView"
-        app:actionViewClass="androidx.appcompat.widget.Toolbar"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
         />
 
 </menu>

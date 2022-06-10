@@ -26,8 +26,11 @@ import com.quannm18.quanlykho.Model.HoaDonNhap;
 import com.quannm18.quanlykho.Model.HoaDonXuat;
 import com.quannm18.quanlykho.R;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
+import java.util.logging.SimpleFormatter;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -41,7 +44,8 @@ public class Frag_HDX_Outlet extends Fragment {
     RecyclerView rcvHDX;
     FragHDX_Adapter fragHDX_adapter;
     List<HoaDonXuat> listHDX=new ArrayList<>();
-
+    Calendar calendar = Calendar.getInstance();
+    SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -65,7 +69,7 @@ public class Frag_HDX_Outlet extends Fragment {
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 dialog.show();
                 hdx_maHDX_add = view1.findViewById(R.id.hdx_maHDX_add);
-                hdx_ngayNhap_add = view1.findViewById(R.id.hdx_ngayNhap_add);
+//                hdx_ngayNhap_add = view1.findViewById(R.id.hdx_ngayNhap_add);
                 hdx_ngayXuat_add = view1.findViewById(R.id.hdx_ngayXuat_add);
                 hdx_thanhtien_add = view1.findViewById(R.id.hdx_thanhtien_add);
                 hdx_trangthai_add = view1.findViewById(R.id.hdx_trangthai_add);
@@ -76,9 +80,16 @@ public class Frag_HDX_Outlet extends Fragment {
                 hdx_btn_add.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        InsertDataHDX();
-                        Toast.makeText(getContext(), "Them HDX", Toast.LENGTH_SHORT).show();
-                        dialog.dismiss();
+                        if (hdx_maHDX_add.getText().toString().isEmpty() && hdx_ngayXuat_add.getText().toString().isEmpty() &&
+                                hdx_thanhtien_add.getText().toString().isEmpty() && hdx_trangthai_add.getText().toString().isEmpty()
+                                && hdx_descriptions_add.getText().toString().isEmpty() ) {
+                            Toast.makeText(getContext(), "Dữ liệu không được để trống", Toast.LENGTH_SHORT).show();
+                        }else {
+                            InsertDataHDX();
+                            Toast.makeText(getContext(), "Them HDX", Toast.LENGTH_SHORT).show();
+                            dialog.dismiss();
+                        }
+
                     }
                 });
                 hdx_btn_close.setOnClickListener(new View.OnClickListener() {
@@ -96,15 +107,16 @@ public class Frag_HDX_Outlet extends Fragment {
 
     public void InsertDataHDX() {
         HoaDonXuat hoaDonXuat = new HoaDonXuat();
+        String datatime = format.format(calendar.getTime());
         hoaDonXuat.setMaHDX(hdx_maHDX_add.getText().toString());
-        hoaDonXuat.setNgayNhap(hdx_ngayNhap_add.getText().toString());
-        hoaDonXuat.setNgayXuat(hdx_ngayXuat_add.getText().toString());
+//        hoaDonXuat.setNgayNhap(hdx_ngayNhap_add.getText().toString());
+        hoaDonXuat.setNgayXuat(String.format(datatime,hdx_ngayXuat_add.getText().toString()));
         hoaDonXuat.setThanhTien(Integer.parseInt(hdx_thanhtien_add.getText().toString()));
         hoaDonXuat.setTrangThai(hdx_trangthai_add.getText().toString());
         hoaDonXuat.setMoTa(hdx_descriptions_add.getText().toString());
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://agile-server-beco.herokuapp.com/HDX/")
+                .baseUrl("https://agile-server-beco.herokuapp.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         ApiInterface apiInterface = retrofit.create(ApiInterface.class);
@@ -115,13 +127,12 @@ public class Frag_HDX_Outlet extends Fragment {
                 listHDX.clear();
                 GetDataHDX();
                 fragHDX_adapter.notifyDataSetChanged();
-                Toast.makeText(getContext(), "aaaaaaaaaaaa", Toast.LENGTH_SHORT).show();
+
             }
 
             @Override
             public void onFailure(Call<HoaDonXuat> call, Throwable t) {
                 Toast.makeText(getContext(), "Loi api HDX add", Toast.LENGTH_SHORT).show();
-
             }
         });
     }

@@ -1,5 +1,6 @@
 package com.quannm18.quanlykho.Fragment;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -9,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -27,7 +29,9 @@ import com.quannm18.quanlykho.Interface.ApiInterface;
 import com.quannm18.quanlykho.Model.HoaDonNhap;
 import com.quannm18.quanlykho.R;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import retrofit2.Call;
@@ -37,13 +41,15 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Frag_HDN_Entry extends Fragment {
-    TextInputEditText txt_hdn_maHDN_add,txt_hdn_name_add, txt_hdn_productType_add,txt_hdn_hang_add,txt_hdn_cot_add,
-            txt_hdn_vitri_add,txt_hdn_quantity_add,
-            txt_hdn_free_add,txt_hdn_ngayNhap_add, txt_hdn_descriptions_add;
+    TextInputEditText txt_hdn_maHDN_add, txt_hdn_name_add, txt_hdn_productType_add, txt_hdn_hang_add, txt_hdn_cot_add,
+            txt_hdn_vitri_add, txt_hdn_quantity_add,
+            txt_hdn_free_add, txt_hdn_ngayNhap_add, txt_hdn_descriptions_add;
     FloatingActionButton fla_HDN_entry;
     RecyclerView rcvHDN;
     FragHDN_Adapter fragHDN_adapter;
-    List<HoaDonNhap> listHDN=new ArrayList<>();
+    List<HoaDonNhap> listHDN = new ArrayList<>();
+    Calendar calendar = Calendar.getInstance();
+    SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
 
     @Nullable
     @Override
@@ -80,14 +86,21 @@ public class Frag_HDN_Entry extends Fragment {
                 txt_hdn_descriptions_add = view1.findViewById(R.id.txt_hdn_descriptions_add);
                 AppCompatButton hdn_btn_add = view1.findViewById(R.id.hdn_btn_add);
                 AppCompatButton hdn_btn_close_add = view1.findViewById(R.id.hdn_btn_close_add);
-
                 hdn_btn_add.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        InsertDataHDN();
-//                        InsertData(txt_hdn_name.getText().toString(),txt_hdn_productType.getText().toString(),Integer.parseInt(txt_hdn_quantity.getText().toString()),Integer.parseInt(txt_hdn_free.getText().toString()));
-                        Toast.makeText(getContext(), "Them HDN", Toast.LENGTH_SHORT).show();
-                        dialog.dismiss();
+                        if (txt_hdn_maHDN_add.getText().toString().isEmpty() && txt_hdn_name_add.getText().toString().isEmpty() &&
+                                txt_hdn_productType_add.getText().toString().isEmpty() && txt_hdn_hang_add.getText().toString().isEmpty()
+                                && txt_hdn_cot_add.getText().toString().isEmpty() && txt_hdn_vitri_add.getText().toString().isEmpty()
+                                && txt_hdn_free_add.getText().toString().isEmpty() && txt_hdn_quantity_add.getText().toString().isEmpty()
+                                && txt_hdn_ngayNhap_add.getText().toString().isEmpty() && txt_hdn_descriptions_add.getText().toString().isEmpty()) {
+                            Toast.makeText(getContext(), "Dữ liệu không được để trống", Toast.LENGTH_SHORT).show();
+                        }else {
+                            InsertDataHDN();
+                            Toast.makeText(getContext(), "Them HDN", Toast.LENGTH_SHORT).show();
+                            dialog.dismiss();
+                        }
+
                     }
                 });
 
@@ -107,6 +120,8 @@ public class Frag_HDN_Entry extends Fragment {
 
     public void InsertDataHDN() {
         HoaDonNhap hoaDonNhap = new HoaDonNhap();
+        String datatime = format.format(calendar.getTime());
+
         hoaDonNhap.setMaHoaDonNhap(txt_hdn_maHDN_add.getText().toString());
         hoaDonNhap.setTenSP(txt_hdn_name_add.getText().toString());
         hoaDonNhap.setLoaiSP(txt_hdn_productType_add.getText().toString());
@@ -115,14 +130,14 @@ public class Frag_HDN_Entry extends Fragment {
         hoaDonNhap.setViTri(txt_hdn_vitri_add.getText().toString());
         hoaDonNhap.setDonGia(Integer.parseInt(txt_hdn_free_add.getText().toString()));
         hoaDonNhap.setSoLuong(Integer.parseInt(txt_hdn_quantity_add.getText().toString()));
-        hoaDonNhap.setNgayNhap(txt_hdn_ngayNhap_add.getText().toString());
+        hoaDonNhap.setNgayNhap(String.format(datatime,txt_hdn_ngayNhap_add.getText().toString()));
         hoaDonNhap.setMoTa(txt_hdn_descriptions_add.getText().toString());
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://agile-server-beco.herokuapp.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         ApiInterface apiInterface = retrofit.create(ApiInterface.class);
-        Call<HoaDonNhap> call= apiInterface.postHDN(hoaDonNhap);
+        Call<HoaDonNhap> call = apiInterface.postHDN(hoaDonNhap);
         call.enqueue(new Callback<HoaDonNhap>() {
             @Override
             public void onResponse(Call<HoaDonNhap> call, Response<HoaDonNhap> response) {
@@ -138,13 +153,14 @@ public class Frag_HDN_Entry extends Fragment {
             }
         });
     }
+
     public void GetDataHDN() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://agile-server-beco.herokuapp.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         ApiInterface apiInterface = retrofit.create(ApiInterface.class);
-        Call<List<HoaDonNhap>> call= apiInterface.getHDN();
+        Call<List<HoaDonNhap>> call = apiInterface.getHDN();
         call.enqueue(new Callback<List<HoaDonNhap>>() {
             @Override
             public void onResponse(Call<List<HoaDonNhap>> call, Response<List<HoaDonNhap>> response) {

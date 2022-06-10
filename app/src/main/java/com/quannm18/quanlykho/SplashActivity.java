@@ -1,6 +1,8 @@
 package com.quannm18.quanlykho;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ProgressBar;
@@ -17,23 +19,24 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        prog();
+        progressBar.setMax(100);
+        progressBar.setSecondaryProgress(40);
+        CountDownTimer cdt = new CountDownTimer(3000,100) {
+            @Override
+            public void onTick(long l) {
+                progressBar.setProgress(counter);
+                counter++;
+                progressBar.setProgress(Integer.parseInt(String.valueOf(l/10)));
+            }
+
+            @Override
+            public void onFinish() {
+            }
+        }.start();
     }
 
-    private void prog() {
-        progressBar=findViewById(R.id.progressBar);
-        final Timer t=new Timer();
-        TimerTask task=new TimerTask() {
-            @Override
-            public void run() {
-                counter++;
-                progressBar.setProgress(counter);
-                if(counter==100){
-                    t.cancel();
-                }
-            }
-        };
-        t.schedule(task,0,100);
-    }
+
 }

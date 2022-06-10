@@ -57,7 +57,6 @@ public class FragHDX_Adapter extends RecyclerView.Adapter<FragHDX_Adapter.FragHD
     public void onBindViewHolder(@NonNull FragHDX_Adapter.FragHDXHolder holder, int position) {
         hoaDonXuat = listHDX.get(position);
         holder.hdx_txt_maHDX.setText(hoaDonXuat.getMaHDX());
-        holder.hdx_txt_ngayNhap.setText(hoaDonXuat.getNgayNhap());
         holder.hdx_txt_ngayXuat.setText(hoaDonXuat.getNgayXuat());
         holder.hdx_txt_thanhtien.setText(hoaDonXuat.getThanhTien() + "");
         holder.hdx_txt_trangthai.setText(hoaDonXuat.getTrangThai());
@@ -73,7 +72,7 @@ public class FragHDX_Adapter extends RecyclerView.Adapter<FragHDX_Adapter.FragHD
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 dialog.show();
                 String maHDX = holder.hdx_txt_maHDX.getText().toString();
-                String ngayNhap = holder.hdx_txt_ngayNhap.getText().toString();
+//                String ngayNhap = holder.hdx_txt_ngayNhap.getText().toString();
                 String ngayXuat = holder.hdx_txt_ngayXuat.getText().toString();
                 int thanhTien = Integer.parseInt(holder.hdx_txt_thanhtien.getText().toString());
                 String trangThai = holder.hdx_txt_trangthai.getText().toString();
@@ -81,7 +80,7 @@ public class FragHDX_Adapter extends RecyclerView.Adapter<FragHDX_Adapter.FragHD
 
 
                 TextView hdx_tv_maHDX_CT = view1.findViewById(R.id.hdx_tv_maHDX_CT);
-                TextView hdx_tv_ngayNhap_CT = view1.findViewById(R.id.hdx_tv_ngayNhap_CT);
+//                TextView hdx_tv_ngayNhap_CT = view1.findViewById(R.id.hdx_tv_ngayNhap_CT);
                 TextView hdx_tv_ngayXuat_CT = view1.findViewById(R.id.hdx_tv_ngayXuat_CT);
                 TextView hdx_tv_product_CT = view1.findViewById(R.id.hdx_tv_product_CT);
                 TextView hdx_tv_trangthai_CT = view1.findViewById(R.id.hdx_tv_trangthai_CT);
@@ -91,7 +90,7 @@ public class FragHDX_Adapter extends RecyclerView.Adapter<FragHDX_Adapter.FragHD
                 AppCompatButton hdx_btn_close_CT = view1.findViewById(R.id.hdx_btn_close_CT);
 
                 hdx_tv_maHDX_CT.setText(maHDX);
-                hdx_tv_ngayNhap_CT.setText(ngayNhap);
+//                hdx_tv_ngayNhap_CT.setText(ngayNhap);
                 hdx_tv_ngayXuat_CT.setText(ngayXuat);
                 hdx_tv_product_CT.setText(thanhTien + "");
                 hdx_tv_trangthai_CT.setText(trangThai);
@@ -111,9 +110,21 @@ public class FragHDX_Adapter extends RecyclerView.Adapter<FragHDX_Adapter.FragHD
         });
         holder.cv_hdx_CT.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
-            public boolean onLongClick(View view1) {
-                listHDX.clear();
-//                listHDX.
+            public boolean onLongClick(View view) {
+                AlertDialog.Builder builder1 = new AlertDialog.Builder(view.getContext());
+                View view1 = LayoutInflater.from(view.getContext()).inflate(R.layout.custom_delete, null);
+                builder1.setView(view1);
+                AlertDialog alertDialog1 = builder1.create();
+                alertDialog1.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                alertDialog1.show();
+                AppCompatButton button = view1.findViewById(R.id.btn_delete);
+                button.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        deleteHDX();
+                        alertDialog1.dismiss();
+                    }
+                });
                 return true;
             }
         });
@@ -135,7 +146,6 @@ public class FragHDX_Adapter extends RecyclerView.Adapter<FragHDX_Adapter.FragHD
             super(itemView);
             hdx_tv_maHDX_CT = itemView.findViewById(R.id.hdx_tv_maHDX_CT);
             hdx_txt_maHDX = itemView.findViewById(R.id.hdx_txt_maHDX);
-            hdx_txt_ngayNhap = itemView.findViewById(R.id.hdx_txt_ngayNhap);
             hdx_txt_ngayXuat = itemView.findViewById(R.id.hdx_txt_ngayXuat);
             hdx_txt_thanhtien = itemView.findViewById(R.id.hdx_txt_thanhtien);
             hdx_txt_trangthai = itemView.findViewById(R.id.hdx_txt_trangthai);
@@ -146,39 +156,47 @@ public class FragHDX_Adapter extends RecyclerView.Adapter<FragHDX_Adapter.FragHD
         }
     }
 
-    private List<HoaDonXuat> deleteHDX(Context context) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle("Are you sure?");
-        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+
+    private void deleteHDX() {
+        ApiInterface.ApiInterface.deleteHDX(hoaDonXuat.getId()).enqueue(new Callback<String>() {
             @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                List<HoaDonXuat> hdxList = new ArrayList<>();
-                ApiInterface.ApiInterface.deleteHDX(hoaDonXuat.getId()).enqueue(new Callback<List<HoaDonXuat>>() {
-                    @Override
-                    public void onResponse(Call<List<HoaDonXuat>> call, Response<List<HoaDonXuat>> response) {
-                        List<HoaDonXuat> list = response.body();
-                        for (HoaDonXuat hoaDonXuat : list) {
-                            hdxList.add(hoaDonXuat);
-                            notifyDataSetChanged();
-                        }
-                    }
-                    @Override
-                    public void onFailure(Call<List<HoaDonXuat>> call, Throwable t) {
-
-                    }
-                });
-                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-
-                    }
-                });
-
-                AlertDialog dialog = builder.create();
-                dialog.show();
+            public void onResponse(Call<String> call, Response<String> response) {
+                listHDX.clear();
+                GetDataHDX();
+                notifyDataSetChanged();
+                Toast.makeText(context, "Xoa thanh cong", Toast.LENGTH_SHORT).show();
             }
 
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+                listHDX.clear();
+                GetDataHDX();
+                notifyDataSetChanged();
+            }
         });
-        return listHDX;
+    }
+    public void GetDataHDX() {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://agile-server-beco.herokuapp.com/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        ApiInterface apiInterface = retrofit.create(ApiInterface.class);
+        Call<List<HoaDonXuat>> call = apiInterface.getHDX();
+        call.enqueue(new Callback<List<HoaDonXuat>>() {
+            @Override
+            public void onResponse(Call<List<HoaDonXuat>> call, Response<List<HoaDonXuat>> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    listHDX.addAll(response.body());
+                    notifyDataSetChanged();
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<HoaDonXuat>> call, Throwable t) {
+                Toast.makeText(context, "Loi api HDX getall", Toast.LENGTH_SHORT).show();
+
+            }
+        });
     }
 }
