@@ -119,18 +119,17 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_bill"
-            android:layout_width="142dp"
-            android:layout_height="226dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginLeft="30dp"
             android:layout_marginEnd="14dp"
-            android:background="@drawable/custom_btn_bill_home"
+            android:background="@drawable/btn_home_nv_left"
             android:fontFamily="@font/sen_bold"
             android:gravity="center"
             android:textAllCaps="false"
             android:text="Bill"
             android:textSize="32dp"
-
             android:textStyle="bold"
             app:backgroundTint="@null"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -141,13 +140,13 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_depot"
-            android:layout_width="142dp"
-            android:layout_height="226dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:textAllCaps="false"
             android:layout_gravity="center"
             android:layout_marginStart="14dp"
             android:layout_marginRight="30dp"
-            android:background="@drawable/custom_btn_depot_home"
+            android:background="@drawable/btn_home_nv_right"
             android:fontFamily="@font/sen_bold"
             android:gravity="center"
             android:text="Depot"

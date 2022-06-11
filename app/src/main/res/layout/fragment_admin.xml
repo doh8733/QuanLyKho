@@ -122,9 +122,9 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_bill_admin"
-                android:layout_width="160dp"
+                android:layout_width="wrap_content"
                 android:textAllCaps="false"
-                android:layout_height="160dp"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:background="@drawable/btn_top_left"
@@ -174,7 +174,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnempoloyee"
-                android:layout_width="160dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
@@ -182,7 +182,6 @@
                 android:fontFamily="@font/sen_bold"
                 android:text="Employee"
                 android:textAllCaps="false"
-
                 android:textSize="24sp"
                 android:textStyle="bold"
                 app:backgroundTint="@null" />
