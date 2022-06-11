@@ -125,75 +125,75 @@
                     android:textSize="16sp" />
 
             </LinearLayout>
-            <LinearLayout
-                android:weightSum="3"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1.3"
-                    android:gravity="left"
-                    android:fontFamily="@font/sen_bold"
-                    android:text="Row: "
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_marginBottom="2dp"
-                    android:textColor="#000000"
-                    android:textSize="16sp" />
-                <TextView
-                    android:id="@+id/hdn_txt_hang"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_marginBottom="2dp"
-                    android:layout_weight="1.7"
-                    android:gravity="left"
-                    android:fontFamily="@font/sen_regular"
-                    android:text="Hang: "
-                    android:textColor="#000000"
-                    android:textSize="16sp" />
-            </LinearLayout>
-            <LinearLayout
-                android:weightSum="3"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1.3"
-                    android:gravity="left"
-                    android:fontFamily="@font/sen_bold"
-                    android:text="Column: "
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_marginBottom="2dp"
-                    android:textColor="#000000"
-                    android:textSize="16sp" />
-                <TextView
-                    android:id="@+id/hdn_txt_cot"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_marginBottom="2dp"
-                    android:layout_weight="1.7"
-                    android:gravity="left"
-                    android:text="Cot: "
-                    android:fontFamily="@font/sen_regular"
-                    android:textColor="#000000"
-                    android:textSize="16sp" />
+<!--            <LinearLayout-->
+<!--                android:weightSum="3"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="48dp"-->
+<!--                android:orientation="horizontal">-->
+<!--                <TextView-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1.3"-->
+<!--                    android:gravity="left"-->
+<!--                    android:fontFamily="@font/sen_bold"-->
+<!--                    android:text="Row: "-->
+<!--                    android:layout_marginLeft="16dp"-->
+<!--                    android:layout_marginTop="12dp"-->
+<!--                    android:layout_marginRight="16dp"-->
+<!--                    android:layout_marginBottom="2dp"-->
+<!--                    android:textColor="#000000"-->
+<!--                    android:textSize="16sp" />-->
+<!--                <TextView-->
+<!--                    android:id="@+id/hdn_txt_hang"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_alignParentLeft="true"-->
+<!--                    android:layout_alignParentTop="true"-->
+<!--                    android:layout_marginTop="12dp"-->
+<!--                    android:layout_marginRight="16dp"-->
+<!--                    android:layout_marginBottom="2dp"-->
+<!--                    android:layout_weight="1.7"-->
+<!--                    android:gravity="left"-->
+<!--                    android:fontFamily="@font/sen_regular"-->
+<!--                    android:text="Hang: "-->
+<!--                    android:textColor="#000000"-->
+<!--                    android:textSize="16sp" />-->
+<!--            </LinearLayout>-->
+<!--            <LinearLayout-->
+<!--                android:weightSum="3"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="48dp"-->
+<!--                android:orientation="horizontal">-->
+<!--                <TextView-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1.3"-->
+<!--                    android:gravity="left"-->
+<!--                    android:fontFamily="@font/sen_bold"-->
+<!--                    android:text="Column: "-->
+<!--                    android:layout_marginLeft="16dp"-->
+<!--                    android:layout_marginTop="12dp"-->
+<!--                    android:layout_marginRight="16dp"-->
+<!--                    android:layout_marginBottom="2dp"-->
+<!--                    android:textColor="#000000"-->
+<!--                    android:textSize="16sp" />-->
+<!--                <TextView-->
+<!--                    android:id="@+id/hdn_txt_cot"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_alignParentLeft="true"-->
+<!--                    android:layout_alignParentTop="true"-->
+<!--                    android:layout_marginTop="12dp"-->
+<!--                    android:layout_marginRight="16dp"-->
+<!--                    android:layout_marginBottom="2dp"-->
+<!--                    android:layout_weight="1.7"-->
+<!--                    android:gravity="left"-->
+<!--                    android:text="Cot: "-->
+<!--                    android:fontFamily="@font/sen_regular"-->
+<!--                    android:textColor="#000000"-->
+<!--                    android:textSize="16sp" />-->
 
-            </LinearLayout>
+<!--            </LinearLayout>-->
 
             <LinearLayout
                 android:weightSum="3"

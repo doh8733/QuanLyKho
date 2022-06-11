@@ -3,8 +3,11 @@ package com.quannm18.quanlykho.Adapter;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,10 +20,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputLayout;
+import com.quannm18.quanlykho.API.GetListPosition;
+import com.quannm18.quanlykho.ChooseDepotActivity;
 import com.quannm18.quanlykho.Interface.GetDepot;
 import com.quannm18.quanlykho.Model.KhoHangModel;
+import com.quannm18.quanlykho.Model.Position;
+import com.quannm18.quanlykho.Model.PostionStatus;
 import com.quannm18.quanlykho.POST.CallApi;
 import com.quannm18.quanlykho.R;
+import com.quannm18.quanlykho.TongQuatKhoActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,7 +60,7 @@ public class DepotAdapter extends RecyclerView.Adapter<DepotAdapter.KhoViewholde
     private MaterialButton btnEdit;
     private MaterialButton btnCloseEdit;
     private KhoHangModel updateKhoHang = new KhoHangModel();
-
+    private List<Position> checkListEmpty;
     public DepotAdapter(Context context, List<KhoHangModel> listKho) {
         this.listKho = listKho;
     }
@@ -71,6 +79,7 @@ public class DepotAdapter extends RecyclerView.Adapter<DepotAdapter.KhoViewholde
 
         final KhoHangModel depot = listKho.get(post);
         context = holder.itemView.getContext();
+        getListPos(context, depot.get_id());
         holder.tvName.setText(String.valueOf(depot.getName()));
         holder.tvRow.setText(String.valueOf(depot.getRow()));
         holder.tvFloors.setText(String.valueOf(depot.getFloors()));
@@ -81,8 +90,8 @@ public class DepotAdapter extends RecyclerView.Adapter<DepotAdapter.KhoViewholde
             @Override
             public boolean onLongClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
-                builder.setTitle("Xoa");
-                builder.setMessage("ban cho chac muon xoa" + depot.get_id());
+                builder.setTitle("Delete");
+                builder.setMessage("Are you deleting" + depot.get_id());
                 builder.setPositiveButton("yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
@@ -109,79 +118,62 @@ public class DepotAdapter extends RecyclerView.Adapter<DepotAdapter.KhoViewholde
         holder.layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
-                View v = LayoutInflater.from(view.getContext()).inflate(R.layout.dialog_edit_depot, null);
-                builder.setView(v);
-                alertDialog = builder.create();
-                alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+//                Intent intent = new Intent(view.getContext(), ChooseDepotActivity.class);
+//                Bundle bundle = new Bundle();
+//                bundle.putSerializable("kho",depot);
+//                intent.putExtra("kho",bundle);
+//                view.getContext().startActivity(intent);
+                AlertDialog.Builder checkingDialog = new AlertDialog.Builder(view.getContext());
+                checkingDialog.setMessage("Checking...");
+                alertDialog = checkingDialog.create();
 
-
-                tilEditNameWarehouse = (TextInputLayout) v.findViewById(R.id.tilEditNameWarehouse);
-                tilEditRow = (TextInputLayout) v.findViewById(R.id.tilEditRow);
-                tilEditFloors = (TextInputLayout) v.findViewById(R.id.tilEditFloors);
-                tilEditPosition = (TextInputLayout) v.findViewById(R.id.tilEditPosition);
-                tilEditDescription = (TextInputLayout) v.findViewById(R.id.tilEditDescription);
-                btnEdit = (MaterialButton) v.findViewById(R.id.btnEdit);
-                btnCloseEdit = (MaterialButton) v.findViewById(R.id.btnCloseEdit);
-                tilEditNameWarehouse.getEditText().setText(depot.getName());
-                tilEditRow.getEditText().setText(depot.getRow());
-                tilEditFloors.getEditText().setText(depot.getFloors());
-                tilEditPosition.getEditText().setText(depot.getPosition());
-                tilEditDescription.getEditText().setText(depot.getDescription());
-
-                Toast.makeText(context, depot.get_id(), Toast.LENGTH_SHORT).show();
-
-
-                btnEdit.setOnClickListener(new View.OnClickListener() {
+                alertDialog.show();
+                CountDownTimer cdt1 = new CountDownTimer(3000,2000) {
                     @Override
-                    public void onClick(View view) {
-                        String _id = depot.get_id();
-                        String name = tilEditNameWarehouse.getEditText().getText().toString();
-                        String row = tilEditRow.getEditText().getText().toString();
-                        String floors = tilEditFloors.getEditText().getText().toString();
-                        String position = tilEditPosition.getEditText().getText().toString();
-                        String description = tilEditDescription.getEditText().getText().toString();
-                        if (name.trim().isEmpty()) {
-                            tilEditNameWarehouse.setError("Vui lòng không để trắng thông tin!!!");
-                            return;
-                        } else {
-                            tilEditNameWarehouse.setErrorEnabled(false);
-                        }
-                        if (row.trim().isEmpty()) {
-                            tilEditRow.setError("Vui lòng không để trắng thông tin!!!");
-                            return;
-                        } else {
-                            tilEditRow.setErrorEnabled(false);
-                        }
-                        if (floors.trim().isEmpty()) {
-                            tilEditFloors.setError("Vui lòng không để trắng thông tin!!!");
-                            return;
-                        } else {
-                            tilEditFloors.setErrorEnabled(false);
-                        }
-                        if (position.trim().isEmpty()) {
-                            tilEditPosition.setError("Vui lòng không để trắng thông tin!!!");
-                            return;
-                        } else {
-                            tilEditPosition.setErrorEnabled(false);
-                        }
-                        if (description.trim().isEmpty()) {
-                            tilEditDescription.setError("Vui lòng không để trắng thông tin!!!");
-                            return;
-                        } else {
-                            tilEditDescription.setErrorEnabled(false);
-                        }
-
-                        CallApi callApi = new CallApi();
-                        callApi.Update_Depot(context, new KhoHangModel(_id, name, row, floors, position, description));
-                        listKho.clear();
-                        listKho = getAllDaTa(view.getContext());
-                        notifyDataSetChanged();
-                        alertDialog.dismiss();
+                    public void onTick(long l) {
+                        getListPos(view.getContext(), depot.get_id());
                     }
 
-                });
-                alertDialog.show();
+                    @Override
+                    public void onFinish() {
+                        alertDialog.dismiss();
+                        if (status!=null){
+                            if (status.equals("Data not found")){
+//                            if (checkListEmpty.size()==0){
+                                AlertDialog.Builder waitingDialog = new AlertDialog.Builder(view.getContext());
+                                waitingDialog.setMessage("Waiting a minute...");
+                                alertDialog = waitingDialog.create();
+                                alertDialog.show();
+
+                                CountDownTimer cdt = new CountDownTimer(3000,2000) {
+                                    @Override
+                                    public void onTick(long l) {
+                                        createPos(view.getContext(), depot.get_id());
+                                    }
+
+                                    @Override
+                                    public void onFinish() {
+                                        alertDialog.dismiss();
+                                        Intent i = new Intent(view.getContext(), ChooseDepotActivity.class);
+                                        Bundle bundle = new Bundle();
+                                        bundle.putSerializable("depot",depot);
+                                        i.putExtra("depot",bundle);
+                                        view.getContext().startActivity(i);
+                                    }
+                                }.start();
+//                            }
+                            }else {
+                                alertDialog.dismiss();
+                                Intent i = new Intent(view.getContext(), ChooseDepotActivity.class);
+                                Bundle bundle = new Bundle();
+                                bundle.putSerializable("depot",depot);
+                                i.putExtra("depot",bundle);
+                                view.getContext().startActivity(i);
+                            }
+                        }
+                    }
+                }.start();
+
             }
 
         });
@@ -189,31 +181,31 @@ public class DepotAdapter extends RecyclerView.Adapter<DepotAdapter.KhoViewholde
 
     }
 
-    public List<KhoHangModel> getAllDaTa(Context context) {
-        List<KhoHangModel> khoHangModelList = new ArrayList<>();
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://agile-server-beco.herokuapp.com/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        GetDepot getDepot = retrofit.create(GetDepot.class);
-        Call<List<KhoHangModel>> call = getDepot.getKho();
-        call.enqueue(new Callback<List<KhoHangModel>>() {
-            @Override
-            public void onResponse(Call<List<KhoHangModel>> call, Response<List<KhoHangModel>> response) {
-                List<KhoHangModel> lisdepot = response.body();
-                for (KhoHangModel khoHangModel : lisdepot) {
-                    khoHangModelList.add(khoHangModel);
-                }
-                notifyDataSetChanged();
-            }
-
-            @Override
-            public void onFailure(Call<List<KhoHangModel>> call, Throwable t) {
-                Toast.makeText(context.getApplicationContext(), "Loi", Toast.LENGTH_SHORT).show();
-            }
-        });
-        return khoHangModelList;
-    }
+//    public List<KhoHangModel> getAllDaTa(Context context) {
+//        List<KhoHangModel> khoHangModelList = new ArrayList<>();
+//        Retrofit retrofit = new Retrofit.Builder()
+//                .baseUrl("https://agile-server-beco.herokuapp.com/")
+//                .addConverterFactory(GsonConverterFactory.create())
+//                .build();
+//        GetDepot getDepot = retrofit.create(GetDepot.class);
+//        Call<List<KhoHangModel>> call = getDepot.getKho();
+//        call.enqueue(new Callback<List<KhoHangModel>>() {
+//            @Override
+//            public void onResponse(Call<List<KhoHangModel>> call, Response<List<KhoHangModel>> response) {
+//                List<KhoHangModel> lisdepot = response.body();
+//                for (KhoHangModel khoHangModel : lisdepot) {
+//                    khoHangModelList.add(khoHangModel);
+//                }
+//                notifyDataSetChanged();
+//            }
+//
+//            @Override
+//            public void onFailure(Call<List<KhoHangModel>> call, Throwable t) {
+//                Toast.makeText(context.getApplicationContext(), "Loi", Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//        return khoHangModelList;
+//    }
 
     @Override
     public int getItemCount() {
@@ -243,4 +235,42 @@ public class DepotAdapter extends RecyclerView.Adapter<DepotAdapter.KhoViewholde
 
         }
     }
+    void createPos(Context context, String id){
+        GetListPosition.getListPosition.postCreatePosition(id).enqueue(new Callback<PostionStatus>() {
+            @Override
+            public void onResponse(Call<PostionStatus> call, Response<PostionStatus> response) {
+                final  PostionStatus pos = response.body();
+                Toast.makeText(context, ""+pos.getStatus(), Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(Call<PostionStatus> call, Throwable t) {
+                Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    String getListPos(Context context, String id){
+
+        GetListPosition.getListPosition.postGetListPosition(id).enqueue(new Callback<List<Position>>() {
+            @Override
+            public void onResponse(Call<List<Position>> call, Response<List<Position>> response) {
+                List<Position> poss = response.body();
+                if (poss.size()!=0) {
+//                    Toast.makeText(context, "Have data", Toast.LENGTH_SHORT).show();
+                    status = "Have data";
+                }else {
+//                    Toast.makeText(context, "Data not found", Toast.LENGTH_SHORT).show();
+                    status = "Data not found";
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Position>> call, Throwable t) {
+                Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
+            }
+        });
+        return status;
+    }
+    String status;
 }

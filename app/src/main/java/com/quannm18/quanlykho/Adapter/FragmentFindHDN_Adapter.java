@@ -51,8 +51,8 @@ public class FragmentFindHDN_Adapter extends RecyclerView.Adapter<FragmentFindHD
         holder.hdn_txt_maHDN.setText( hoaDonNhap.getMaHoaDonNhap());
         holder.hdn_txt_product.setText( hoaDonNhap.getTenSP());
         holder.hdn_txt_product_type.setText( hoaDonNhap.getLoaiSP());
-        holder.hdn_txt_hang.setText( hoaDonNhap.getHang());
-        holder.hdn_txt_cot.setText( hoaDonNhap.getCot());
+//        holder.hdn_txt_hang.setText( hoaDonNhap.getHang());
+//        holder.hdn_txt_cot.setText( hoaDonNhap.getCot());
         holder.hdn_txt_vitri.setText(hoaDonNhap.getViTri());
         holder.hdn_txt_quantity.setText( String.valueOf(hoaDonNhap.getSoLuong()));
         holder.hdn_txt_ngayNhap.setText(hoaDonNhap.getNgayNhap());
@@ -68,7 +68,7 @@ public class FragmentFindHDN_Adapter extends RecyclerView.Adapter<FragmentFindHD
     }
 
     public class FragHDNHolder extends RecyclerView.ViewHolder {
-        TextView hdn_txt_maHDN,hdn_txt_product, hdn_txt_product_type, hdn_txt_hang, hdn_txt_cot, hdn_txt_vitri, hdn_txt_quantity, hdn_txt_ngayNhap,
+        TextView hdn_txt_maHDN,hdn_txt_product, hdn_txt_product_type,  hdn_txt_vitri, hdn_txt_quantity, hdn_txt_ngayNhap,
                 hdn_txt_free, hdn_txt_descriptions;
         CardView cv_hdn_CT;
 
@@ -77,8 +77,8 @@ public class FragmentFindHDN_Adapter extends RecyclerView.Adapter<FragmentFindHD
             hdn_txt_maHDN = itemView.findViewById(R.id.hdn_txt_maHDN);
             hdn_txt_product = itemView.findViewById(R.id.hdn_txt_product);
             hdn_txt_product_type = itemView.findViewById(R.id.hdn_txt_product_type);
-            hdn_txt_hang = itemView.findViewById(R.id.hdn_txt_hang);
-            hdn_txt_cot = itemView.findViewById(R.id.hdn_txt_cot);
+//            hdn_txt_hang = itemView.findViewById(R.id.hdn_txt_hang);
+//            hdn_txt_cot = itemView.findViewById(R.id.hdn_txt_cot);
             hdn_txt_vitri = itemView.findViewById(R.id.hdn_txt_vitri);
             hdn_txt_quantity = itemView.findViewById(R.id.hdn_txt_quantity);
             hdn_txt_ngayNhap = itemView.findViewById(R.id.hdn_txt_ngayNhap);

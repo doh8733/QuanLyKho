@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.ActionBar;
@@ -32,6 +33,8 @@ public class Activity_HoaDon extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hoa_don);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         tabLayout =findViewById(R.id.tabLayout_HDN);
         viewPager2 =findViewById(R.id.viewPager_HD);
         toolbar = findViewById(R.id.toolbar_HDN);

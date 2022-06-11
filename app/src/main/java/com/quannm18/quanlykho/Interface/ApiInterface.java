@@ -28,7 +28,7 @@ public interface ApiInterface {
             .build()
             .create(ApiInterface.class);
 
-    @POST("add")
+    @POST("add/ware")
     Call<HoaDonNhap> postHDN(@Body HoaDonNhap HDN);
     @GET("warehouse")
     Call<List<HoaDonNhap>>  getHDN();

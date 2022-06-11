@@ -3,7 +3,9 @@ package com.quannm18.quanlykho.Model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class KhoHangModel {
+import java.io.Serializable;
+
+public class KhoHangModel implements Serializable {
 
     @SerializedName("_id")
     private String _id;

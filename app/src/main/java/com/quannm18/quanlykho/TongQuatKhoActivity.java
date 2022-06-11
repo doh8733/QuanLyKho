@@ -9,6 +9,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -56,6 +57,7 @@ public class TongQuatKhoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tong_quat_kho);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
 
         imvBack = (ImageView) findViewById(R.id.imv_back);
@@ -181,26 +183,9 @@ public class TongQuatKhoActivity extends AppCompatActivity {
         imvBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                SharedPreferences sdf = getSharedPreferences("USER_FILE", MODE_PRIVATE);
-//                String name = sdf.getString("USER", "");
-//                if (name.equalsIgnoreCase("admin")) {
-//                    Intent intent = new Intent(TongQuatKhoActivity.this, AdminActivity.class);
-//                    startActivity(intent);
-//                } else {
-//                    Intent intent = new Intent(TongQuatKhoActivity.this, NhanVienActivity.class);
-//                    startActivity(intent);
-//                }
-
                 finish();
             }
         });
-//        imVFind.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(TongQuatKhoActivity.this, FindActivity.class);
-//                startActivity(intent);
-//            }
-//        });
 
     }
 
