@@ -10,15 +10,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.textfield.TextInputLayout;
 import com.quannm18.quanlykho.Activity_HoaDon;
 import com.quannm18.quanlykho.Adapter.CatergoryAdapterSpn;
+import com.quannm18.quanlykho.FindBillActivity;
 import com.quannm18.quanlykho.Model.Category;
 import com.quannm18.quanlykho.R;
 import com.quannm18.quanlykho.TongQuatKhoActivity;
@@ -34,6 +38,11 @@ public class AdminFragment extends Fragment {
     private MaterialButton btnBillAdmin;
     private MaterialButton btnFinance;
     private MaterialButton btnempoloyee;
+    private TextInputLayout tilFind;
+    private TextView tvhello;
+    private TextView tvName;
+    private CardView profileImage;
+    private MaterialButton imvDepot;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -46,8 +55,14 @@ public class AdminFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+
+        tilFind = (TextInputLayout) view.findViewById(R.id.tilFind);
+        tvhello = (TextView) view.findViewById(R.id.tvhello);
+        tvName = (TextView) view.findViewById(R.id.tvName);
+        profileImage = (CardView) view.findViewById(R.id.profile_image);
+
         btnBillAdmin = (MaterialButton) view.findViewById(R.id.btn_bill_admin);
-        btnDepot = (MaterialButton) view.findViewById(R.id.imvDepot);
+        btnDepot = (MaterialButton) view.findViewById(R.id.btnDepot);
         btnFinance = (MaterialButton) view.findViewById(R.id.btnFinance);
         btnempoloyee = (MaterialButton) view.findViewById(R.id.btnempoloyee);
 
@@ -65,7 +80,18 @@ public class AdminFragment extends Fragment {
                 startActivity(i);
             }
         });
+        tilFind.getEditText().setEnabled(true);
+        tilFind.getEditText().setTextIsSelectable(true);
+        tilFind.getEditText().setFocusable(false);
+        tilFind.getEditText().setFocusableInTouchMode(false);
+        tilFind.getEditText().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), FindBillActivity.class);
+                startActivity(intent);
 
+            }
+        });
 
     }
 

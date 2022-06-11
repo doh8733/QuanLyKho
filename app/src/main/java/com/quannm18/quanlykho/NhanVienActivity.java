@@ -27,7 +27,7 @@ public class NhanVienActivity extends AppCompatActivity {
         vpView = findViewById(R.id.vpView);
 
 
-        tilFind = (TextInputLayout) findViewById(R.id.tilFind);
+
 
         setUpViewPager();
         navView.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
@@ -35,27 +35,16 @@ public class NhanVienActivity extends AppCompatActivity {
             public void onNavigationItemReselected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.home:
-                        vpView.setCurrentItem(0);
+                        vpView.setCurrentItem(1);
                         break;
                     case R.id.bill:
-                        vpView.setCurrentItem(1);
+                        vpView.setCurrentItem(0);
                         break;
 
                 }
             }
         });
-        tilFind.getEditText().setEnabled(true);
-        tilFind.getEditText().setTextIsSelectable(true);
-        tilFind.getEditText().setFocusable(false);
-        tilFind.getEditText().setFocusableInTouchMode(false);
-        tilFind.getEditText().setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(NhanVienActivity.this,FindBillActivity.class);
-                startActivity(intent);
 
-            }
-        });
     }
 
     private void setUpViewPager() {

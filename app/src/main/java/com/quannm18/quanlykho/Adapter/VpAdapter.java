@@ -20,8 +20,10 @@ public class VpAdapter extends FragmentStatePagerAdapter {
     @Override
     public Fragment getItem(int position) {
         switch (position){
-            case 1:
+            case 0:
                 return new Frag_HDN_Entry();
+            case 1:
+                return new HomeFragment();
             default:
                 return new HomeFragment();
         }

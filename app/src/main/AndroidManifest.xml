@@ -2,7 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.quannm18.quanlykho">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -14,25 +16,17 @@
         android:theme="@style/Theme.QuanLyKho"
         tools:targetApi="31">
         <activity
-            android:name=".ChooseDepotActivity"
-            android:exported="true" >
-
-        </activity>
-        <activity
             android:name=".LogintestActivity"
             android:exported="true" >
 
         </activity>
         <activity
-            android:name=".FinanceActivity"
+            android:name=".FindBillActivity"
             android:exported="true">
 
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="true" />
-        <activity
-            android:name=".MainActivity2"
             android:exported="true" />
         <activity
             android:name=".Activity_HoaDon"
@@ -42,10 +36,12 @@
             android:exported="true" />
         <activity
             android:name=".Activity_add_new_outlet"
-            android:exported="true" >
-        </activity>
+            android:exported="true" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".SplashActivity"
+            android:exported="true" />
+        <activity
+            android:name=".AdminActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -54,20 +50,20 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SplashActivity"
-            android:exported="true" >
-
-        </activity>
-        <activity
             android:name=".NhanVienActivity"
             android:exported="true" >
 
         </activity>
+
         <activity
-            android:name=".AdminActivity"
+        android:name=".TongQuatKhoActivity"
+        android:exported="true" />
+        <activity
+            android:name=".FindActivity"
             android:exported="true" >
 
         </activity>
+
     </application>
 
 </manifest>

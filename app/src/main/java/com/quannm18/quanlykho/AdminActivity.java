@@ -32,33 +32,21 @@ public class AdminActivity extends AppCompatActivity {
         tvName = findViewById(R.id.tvName);
         SharedPreferences sdf = getSharedPreferences("USER_FILE",MODE_PRIVATE);
 
-        tvName.setText(sdf.getString("USER", ""));
         setUpVpAdmin();
         navadmin.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
             @Override
             public void onNavigationItemReselected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.homead:
-                        vpViewAdmin.setCurrentItem(0);
+                        vpViewAdmin.setCurrentItem(1);
                         break;
                     case R.id.billad:
-                        vpViewAdmin.setCurrentItem(1);
+                        vpViewAdmin.setCurrentItem(0);
                         break;
                 }
             }
         });
-        tilFind.getEditText().setEnabled(true);
-        tilFind.getEditText().setTextIsSelectable(true);
-        tilFind.getEditText().setFocusable(false);
-        tilFind.getEditText().setFocusableInTouchMode(false);
-        tilFind.getEditText().setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(AdminActivity.this,FindBillActivity.class);
-                startActivity(intent);
 
-            }
-        });
 
 
     }

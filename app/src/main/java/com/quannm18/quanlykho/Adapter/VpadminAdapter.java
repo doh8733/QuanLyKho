@@ -18,9 +18,10 @@ public class VpadminAdapter extends FragmentStatePagerAdapter {
     public Fragment getItem(int position) {
        switch (position){
            case 0:
-               return new AdminFragment();
-           case 1:
                return  new Frag_HDN_Entry();
+
+           case 1:
+               return new AdminFragment();
            default:
                return new AdminFragment();
        }
