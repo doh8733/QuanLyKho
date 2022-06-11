@@ -111,53 +111,53 @@
                             android:textSize="20sp" />
                     </com.google.android.material.textfield.TextInputLayout>
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="16dp"
-                        app:boxStrokeWidth="1.5dp"
-                        app:counterMaxLength="20"
-                        app:endIconMode="clear_text"
-                        app:hintTextColor="@color/black"
-                        app:startIconDrawable="@drawable/ic_row"
-                        app:startIconTint="#28BB8E">
+<!--                    <com.google.android.material.textfield.TextInputLayout-->
+<!--                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:layout_marginTop="16dp"-->
+<!--                        app:boxStrokeWidth="1.5dp"-->
+<!--                        app:counterMaxLength="20"-->
+<!--                        app:endIconMode="clear_text"-->
+<!--                        app:hintTextColor="@color/black"-->
+<!--                        app:startIconDrawable="@drawable/ic_row"-->
+<!--                        app:startIconTint="#28BB8E">-->
 
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/txt_hdn_hang_add"
-                            android:layout_width="match_parent"
-                            android:layout_height="52dp"
-                            android:background="@drawable/edit_round"
-                            android:fontFamily="@font/sen_regular"
-                            android:hint="Hang"
-                            android:inputType="text"
-                            android:textColor="@color/black"
-                            android:textSize="20sp" />
-                    </com.google.android.material.textfield.TextInputLayout>
+<!--                        <com.google.android.material.textfield.TextInputEditText-->
+<!--                            android:id="@+id/txt_hdn_hang_add"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="52dp"-->
+<!--                            android:background="@drawable/edit_round"-->
+<!--                            android:fontFamily="@font/sen_regular"-->
+<!--                            android:hint="Hang"-->
+<!--                            android:inputType="text"-->
+<!--                            android:textColor="@color/black"-->
+<!--                            android:textSize="20sp" />-->
+<!--                    </com.google.android.material.textfield.TextInputLayout>-->
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="16dp"
-                        app:boxStrokeWidth="1.5dp"
-                        app:counterMaxLength="20"
-                        app:endIconMode="clear_text"
-                        app:hintTextColor="@color/black"
-                        app:startIconDrawable="@drawable/ic_column"
-                        app:startIconTint="#28BB8E">
+<!--                    <com.google.android.material.textfield.TextInputLayout-->
+<!--                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:layout_marginTop="16dp"-->
+<!--                        app:boxStrokeWidth="1.5dp"-->
+<!--                        app:counterMaxLength="20"-->
+<!--                        app:endIconMode="clear_text"-->
+<!--                        app:hintTextColor="@color/black"-->
+<!--                        app:startIconDrawable="@drawable/ic_column"-->
+<!--                        app:startIconTint="#28BB8E">-->
 
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/txt_hdn_cot_add"
-                            android:layout_width="match_parent"
-                            android:layout_height="52dp"
-                            android:background="@drawable/edit_round"
-                            android:fontFamily="@font/sen_regular"
-                            android:hint="Cot"
-                            android:inputType="text"
-                            android:textColor="@color/black"
-                            android:textSize="20sp" />
-                    </com.google.android.material.textfield.TextInputLayout>
+<!--                        <com.google.android.material.textfield.TextInputEditText-->
+<!--                            android:id="@+id/txt_hdn_cot_add"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="52dp"-->
+<!--                            android:background="@drawable/edit_round"-->
+<!--                            android:fontFamily="@font/sen_regular"-->
+<!--                            android:hint="Cot"-->
+<!--                            android:inputType="text"-->
+<!--                            android:textColor="@color/black"-->
+<!--                            android:textSize="20sp" />-->
+<!--                    </com.google.android.material.textfield.TextInputLayout>-->
 
                     <com.google.android.material.textfield.TextInputLayout
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -202,7 +202,7 @@
                             android:background="@drawable/edit_round"
                             android:fontFamily="@font/sen_regular"
                             android:hint="Quantity"
-                            android:inputType="text"
+                            android:inputType="number"
                             android:textColor="@color/black"
                             android:textSize="20sp" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -226,35 +226,35 @@
                             android:background="@drawable/edit_round"
                             android:fontFamily="@font/sen_regular"
                             android:hint="Free"
-                            android:inputType="text"
+                            android:inputType="number"
                             android:textColor="@color/black"
                             android:textSize="20sp" />
                     </com.google.android.material.textfield.TextInputLayout>
 
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="16dp"
-                        app:boxStrokeWidth="1.5dp"
-                        app:counterMaxLength="20"
-                        app:endIconMode="clear_text"
-                        app:hintTextColor="@color/black"
-                        app:startIconDrawable="@drawable/ic_calendar"
-                        app:startIconTint="#28BB8E">
+<!--                    <com.google.android.material.textfield.TextInputLayout-->
+<!--                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:layout_marginTop="16dp"-->
+<!--                        app:boxStrokeWidth="1.5dp"-->
+<!--                        app:counterMaxLength="20"-->
+<!--                        app:endIconMode="clear_text"-->
+<!--                        app:hintTextColor="@color/black"-->
+<!--                        app:startIconDrawable="@drawable/ic_calendar"-->
+<!--                        app:startIconTint="#28BB8E">-->
 
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/txt_hdn_ngayNhap_add"
-                            android:layout_width="match_parent"
-                            android:layout_height="52dp"
-                            android:background="@drawable/edit_round"
-                            android:fontFamily="@font/sen_regular"
-                            android:hint="Ngay nhap"
-                            android:inputType="text"
-                            android:textColor="@color/black"
-                            android:textSize="20sp" />
-                    </com.google.android.material.textfield.TextInputLayout>
+<!--                        <com.google.android.material.textfield.TextInputEditText-->
+<!--                            android:id="@+id/txt_hdn_ngayNhap_add"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="52dp"-->
+<!--                            android:background="@drawable/edit_round"-->
+<!--                            android:fontFamily="@font/sen_regular"-->
+<!--                            android:hint="Ngay nhap"-->
+<!--                            android:inputType="text"-->
+<!--                            android:textColor="@color/black"-->
+<!--                            android:textSize="20sp" />-->
+<!--                    </com.google.android.material.textfield.TextInputLayout>-->
 
 
                     <com.google.android.material.textfield.TextInputLayout

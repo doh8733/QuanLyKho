@@ -8,10 +8,6 @@ public class HoaDonNhap {
     private String MaHoaDonNhap;
     @SerializedName("LoaiSP")
     private String LoaiSP;
-    @SerializedName("Hang")
-    private String Hang;
-    @SerializedName("Cot")
-    private String Cot;
     @SerializedName("ViTri")
     private String ViTri;
     @SerializedName("TenSP")
@@ -29,11 +25,9 @@ public class HoaDonNhap {
     public HoaDonNhap() {
     }
 
-    public HoaDonNhap(String maHoaDonNhap, String loaiSP, String hang, String cot, String viTri, String tenSP, int soLuong, String ngayNhap, int donGia, String moTa, String id) {
+    public HoaDonNhap(String maHoaDonNhap, String loaiSP, String viTri, String tenSP, int soLuong, String ngayNhap, int donGia, String moTa, String id) {
         MaHoaDonNhap = maHoaDonNhap;
         LoaiSP = loaiSP;
-        Hang = hang;
-        Cot = cot;
         ViTri = viTri;
         TenSP = tenSP;
         SoLuong = soLuong;
@@ -65,22 +59,6 @@ public class HoaDonNhap {
 
     public void setLoaiSP(String loaiSP) {
         LoaiSP = loaiSP;
-    }
-
-    public String getHang() {
-        return Hang;
-    }
-
-    public void setHang(String hang) {
-        Hang = hang;
-    }
-
-    public String getCot() {
-        return Cot;
-    }
-
-    public void setCot(String cot) {
-        Cot = cot;
     }
 
     public String getViTri() {

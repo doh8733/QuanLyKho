@@ -77,12 +77,9 @@ public class Frag_HDN_Entry extends Fragment {
                 txt_hdn_maHDN_add = view1.findViewById(R.id.txt_hdn_maHDN_add);
                 txt_hdn_name_add = view1.findViewById(R.id.txt_hdn_name_add);
                 txt_hdn_productType_add = view1.findViewById(R.id.txt_hdn_productType_add);
-                txt_hdn_hang_add = view1.findViewById(R.id.txt_hdn_hang_add);
-                txt_hdn_cot_add = view1.findViewById(R.id.txt_hdn_cot_add);
                 txt_hdn_vitri_add = view1.findViewById(R.id.txt_hdn_vitri_add);
                 txt_hdn_quantity_add = view1.findViewById(R.id.txt_hdn_quantity_add);
                 txt_hdn_free_add = view1.findViewById(R.id.txt_hdn_free_add);
-                txt_hdn_ngayNhap_add = view1.findViewById(R.id.txt_hdn_ngayNhap_add);
                 txt_hdn_descriptions_add = view1.findViewById(R.id.txt_hdn_descriptions_add);
                 AppCompatButton hdn_btn_add = view1.findViewById(R.id.hdn_btn_add);
                 AppCompatButton hdn_btn_close_add = view1.findViewById(R.id.hdn_btn_close_add);
@@ -90,12 +87,11 @@ public class Frag_HDN_Entry extends Fragment {
                     @Override
                     public void onClick(View view) {
                         if (txt_hdn_maHDN_add.getText().toString().isEmpty() && txt_hdn_name_add.getText().toString().isEmpty() &&
-                                txt_hdn_productType_add.getText().toString().isEmpty() && txt_hdn_hang_add.getText().toString().isEmpty()
-                                && txt_hdn_cot_add.getText().toString().isEmpty() && txt_hdn_vitri_add.getText().toString().isEmpty()
+                                txt_hdn_productType_add.getText().toString().isEmpty() && txt_hdn_vitri_add.getText().toString().isEmpty()
                                 && txt_hdn_free_add.getText().toString().isEmpty() && txt_hdn_quantity_add.getText().toString().isEmpty()
-                                && txt_hdn_ngayNhap_add.getText().toString().isEmpty() && txt_hdn_descriptions_add.getText().toString().isEmpty()) {
+                                && txt_hdn_descriptions_add.getText().toString().isEmpty()) {
                             Toast.makeText(getContext(), "Dữ liệu không được để trống", Toast.LENGTH_SHORT).show();
-                        }else {
+                        } else {
                             InsertDataHDN();
                             Toast.makeText(getContext(), "Them HDN", Toast.LENGTH_SHORT).show();
                             dialog.dismiss();
@@ -125,12 +121,18 @@ public class Frag_HDN_Entry extends Fragment {
         hoaDonNhap.setMaHoaDonNhap(txt_hdn_maHDN_add.getText().toString());
         hoaDonNhap.setTenSP(txt_hdn_name_add.getText().toString());
         hoaDonNhap.setLoaiSP(txt_hdn_productType_add.getText().toString());
-        hoaDonNhap.setHang(txt_hdn_hang_add.getText().toString());
-        hoaDonNhap.setCot(txt_hdn_cot_add.getText().toString());
         hoaDonNhap.setViTri(txt_hdn_vitri_add.getText().toString());
-        hoaDonNhap.setDonGia(Integer.parseInt(txt_hdn_free_add.getText().toString()));
-        hoaDonNhap.setSoLuong(Integer.parseInt(txt_hdn_quantity_add.getText().toString()));
-        hoaDonNhap.setNgayNhap(String.format(datatime,txt_hdn_ngayNhap_add.getText().toString()));
+        try {
+            hoaDonNhap.setDonGia(Integer.parseInt(txt_hdn_free_add.getText().toString()));
+        }catch (Exception e){
+            Toast.makeText(getContext(), "Đơn giá phải là số!!!", Toast.LENGTH_SHORT).show();
+        }
+        try {
+            hoaDonNhap.setSoLuong(Integer.parseInt(txt_hdn_quantity_add.getText().toString()));
+        }catch (Exception e){
+            Toast.makeText(getContext(), "Số lượng phải là số!!!", Toast.LENGTH_SHORT).show();
+        }
+        hoaDonNhap.setNgayNhap(datatime);
         hoaDonNhap.setMoTa(txt_hdn_descriptions_add.getText().toString());
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://agile-server-beco.herokuapp.com/")

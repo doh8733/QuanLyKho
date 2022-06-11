@@ -72,7 +72,6 @@ public class FragHDX_Adapter extends RecyclerView.Adapter<FragHDX_Adapter.FragHD
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 dialog.show();
                 String maHDX = holder.hdx_txt_maHDX.getText().toString();
-//                String ngayNhap = holder.hdx_txt_ngayNhap.getText().toString();
                 String ngayXuat = holder.hdx_txt_ngayXuat.getText().toString();
                 int thanhTien = Integer.parseInt(holder.hdx_txt_thanhtien.getText().toString());
                 String trangThai = holder.hdx_txt_trangthai.getText().toString();
@@ -80,7 +79,6 @@ public class FragHDX_Adapter extends RecyclerView.Adapter<FragHDX_Adapter.FragHD
 
 
                 TextView hdx_tv_maHDX_CT = view1.findViewById(R.id.hdx_tv_maHDX_CT);
-//                TextView hdx_tv_ngayNhap_CT = view1.findViewById(R.id.hdx_tv_ngayNhap_CT);
                 TextView hdx_tv_ngayXuat_CT = view1.findViewById(R.id.hdx_tv_ngayXuat_CT);
                 TextView hdx_tv_product_CT = view1.findViewById(R.id.hdx_tv_product_CT);
                 TextView hdx_tv_trangthai_CT = view1.findViewById(R.id.hdx_tv_trangthai_CT);
@@ -90,7 +88,6 @@ public class FragHDX_Adapter extends RecyclerView.Adapter<FragHDX_Adapter.FragHD
                 AppCompatButton hdx_btn_close_CT = view1.findViewById(R.id.hdx_btn_close_CT);
 
                 hdx_tv_maHDX_CT.setText(maHDX);
-//                hdx_tv_ngayNhap_CT.setText(ngayNhap);
                 hdx_tv_ngayXuat_CT.setText(ngayXuat);
                 hdx_tv_product_CT.setText(thanhTien + "");
                 hdx_tv_trangthai_CT.setText(trangThai);

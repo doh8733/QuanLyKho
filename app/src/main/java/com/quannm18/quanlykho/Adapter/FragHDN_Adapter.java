@@ -63,8 +63,6 @@ public class FragHDN_Adapter extends RecyclerView.Adapter<FragHDN_Adapter.FragHD
         holder.hdn_txt_maHDN.setText(hoaDonNhap.getMaHoaDonNhap());
         holder.hdn_txt_product.setText(hoaDonNhap.getTenSP());
         holder.hdn_txt_product_type.setText(hoaDonNhap.getLoaiSP());
-        holder.hdn_txt_hang.setText(hoaDonNhap.getHang());
-        holder.hdn_txt_cot.setText(hoaDonNhap.getCot());
         holder.hdn_txt_vitri.setText(hoaDonNhap.getViTri());
         holder.hdn_txt_quantity.setText(String.valueOf(hoaDonNhap.getSoLuong()));
         holder.hdn_txt_ngayNhap.setText(hoaDonNhap.getNgayNhap());
@@ -84,8 +82,6 @@ public class FragHDN_Adapter extends RecyclerView.Adapter<FragHDN_Adapter.FragHD
                 dialog.show();
                 String maHDN = holder.hdn_txt_maHDN.getText().toString();
                 String LoaiSP = holder.hdn_txt_product_type.getText().toString();
-                String Hang = holder.hdn_txt_hang.getText().toString();
-                String Cot = holder.hdn_txt_cot.getText().toString();
                 String ViTri = holder.hdn_txt_vitri.getText().toString();
                 String TenSP = holder.hdn_txt_product.getText().toString();
                 int SoLuong = Integer.parseInt(holder.hdn_txt_quantity.getText().toString());
@@ -96,8 +92,6 @@ public class FragHDN_Adapter extends RecyclerView.Adapter<FragHDN_Adapter.FragHD
                 TextView hdn_txt_maHDN_CT = view1.findViewById(R.id.hdn_txt_maHDN_CT);
                 TextView hdn_txt_product_CT = view1.findViewById(R.id.hdn_txt_product_CT);
                 TextView hdn_txt_product_type_CT = view1.findViewById(R.id.hdn_txt_product_type_CT);
-                TextView hdn_txt_hang_CT = view1.findViewById(R.id.hdn_txt_hang_CT);
-                TextView hdn_txt_cot_CT = view1.findViewById(R.id.hdn_txt_cot_CT);
                 TextView hdn_txt_vitri_CT = view1.findViewById(R.id.hdn_txt_vitri_CT);
                 TextView hdn_txt_quantity_CT = view1.findViewById(R.id.hdn_txt_quantity_CT);
                 TextView hdn_txt_ngayNhap_CT = view1.findViewById(R.id.hdn_txt_ngayNhap_CT);
@@ -109,8 +103,6 @@ public class FragHDN_Adapter extends RecyclerView.Adapter<FragHDN_Adapter.FragHD
                 hdn_txt_maHDN_CT.setText(maHDN);
                 hdn_txt_product_CT.setText(TenSP);
                 hdn_txt_product_type_CT.setText(LoaiSP);
-                hdn_txt_hang_CT.setText(Hang);
-                hdn_txt_cot_CT.setText(Cot);
                 hdn_txt_vitri_CT.setText(ViTri);
                 hdn_txt_ngayNhap_CT.setText(NgayNhap);
                 hdn_txt_quantity_CT.setText(SoLuong + "");
@@ -156,7 +148,7 @@ public class FragHDN_Adapter extends RecyclerView.Adapter<FragHDN_Adapter.FragHD
     }
 
     public class FragHDNHolder extends RecyclerView.ViewHolder {
-        TextView hdn_txt_maHDN, hdn_txt_product, hdn_txt_product_type, hdn_txt_hang, hdn_txt_cot, hdn_txt_vitri, hdn_txt_quantity, hdn_txt_ngayNhap,
+        TextView hdn_txt_maHDN, hdn_txt_product, hdn_txt_product_type , hdn_txt_vitri, hdn_txt_quantity, hdn_txt_ngayNhap,
                 hdn_txt_free, hdn_txt_descriptions;
         CardView cv_hdn_CT;
 
@@ -165,8 +157,6 @@ public class FragHDN_Adapter extends RecyclerView.Adapter<FragHDN_Adapter.FragHD
             hdn_txt_maHDN = itemView.findViewById(R.id.hdn_txt_maHDN);
             hdn_txt_product = itemView.findViewById(R.id.hdn_txt_product);
             hdn_txt_product_type = itemView.findViewById(R.id.hdn_txt_product_type);
-            hdn_txt_hang = itemView.findViewById(R.id.hdn_txt_hang);
-            hdn_txt_cot = itemView.findViewById(R.id.hdn_txt_cot);
             hdn_txt_vitri = itemView.findViewById(R.id.hdn_txt_vitri);
             hdn_txt_quantity = itemView.findViewById(R.id.hdn_txt_quantity);
             hdn_txt_ngayNhap = itemView.findViewById(R.id.hdn_txt_ngayNhap);

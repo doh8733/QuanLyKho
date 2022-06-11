@@ -39,7 +39,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Frag_HDX_Outlet extends Fragment {
-    TextInputEditText hdx_maHDX_add,hdx_ngayNhap_add, hdx_ngayXuat_add, hdx_thanhtien_add, hdx_trangthai_add, hdx_descriptions_add;
+    TextInputEditText hdx_maHDX_add, hdx_thanhtien_add, hdx_trangthai_add, hdx_descriptions_add;
     FloatingActionButton fla_HDX_outlet;
     RecyclerView rcvHDX;
     FragHDX_Adapter fragHDX_adapter;
@@ -69,8 +69,6 @@ public class Frag_HDX_Outlet extends Fragment {
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 dialog.show();
                 hdx_maHDX_add = view1.findViewById(R.id.hdx_maHDX_add);
-//                hdx_ngayNhap_add = view1.findViewById(R.id.hdx_ngayNhap_add);
-                hdx_ngayXuat_add = view1.findViewById(R.id.hdx_ngayXuat_add);
                 hdx_thanhtien_add = view1.findViewById(R.id.hdx_thanhtien_add);
                 hdx_trangthai_add = view1.findViewById(R.id.hdx_trangthai_add);
                 hdx_descriptions_add = view1.findViewById(R.id.hdx_descriptions_add);
@@ -80,7 +78,7 @@ public class Frag_HDX_Outlet extends Fragment {
                 hdx_btn_add.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        if (hdx_maHDX_add.getText().toString().isEmpty() && hdx_ngayXuat_add.getText().toString().isEmpty() &&
+                        if (hdx_maHDX_add.getText().toString().isEmpty() &&
                                 hdx_thanhtien_add.getText().toString().isEmpty() && hdx_trangthai_add.getText().toString().isEmpty()
                                 && hdx_descriptions_add.getText().toString().isEmpty() ) {
                             Toast.makeText(getContext(), "Dữ liệu không được để trống", Toast.LENGTH_SHORT).show();
@@ -109,9 +107,13 @@ public class Frag_HDX_Outlet extends Fragment {
         HoaDonXuat hoaDonXuat = new HoaDonXuat();
         String datatime = format.format(calendar.getTime());
         hoaDonXuat.setMaHDX(hdx_maHDX_add.getText().toString());
-//        hoaDonXuat.setNgayNhap(hdx_ngayNhap_add.getText().toString());
-        hoaDonXuat.setNgayXuat(String.format(datatime,hdx_ngayXuat_add.getText().toString()));
-        hoaDonXuat.setThanhTien(Integer.parseInt(hdx_thanhtien_add.getText().toString()));
+        hoaDonXuat.setNgayXuat(datatime);
+        try {
+            hoaDonXuat.setThanhTien(Integer.parseInt(hdx_thanhtien_add.getText().toString()));
+        }catch (Exception e){
+            Toast.makeText(getContext(), "Thành tiền phải là số!!!", Toast.LENGTH_SHORT).show();
+        }
+
         hoaDonXuat.setTrangThai(hdx_trangthai_add.getText().toString());
         hoaDonXuat.setMoTa(hdx_descriptions_add.getText().toString());
 

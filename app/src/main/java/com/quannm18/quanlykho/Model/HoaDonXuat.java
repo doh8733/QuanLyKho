@@ -50,22 +50,6 @@ public class HoaDonXuat {
         MaHDX = maHDX;
     }
 
-    public String getMaHDN() {
-        return MaHDN;
-    }
-
-    public void setMaHDN(String maHDN) {
-        MaHDN = maHDN;
-    }
-
-    public String getNgayNhap() {
-        return NgayNhap;
-    }
-
-    public void setNgayNhap(String ngayNhap) {
-        NgayNhap = ngayNhap;
-    }
-
     public String getNgayXuat() {
         return NgayXuat;
     }
