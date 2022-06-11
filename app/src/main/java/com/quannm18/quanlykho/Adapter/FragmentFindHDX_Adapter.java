@@ -73,7 +73,7 @@ public class FragmentFindHDX_Adapter extends RecyclerView.Adapter<FragmentFindHD
             super(itemView);
             hdx_tv_maHDX_CT = itemView.findViewById(R.id.hdx_tv_maHDX_CT);
             hdx_txt_maHDX = itemView.findViewById(R.id.hdx_txt_maHDX);
-            hdx_txt_ngayNhap = itemView.findViewById(R.id.hdx_txt_ngayNhap);
+//            hdx_txt_ngayNhap = itemView.findViewById(R.id.hdx_txt_ngayNhap);
             hdx_txt_ngayXuat = itemView.findViewById(R.id.hdx_txt_ngayXuat);
             hdx_txt_thanhtien = itemView.findViewById(R.id.hdx_txt_thanhtien);
             hdx_txt_trangthai = itemView.findViewById(R.id.hdx_txt_trangthai);

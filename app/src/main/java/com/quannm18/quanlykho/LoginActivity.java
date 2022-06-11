@@ -91,7 +91,7 @@ public class LoginActivity extends AppCompatActivity {
                                 Intent intent;
                                 LoginRespone loginRespone = response.body();
                                 if (loginRespone.getNhanVien().getRole().equalsIgnoreCase("admin")){
-                                    intent = new Intent(LoginActivity.this, MainActivity.class);
+                                    intent = new Intent(LoginActivity.this, AdminActivity.class);
                                     SharedPreferences sharedPreferences = getSharedPreferences("FILE_MODE",MODE_PRIVATE);
                                     SharedPreferences.Editor editor = sharedPreferences.edit();
                                     editor.clear();
@@ -104,7 +104,7 @@ public class LoginActivity extends AppCompatActivity {
                                     editor.putString("ADDRESS",loginRespone.getNhanVien().getAddress());
                                     editor.commit();
                                 }else{
-                                    intent = new Intent(LoginActivity.this, MainActivity2.class);
+                                    intent = new Intent(LoginActivity.this, NhanVienActivity.class);
                                     SharedPreferences sharedPreferences = getSharedPreferences("FILE_MODE",MODE_PRIVATE);
                                     SharedPreferences.Editor editor = sharedPreferences.edit();
                                     editor.clear();

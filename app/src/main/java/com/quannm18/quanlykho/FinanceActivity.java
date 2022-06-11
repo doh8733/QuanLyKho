@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
+import android.view.View;
 import android.view.WindowManager;
 
 import com.google.android.material.tabs.TabLayout;
@@ -28,6 +29,12 @@ public class FinanceActivity extends AppCompatActivity {
         vpFinance = (ViewPager2) findViewById(R.id.vpFinance);
         fm = getSupportFragmentManager();
 
+        tbFinance.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
         financeAdapter = new FinanceAdapter(fm, getLifecycle());
 
         vpFinance.setAdapter(financeAdapter);

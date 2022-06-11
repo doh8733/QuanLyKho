@@ -57,7 +57,7 @@
                             android:layout_height="52dp"
                             android:background="@drawable/edit_round"
                             android:fontFamily="@font/sen_regular"
-                            android:hint="MaHoaDonNhap"
+                            android:hint="ID"
                             android:inputType="text"
                             android:textColor="@color/black"
                             android:textSize="20sp" />
@@ -82,7 +82,7 @@
                             android:layout_height="52dp"
                             android:background="@drawable/edit_round"
                             android:fontFamily="@font/sen_regular"
-                            android:hint="Name of product"
+                            android:hint="Name's product"
                             android:inputType="text"
                             android:textColor="@color/black"
                             android:textSize="20sp" />
@@ -106,7 +106,7 @@
                             android:layout_height="52dp"
                             android:background="@drawable/edit_round"
                             android:fontFamily="@font/sen_regular"
-                            android:hint="Product type"
+                            android:hint="Type's product"
                             android:inputType="text"
                             android:textColor="@color/black"
                             android:textSize="20sp" />
@@ -125,12 +125,12 @@
                         app:startIconTint="#28BB8E">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/txt_hdn_hang_add"
+                            android:id="@+id/txt_hdn_floor_add"
                             android:layout_width="match_parent"
                             android:layout_height="52dp"
                             android:background="@drawable/edit_round"
                             android:fontFamily="@font/sen_regular"
-                            android:hint="Hang"
+                            android:hint="Floor"
                             android:inputType="text"
                             android:textColor="@color/black"
                             android:textSize="20sp" />
@@ -149,12 +149,12 @@
                         app:startIconTint="#28BB8E">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/txt_hdn_cot_add"
+                            android:id="@+id/txt_hdn_row_add"
                             android:layout_width="match_parent"
                             android:layout_height="52dp"
                             android:background="@drawable/edit_round"
                             android:fontFamily="@font/sen_regular"
-                            android:hint="Cot"
+                            android:hint="Row"
                             android:inputType="text"
                             android:textColor="@color/black"
                             android:textSize="20sp" />
@@ -173,12 +173,12 @@
                         app:startIconTint="#28BB8E">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/txt_hdn_vitri_add"
+                            android:id="@+id/txt_hdn_column_add"
                             android:layout_width="match_parent"
                             android:layout_height="52dp"
                             android:background="@drawable/edit_round"
                             android:fontFamily="@font/sen_regular"
-                            android:hint="Vi tri"
+                            android:hint="Column"
                             android:inputType="text"
                             android:textColor="@color/black"
                             android:textSize="20sp" />
@@ -226,7 +226,7 @@
                             android:layout_height="52dp"
                             android:background="@drawable/edit_round"
                             android:fontFamily="@font/sen_regular"
-                            android:hint="Free"
+                            android:hint="Fee"
                             android:inputType="text"
                             android:textColor="@color/black"
                             android:textSize="20sp" />
@@ -283,6 +283,7 @@
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <androidx.appcompat.widget.AppCompatButton
+                        android:textAllCaps="false"
                         android:id="@+id/hdn_btn_add"
                         android:layout_width="match_parent"
                         android:layout_height="52dp"
@@ -295,6 +296,7 @@
                         android:textSize="20sp" />
 
                     <androidx.appcompat.widget.AppCompatButton
+                        android:textAllCaps="false"
                         android:id="@+id/hdn_btn_close_add"
                         android:layout_width="match_parent"
                         android:layout_height="52dp"

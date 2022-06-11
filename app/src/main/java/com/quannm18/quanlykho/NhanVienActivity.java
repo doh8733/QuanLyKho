@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,14 +26,12 @@ public class NhanVienActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
         navView = findViewById(R.id.nav);
         vpView = findViewById(R.id.vpView);
-
-
-
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         setUpViewPager();
-        navView.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
+        navView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public void onNavigationItemReselected(@NonNull MenuItem item) {
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.home:
                         vpView.setCurrentItem(1);
@@ -40,8 +39,12 @@ public class NhanVienActivity extends AppCompatActivity {
                     case R.id.bill:
                         vpView.setCurrentItem(0);
                         break;
+                    case R.id.personnal:
+                        vpView.setCurrentItem(2);
+                        break;
 
                 }
+                return false;
             }
         });
 
@@ -59,13 +62,17 @@ public class NhanVienActivity extends AppCompatActivity {
             @Override
             public void onPageSelected(int position) {
                 switch (position) {
-                    case 0:
+                    case 1:
                         navView.getMenu().findItem(R.id.home).setChecked(true);
                         break;
-                    case 1:
+                    case 0:
                         navView.getMenu().findItem(R.id.bill).setChecked(true);
                         break;
+                    case 2:
+                        navView.getMenu().findItem(R.id.personnal).setChecked(true);
+                        break;
                 }
+
             }
 
             @Override

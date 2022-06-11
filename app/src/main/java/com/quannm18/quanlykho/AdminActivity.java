@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -26,16 +27,16 @@ public class AdminActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin);
 
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         tilFind = (TextInputLayout) findViewById(R.id.tilFind);
         vpViewAdmin =  findViewById(R.id.vpViewAdmin);
         navadmin =  findViewById(R.id.navadmin);
         tvName = findViewById(R.id.tvName);
-        SharedPreferences sdf = getSharedPreferences("USER_FILE",MODE_PRIVATE);
 
         setUpVpAdmin();
-        navadmin.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
+        navadmin.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public void onNavigationItemReselected(@NonNull MenuItem item) {
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.homead:
                         vpViewAdmin.setCurrentItem(1);
@@ -43,7 +44,11 @@ public class AdminActivity extends AppCompatActivity {
                     case R.id.billad:
                         vpViewAdmin.setCurrentItem(0);
                         break;
+                    case R.id.personnalad:
+                        vpViewAdmin.setCurrentItem(2);
+                        break;
                 }
+                return false;
             }
         });
 
@@ -63,10 +68,10 @@ public class AdminActivity extends AppCompatActivity {
             public void onPageSelected(int position) {
 
                 switch (position) {
-                    case 0:
+                    case 1:
                         navadmin.getMenu().findItem(R.id.homead).setChecked(true);
                         break;
-                    case 1:
+                    case 0:
                         navadmin.getMenu().findItem(R.id.billad).setChecked(true);
                         break;
                     case 2:
@@ -82,4 +87,6 @@ public class AdminActivity extends AppCompatActivity {
             }
         });
     }
+
+
 }
