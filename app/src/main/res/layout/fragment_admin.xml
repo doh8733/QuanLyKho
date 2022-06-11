@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AdminFragment">
+    tools:context=".Fragment.AdminFragment">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilFind"
@@ -118,33 +118,36 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:gravity="center"
+            android:weightSum="2"
             android:orientation="horizontal">
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_bill_admin"
-                android:layout_width="160dp"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:textAllCaps="false"
                 android:layout_height="160dp"
                 android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
+                android:layout_marginRight="8dp"
                 android:background="@drawable/btn_top_left"
                 android:fontFamily="@font/sen_bold"
                 android:text="Bill"
-                android:textSize="32sp"
+                android:textSize="28sp"
                 android:textStyle="bold"
                 app:backgroundTint="@null" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnDepot"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="8dp"
                 android:layout_marginRight="16dp"
                 android:background="@drawable/btn_top_right"
                 android:fontFamily="@font/sen_bold"
                 android:text="Depot"
                 android:textAllCaps="false"
-                android:textSize="32sp"
+                android:textSize="28sp"
                 android:textStyle="bold"
                 app:backgroundTint="@null" />
 
@@ -155,35 +158,37 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:gravity="center"
+            android:weightSum="2"
             android:orientation="horizontal">
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnFinance"
-                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
+                android:layout_marginRight="8dp"
                 android:background="@drawable/btn_bot_left"
                 android:fontFamily="@font/sen_bold"
                 android:text="Finance"
                 android:textAllCaps="false"
 
-                android:textSize="24sp"
+                android:textSize="28sp"
                 android:textStyle="bold"
                 app:backgroundTint="@null" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnempoloyee"
-                android:layout_width="160dp"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
+                android:layout_marginLeft="8dp"
                 android:layout_marginRight="16dp"
                 android:background="@drawable/btn_bot_right"
                 android:fontFamily="@font/sen_bold"
-                android:text="Employee"
+                android:text="Staff"
                 android:textAllCaps="false"
-
-                android:textSize="24sp"
+                android:textSize="28sp"
                 android:textStyle="bold"
                 app:backgroundTint="@null" />
 

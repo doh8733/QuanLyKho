@@ -48,16 +48,17 @@ public class Activity_HoaDon extends AppCompatActivity  {
         imvBackBill.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SharedPreferences sdf = getSharedPreferences("USER_FILE",MODE_PRIVATE);
-                String name = sdf.getString("USER", "");
-                Intent intent;
-                if(name.equalsIgnoreCase("admin")){
-                    intent = new Intent(Activity_HoaDon.this, AdminActivity.class);
-                }
-                else {
-                    intent = new Intent(Activity_HoaDon.this, NhanVienActivity.class);
-                }
-                startActivity(intent);
+//                SharedPreferences sdf = getSharedPreferences("USER_FILE",MODE_PRIVATE);
+//                String name = sdf.getString("USER", "");
+//                Intent intent;
+//                if(name.equalsIgnoreCase("admin")){
+//                    intent = new Intent(Activity_HoaDon.this, AdminActivity.class);
+//                }
+//                else {
+//                    intent = new Intent(Activity_HoaDon.this, NhanVienActivity.class);
+//                }
+//                startActivity(intent);
+                finish();
             }
         });
 

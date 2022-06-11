@@ -40,16 +40,17 @@ public class FindBillActivity extends AppCompatActivity {
         imvBackFindbill.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SharedPreferences sdf = getSharedPreferences("USER_FILE", MODE_PRIVATE);
-                String name = sdf.getString("USER", "");
-                Intent intent;
-                if (name.equalsIgnoreCase("admin")) {
-                    intent = new Intent(FindBillActivity.this, AdminActivity.class);
-                }
-                else {
-                    intent = new Intent(FindBillActivity.this, NhanVienActivity.class);
-                }
-                startActivity(intent);
+//                SharedPreferences sdf = getSharedPreferences("USER_FILE", MODE_PRIVATE);
+//                String name = sdf.getString("USER", "");
+//                Intent intent;
+//                if (name.equalsIgnoreCase("admin")) {
+//                    intent = new Intent(FindBillActivity.this, AdminActivity.class);
+//                }
+//                else {
+//                    intent = new Intent(FindBillActivity.this, NhanVienActivity.class);
+//                }
+//                startActivity(intent);
+                onBackPressed();
             }
         });
         fm = getSupportFragmentManager();

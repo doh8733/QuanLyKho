@@ -217,7 +217,7 @@ public class DepotAdapter extends RecyclerView.Adapter<DepotAdapter.KhoViewholde
 
     @Override
     public int getItemCount() {
-        return listKho.size();
+        return 1;
     }
 
     public class KhoViewholder extends RecyclerView.ViewHolder {

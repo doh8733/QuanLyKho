@@ -131,7 +131,7 @@ public class MonthlyFinanceFragment extends Fragment {
                         totalEntry = finance.getTongNhap();
                         totalX = finance.getTongXuat();
 
-                        if (totalEntry!=200|| totalX!=100){
+                        if (totalEntry!=1|| totalX!=1){
                             pieEntryList.clear();
 
                             PieEntry pieEntry = new PieEntry(totalEntry,"Thu");
@@ -147,6 +147,22 @@ public class MonthlyFinanceFragment extends Fragment {
                             Toast.makeText(getContext(), "Show", Toast.LENGTH_SHORT).show();
 
                         }
+                        if (totalEntry==0|| totalX==0){
+                            pieEntryList.clear();
+
+                            PieEntry pieEntry = new PieEntry(1,"Thu");
+                            pieEntryList.add(pieEntry);
+                            PieEntry pieEntry1 = new PieEntry(1,"Chi");
+                            pieEntryList.add(pieEntry1);
+
+                            tvBoxDamageValue.setText(totalX+"");
+                            tvBoxRevenueValue.setText(totalEntry+"");
+
+                            chartMonthly.notifyDataSetChanged();
+                            chartMonthly.invalidate();
+                            Toast.makeText(getContext(), "Show", Toast.LENGTH_SHORT).show();
+                        }
+
                     }
 
                     @Override

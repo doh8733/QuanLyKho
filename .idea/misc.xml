@@ -3,6 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidStudio/FileSave/Agile/QuanLyKho/app/src/main/res/layout/activity_add_new_entry.xml" value="0.25416666666666665" />
+        <entry key="..\:/AndroidStudio/FileSave/Agile/QuanLyKho/app/src/main/res/layout/activity_admin.xml" value="0.1" />
+        <entry key="..\:/AndroidStudio/FileSave/Agile/QuanLyKho/app/src/main/res/layout/activity_finance.xml" value="0.25416666666666665" />
+        <entry key="..\:/AndroidStudio/FileSave/Agile/QuanLyKho/app/src/main/res/layout/activity_find_bill.xml" value="0.25416666666666665" />
+        <entry key="..\:/AndroidStudio/FileSave/Agile/QuanLyKho/app/src/main/res/layout/activity_main2.xml" value="0.12360688956433637" />
+        <entry key="..\:/AndroidStudio/FileSave/Agile/QuanLyKho/app/src/main/res/layout/activity_profile.xml" value="0.1" />
+        <entry key="..\:/AndroidStudio/FileSave/Agile/QuanLyKho/app/src/main/res/layout/activity_tong_quat_kho.xml" value="0.25416666666666665" />
+        <entry key="..\:/AndroidStudio/FileSave/Agile/QuanLyKho/app/src/main/res/layout/custom_bill_outlet.xml" value="0.11302083333333333" />
+        <entry key="..\:/AndroidStudio/FileSave/Agile/QuanLyKho/app/src/main/res/layout/frag_hdn_entry.xml" value="0.25416666666666665" />
+        <entry key="..\:/AndroidStudio/FileSave/Agile/QuanLyKho/app/src/main/res/layout/fragment_admin.xml" value="0.264" />
+        <entry key="..\:/AndroidStudio/FileSave/Agile/QuanLyKho/app/src/main/res/layout/fragment_home.xml" value="0.12360688956433637" />
+        <entry key="..\:/AndroidStudio/FileSave/Agile/QuanLyKho/app/src/main/res/layout/fragment_monthly_finance.xml" value="0.25416666666666665" />
+        <entry key="..\:/AndroidStudio/FileSave/Agile/QuanLyKho/app/src/main/res/layout/fragment_profile.xml" value="0.176" />
+        <entry key="..\:/AndroidStudio/FileSave/Agile/QuanLyKho/app/src/main/res/layout/fragment_total_finance.xml" value="0.16799999999999998" />
+        <entry key="..\:/AndroidStudio/FileSave/Agile/QuanLyKho/app/src/main/res/menu/bottom_menu_admin.xml" value="0.1" />
         <entry key="..\:/QuanLyKho/app/src/main/res/drawable/button2.xml" value="0.158" />
         <entry key="..\:/QuanLyKho/app/src/main/res/drawable/custom_checkbox.xml" value="0.1" />
         <entry key="..\:/QuanLyKho/app/src/main/res/drawable/ic_add.xml" value="0.169" />

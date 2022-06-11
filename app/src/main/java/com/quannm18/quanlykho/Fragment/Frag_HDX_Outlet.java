@@ -28,6 +28,7 @@ import com.quannm18.quanlykho.R;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.SimpleFormatter;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -65,7 +66,7 @@ public class Frag_HDX_Outlet extends Fragment {
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 dialog.show();
                 hdx_maHDX_add = view1.findViewById(R.id.hdx_maHDX_add);
-                hdx_ngayNhap_add = view1.findViewById(R.id.hdx_ngayNhap_add);
+//                hdx_ngayNhap_add = view1.findViewById(R.id.hdx_ngayNhap_add);
                 hdx_ngayXuat_add = view1.findViewById(R.id.hdx_ngayXuat_add);
                 hdx_thanhtien_add = view1.findViewById(R.id.hdx_thanhtien_add);
                 hdx_trangthai_add = view1.findViewById(R.id.hdx_trangthai_add);
@@ -97,14 +98,14 @@ public class Frag_HDX_Outlet extends Fragment {
     public void InsertDataHDX() {
         HoaDonXuat hoaDonXuat = new HoaDonXuat();
         hoaDonXuat.setMaHDX(hdx_maHDX_add.getText().toString());
-        hoaDonXuat.setNgayNhap(hdx_ngayNhap_add.getText().toString());
+//        hoaDonXuat.setNgayNhap(hdx_ngayNhap_add.getText().toString());
         hoaDonXuat.setNgayXuat(hdx_ngayXuat_add.getText().toString());
         hoaDonXuat.setThanhTien(Integer.parseInt(hdx_thanhtien_add.getText().toString()));
         hoaDonXuat.setTrangThai(hdx_trangthai_add.getText().toString());
         hoaDonXuat.setMoTa(hdx_descriptions_add.getText().toString());
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://agile-server-beco.herokuapp.com/HDX/")
+                .baseUrl("https://agile-server-beco.herokuapp.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         ApiInterface apiInterface = retrofit.create(ApiInterface.class);
@@ -115,13 +116,12 @@ public class Frag_HDX_Outlet extends Fragment {
                 listHDX.clear();
                 GetDataHDX();
                 fragHDX_adapter.notifyDataSetChanged();
-                Toast.makeText(getContext(), "aaaaaaaaaaaa", Toast.LENGTH_SHORT).show();
+
             }
 
             @Override
             public void onFailure(Call<HoaDonXuat> call, Throwable t) {
                 Toast.makeText(getContext(), "Loi api HDX add", Toast.LENGTH_SHORT).show();
-
             }
         });
     }

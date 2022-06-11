@@ -8,6 +8,8 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 import com.quannm18.quanlykho.Fragment.FindHDNFragment;
 import com.quannm18.quanlykho.Fragment.Frag_HDN_Entry;
 import com.quannm18.quanlykho.Fragment.HomeFragment;
+import com.quannm18.quanlykho.Fragment.ProfileFragment;
+import com.quannm18.quanlykho.ProfileActivity;
 
 public class VpAdapter extends FragmentStatePagerAdapter {
     public VpAdapter(@NonNull FragmentManager fm,int behavior) {
@@ -24,6 +26,8 @@ public class VpAdapter extends FragmentStatePagerAdapter {
                 return new Frag_HDN_Entry();
             case 1:
                 return new HomeFragment();
+            case 2:
+                return new ProfileFragment();
             default:
                 return new HomeFragment();
         }

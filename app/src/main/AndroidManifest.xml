@@ -63,6 +63,21 @@
             android:exported="true" >
 
         </activity>
+        <activity
+            android:name=".FinanceActivity"
+            android:exported="true" >
+
+        </activity>
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true" >
+
+        </activity>
+        <activity
+            android:name=".EmployeeActivity"
+            android:exported="true" >
+
+        </activity>
 
     </application>
 

@@ -27,21 +27,24 @@ public interface ApiInterface {
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
             .create(ApiInterface.class);
-    @Headers("Content-Type: application/x-www-form-urlencoded")
 
     @POST("add")
     Call<HoaDonNhap> postHDN(@Body HoaDonNhap HDN);
     @GET("warehouse")
     Call<List<HoaDonNhap>>  getHDN();
+
+    @Headers("Content-Type: application/x-www-form-urlencoded")
     @POST("/delete/{id}")
     Call<String>  deleteHDN(@Path("id") String _id);
 
 
 
-    @POST("add")
+    @POST("HDX/add")
     Call<HoaDonXuat> postHDX(@Body HoaDonXuat HDX);
     @GET("HDX")
     Call<List<HoaDonXuat>>  getHDX();
+
+    @Headers("Content-Type: application/x-www-form-urlencoded")
     @POST("HDX/delete/{id}")
     Call<String>  deleteHDX(@Path("id") String _id);
 
@@ -52,11 +55,6 @@ public interface ApiInterface {
 
 
 
-//    @POST("add")
-//    Call<Hang> postHang(@Body Hang hang);
-//
-//    @GET("warehouse")
-//    Call<List<Hang>>  getHang();
 
 
 }
