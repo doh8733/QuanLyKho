@@ -60,47 +60,31 @@ public class ChooseDepotActivity extends AppCompatActivity {
         subRCVChoose = (RecyclerView) findViewById(R.id.subRCVChoose);
         btnBackChooseDepot = (ImageView) findViewById(R.id.btnBackChooseDepot);
         rcvChoose.getBackground().setAlpha(100);
-//        subRCVChoose.getBackground().setAlpha(100);
-
-//        floorList = new ArrayList<>();
         positionList = new ArrayList<>();
-        CountDownTimer cdt = new CountDownTimer(1000,600) {
+        adapter = new ChooseAdapter(positionList);
+        getListPos(ChooseDepotActivity.this,id);
+        GridLayoutManager layoutManager = new GridLayoutManager(ChooseDepotActivity.this,row);
+        rcvChoose.setLayoutManager(layoutManager);
+        rcvChoose.setAdapter(adapter);
+
+        floorList = new ArrayList<>();
+        for (int i = 1; i < floor+1; i++) {
+            floorList.add(i);
+        }
+        GridLayoutManager subLayoutManager = new GridLayoutManager(ChooseDepotActivity.this,floorList.size());
+        subRCVChoose.setLayoutManager(subLayoutManager);
+        subAdapter = new SubChooseAdapter(floorList);
+        subRCVChoose.setAdapter(subAdapter);
+        btnBackChooseDepot = (ImageView) findViewById(R.id.btnBackChooseDepot);
+        btnBackChooseDepot.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onTick(long l) {
-                adapter = new ChooseAdapter(positionList);
-                getListPos(ChooseDepotActivity.this,id);
+            public void onClick(View view) {
+                onBackPressed();
             }
-
-            @Override
-            public void onFinish() {
-//                subAdapter = new SubChooseAdapter(floorList);
-
-                GridLayoutManager layoutManager = new GridLayoutManager(ChooseDepotActivity.this,row);
-                rcvChoose.setLayoutManager(layoutManager);
-                rcvChoose.setAdapter(adapter);
-
-                floorList = new ArrayList<>();
-                for (int i = 1; i < floor+1; i++) {
-                    floorList.add(i);
-                }
-                GridLayoutManager subLayoutManager = new GridLayoutManager(ChooseDepotActivity.this,floorList.size());
-                subRCVChoose.setLayoutManager(subLayoutManager);
-                subAdapter = new SubChooseAdapter(floorList);
-                subRCVChoose.setAdapter(subAdapter);
-                btnBackChooseDepot = (ImageView) findViewById(R.id.btnBackChooseDepot);
-
-                btnBackChooseDepot.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        onBackPressed();
-                    }
-                });
-            }
-        }.start();
-
+        });
 
     }
-    void getListPos(Context context, String id){
+    public void getListPos(Context context, String id){
 
         GetListPosition.getListPosition.postGetListPosition(id).enqueue(new Callback<List<Position>>() {
             @Override

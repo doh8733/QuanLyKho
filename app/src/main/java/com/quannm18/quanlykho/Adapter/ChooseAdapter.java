@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.CountDownTimer;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,10 +23,12 @@ import com.quannm18.quanlykho.API.GetListPosition;
 import com.quannm18.quanlykho.ChooseDepotActivity;
 import com.quannm18.quanlykho.Interface.ApiInterface;
 import com.quannm18.quanlykho.Model.HoaDonNhap;
+import com.quannm18.quanlykho.Model.HoaDonXuat;
 import com.quannm18.quanlykho.Model.Position;
 import com.quannm18.quanlykho.R;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -52,6 +55,15 @@ public class ChooseAdapter extends RecyclerView.Adapter<ChooseAdapter.ChooseHold
     private String status;
 
     private AlertDialog alertDialog;
+
+    private TextInputEditText hdxMaHDXAdd;
+    private TextInputEditText hdxNgayXuatAdd;
+    private TextInputEditText hdxThanhtienAdd;
+    private TextInputEditText hdxTrangthaiAdd;
+    private TextInputEditText hdxDescriptionsAdd;
+    private AppCompatButton hdxBtnAdd;
+    private AppCompatButton hdxBtnClose;
+
     public ChooseAdapter(List<Position> depotList) {
         this.depotList = depotList;
     }
@@ -67,12 +79,10 @@ public class ChooseAdapter extends RecyclerView.Adapter<ChooseAdapter.ChooseHold
     public void onBindViewHolder(@NonNull ChooseHolder holder, int position) {
         final Position depot = depotList.get(position);
         holder.textView.setText(depot.getNamePosition());
-
-        ChooseDepotActivity cdp = new ChooseDepotActivity();
-
         if (depot.getStatus().equalsIgnoreCase("true")) {
             holder.layoutChooseAdapter.setBackgroundColor(Color.parseColor("#28BB8E"));
             holder.textView.setTextColor(Color.parseColor("#FFFFFF"));
+            Log.e("depot",depot.getNamePosition());
         }
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -109,22 +119,13 @@ public class ChooseAdapter extends RecyclerView.Adapter<ChooseAdapter.ChooseHold
                                 id = depot.get_id();
                                 status = depot.getStatus();
                                 InsertDataHDN(view.getContext());
-                                CountDownTimer cdt = new CountDownTimer(1000, 600) {
-                                    @Override
-                                    public void onTick(long l) {
-                                        String checkUpdate = updatePosition(view.getContext(), depot.getStatus(), depot.get_id());
-                                        if (checkUpdate != depot.getStatus()) {
-                                            dialog.dismiss();
-//                                        getListPos(view.getContext(), depot.getIdWarehouse());
-                                            ChooseDepotActivity.getInstance().setAdapterForRCV();
-                                        }
-                                    }
-                                    @Override
-                                    public void onFinish() {
-
-                                    }
-                                }.start();
-
+                                String checkUpdate = updatePosition(view.getContext(), status, id);
+                                if (!checkUpdate.equals(id)) {
+                                    dialog.dismiss();
+//                                            ChooseDepotActivity.getInstance().setAdapterForRCV();
+                                }
+                                getListPos(view.getContext(), depot.getIdWarehouse());
+//                                ChooseDepotActivity.getInstance().setAdapterForRCV();
                             }
 
                         }
@@ -138,7 +139,7 @@ public class ChooseAdapter extends RecyclerView.Adapter<ChooseAdapter.ChooseHold
                         }
                     });
                 }else {
-                    showDialogCheck(view.getContext());
+                    showDialogCheck(view.getContext(), depotList.get(holder.getAdapterPosition()).getStatus(), depotList.get(holder.getAdapterPosition()).get_id());
                 }
             }
         });
@@ -224,17 +225,51 @@ public class ChooseAdapter extends RecyclerView.Adapter<ChooseAdapter.ChooseHold
 
         }
     }
-    void showDialogCheck(Context context){
-
+    void showDialogCheck(Context context, String mStatus, String mId){
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle("Alert");
         builder.setMessage("Which function would you like to choose?");
-        builder.setNegativeButton("Update", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton("Outlet", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                View view1 = LayoutInflater.from(context).inflate(R.layout.activity_add_new_outlet, null);
+                builder.setView(view1);
+                builder.setCancelable(true);
+                AlertDialog dialog = builder.create();
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.show();
+                hdxMaHDXAdd = view1.findViewById(R.id.hdx_maHDX_add);
+//                hdx_ngayNhap_add = view1.findViewById(R.id.hdx_ngayNhap_add);
+                hdxNgayXuatAdd = view1.findViewById(R.id.hdx_ngayXuat_add);
+                hdxThanhtienAdd = view1.findViewById(R.id.hdx_thanhtien_add);
+                hdxTrangthaiAdd = view1.findViewById(R.id.hdx_trangthai_add);
+                txt_hdn_descriptions_add = view1.findViewById(R.id.hdx_descriptions_add);
+                AppCompatButton hdx_btn_add = view1.findViewById(R.id.hdx_btn_add);
+                AppCompatButton hdx_btn_close = view1.findViewById(R.id.hdx_btn_close);
+
+                hdx_btn_add.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        InsertDataHDX();
+                        Toast.makeText(context, "Them HDX", Toast.LENGTH_SHORT).show();
+                        dialog.dismiss();
+                    }
+                });
+                hdx_btn_close.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+                    }
+                });
+                String checkUpdate = updatePosition(context, mStatus, mId);
+                if (!checkUpdate.equals(mId)) {
+                    dialog.dismiss();
+//                                            ChooseDepotActivity.getInstance().setAdapterForRCV();
+                }
                 alertDialog.dismiss();
             }
-        }).setPositiveButton("Outlet", new DialogInterface.OnClickListener() {
+        }).setPositiveButton("Close", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 alertDialog.dismiss();
@@ -242,12 +277,62 @@ public class ChooseAdapter extends RecyclerView.Adapter<ChooseAdapter.ChooseHold
         });
         alertDialog = builder.create();
         alertDialog.show();
-
     }
     int updateBill(Position position){
         int temp = -1;
 
         return temp;
+    }
+    public void getListPos(Context context, String id){
+        depotList.clear();
+        GetListPosition.getListPosition.postGetListPosition(id).enqueue(new Callback<List<Position>>() {
+            @Override
+            public void onResponse(Call<List<Position>> call, Response<List<Position>> response) {
+                List<Position> poss = response.body();
+                if (poss.size()!=0) {
+                    depotList.clear();
+                    depotList.addAll(poss);
+                    notifyDataSetChanged();
+                    notifyItemRangeChanged(0, poss.size());
+                }else {
+                    Toast.makeText(context, "Data not found", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Position>> call, Throwable t) {
+                Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    public void InsertDataHDX() {
+        HoaDonXuat hoaDonXuat = new HoaDonXuat();
+        hoaDonXuat.setMaHDX(hdxMaHDXAdd.getText().toString());
+//        hoaDonXuat.setNgayNhap(hdx_ngayNhap_add.getText().toString());
+        hoaDonXuat.setNgayXuat(hdxNgayXuatAdd.getText().toString());
+        hoaDonXuat.setThanhTien(Integer.parseInt(hdxThanhtienAdd.getText().toString()));
+        hoaDonXuat.setTrangThai(hdxTrangthaiAdd.getText().toString());
+        hoaDonXuat.setMoTa(txt_hdn_descriptions_add.getText().toString());
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://agile-server-beco.herokuapp.com/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        ApiInterface apiInterface = retrofit.create(ApiInterface.class);
+        Call<HoaDonXuat> callHDX = apiInterface.postHDX(hoaDonXuat);
+        callHDX.enqueue(new Callback<HoaDonXuat>() {
+            @Override
+            public void onResponse(Call<HoaDonXuat> call, Response<HoaDonXuat> response) {
+                notifyDataSetChanged();
+
+            }
+
+            @Override
+            public void onFailure(Call<HoaDonXuat> call, Throwable t) {
+                Toast.makeText(alertDialog.getContext(), "Loi api HDX add", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 }
