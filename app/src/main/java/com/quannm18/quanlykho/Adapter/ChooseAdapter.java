@@ -1,5 +1,6 @@
 package com.quannm18.quanlykho.Adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Color;
@@ -124,8 +125,8 @@ public class ChooseAdapter extends RecyclerView.Adapter<ChooseAdapter.ChooseHold
                                     dialog.dismiss();
 //                                            ChooseDepotActivity.getInstance().setAdapterForRCV();
                                 }
-                                getListPos(view.getContext(), depot.getIdWarehouse());
-//                                ChooseDepotActivity.getInstance().setAdapterForRCV();
+//                                getListPos(view.getContext(), depot.getIdWarehouse());
+                                ChooseDepotActivity.getInstance().setAdapterForRCV();
                             }
 
                         }
@@ -185,7 +186,6 @@ public class ChooseAdapter extends RecyclerView.Adapter<ChooseAdapter.ChooseHold
             }
         });
     }
-
     String updatePosition(Context context, String status, String id) {
         String statusTemp;
         if (status.equalsIgnoreCase("true")) {
@@ -284,15 +284,17 @@ public class ChooseAdapter extends RecyclerView.Adapter<ChooseAdapter.ChooseHold
         return temp;
     }
     public void getListPos(Context context, String id){
-        depotList.clear();
+//        depotList.clear();
         GetListPosition.getListPosition.postGetListPosition(id).enqueue(new Callback<List<Position>>() {
             @Override
             public void onResponse(Call<List<Position>> call, Response<List<Position>> response) {
                 List<Position> poss = response.body();
                 if (poss.size()!=0) {
                     depotList.clear();
-                    depotList.addAll(poss);
-                    notifyDataSetChanged();
+                    for (int i = 0; i < poss.size(); i++) {
+                        depotList.add(poss.get(i));
+                        notifyDataSetChanged();
+                    }
                     notifyItemRangeChanged(0, poss.size());
                 }else {
                     Toast.makeText(context, "Data not found", Toast.LENGTH_SHORT).show();
@@ -322,6 +324,7 @@ public class ChooseAdapter extends RecyclerView.Adapter<ChooseAdapter.ChooseHold
         ApiInterface apiInterface = retrofit.create(ApiInterface.class);
         Call<HoaDonXuat> callHDX = apiInterface.postHDX(hoaDonXuat);
         callHDX.enqueue(new Callback<HoaDonXuat>() {
+            @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onResponse(Call<HoaDonXuat> call, Response<HoaDonXuat> response) {
                 notifyDataSetChanged();

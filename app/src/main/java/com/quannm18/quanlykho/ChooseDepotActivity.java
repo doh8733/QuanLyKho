@@ -111,11 +111,12 @@ public class ChooseDepotActivity extends AppCompatActivity {
     }
 
     public void setAdapterForRCV(){
-        positionList.clear();
+        positionList =new ArrayList<>();
         getListPos(ChooseDepotActivity.this,id);
         adapter = new ChooseAdapter(positionList);
+        adapter.notifyDataSetChanged();
+        adapter.notifyItemRangeChanged(0,positionList.size());
 //                subAdapter = new SubChooseAdapter(floorList);
-
         GridLayoutManager layoutManager = new GridLayoutManager(ChooseDepotActivity.this,row);
         rcvChoose.setLayoutManager(layoutManager);
         rcvChoose.setAdapter(adapter);

@@ -59,16 +59,16 @@ public class ChangePasswordActivity extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (role.equalsIgnoreCase("admin")){
-                    Intent intent = new Intent(ChangePasswordActivity.this,TestAdminActivity.class);
-                    startActivity(intent);
-                }else {
-                    Intent intent = new Intent(ChangePasswordActivity.this,testuserActivity.class);
-                    startActivity(intent);
-                }
+                finish();
             }
         });
 
+        btnClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
         btnChangePassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -80,29 +80,44 @@ public class ChangePasswordActivity extends AppCompatActivity {
                 String reNewPass = tilRetyPassword.getEditText().getText().toString();
                 if (oldPass.length() == 0){
                     tiloldPassword.setErrorEnabled(true);
-                    tiloldPassword.setError("Không được để trống");
+                    tiloldPassword.setError("Fill data please");
                     tilnewPassword.setErrorEnabled(false);
                     tilRetyPassword.setErrorEnabled(false);
+                    return;
                 }  else if(newPass.length() == 0){
                     tilnewPassword.setErrorEnabled(true);
-                    tilnewPassword.setError("Không được để trống");
+                    tilnewPassword.setError("Fill data please");
                     tiloldPassword.setErrorEnabled(false);
                     tilRetyPassword.setErrorEnabled(false);
+                    return;
                 }
                 else if(reNewPass.length() ==0){
                     tilRetyPassword.setErrorEnabled(true);
-                    tilRetyPassword.setError("Không được để trống");
+                    tilRetyPassword.setError("Fill data please");
                     tiloldPassword.setErrorEnabled(false);
                     tilnewPassword.setErrorEnabled(false);
+                    return;
+                }
+                else if(oldPass!=(psswd)){
+                    tilRetyPassword.setErrorEnabled(false);
+                    tiloldPassword.setErrorEnabled(true);
+                    tiloldPassword.setError("Old password is wrong!");
+                    tilnewPassword.setErrorEnabled(false);
+                    return;
                 }
                 else if (!newPass.equalsIgnoreCase(reNewPass)){
                     Toast.makeText(ChangePasswordActivity.this, "Khong trung khop", Toast.LENGTH_SHORT).show();
+                    return;
                 }
 
                     Api.api.postChangePassword(id, oldPass, newPass).enqueue(new Callback<LoginRespone>() {
                         @Override
                         public void onResponse(Call<LoginRespone> call, Response<LoginRespone> response) {
                             response.body();
+                            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(intent);
+
                             Toast.makeText(ChangePasswordActivity.this, "Thanh cong", Toast.LENGTH_SHORT).show();
                         }
 
