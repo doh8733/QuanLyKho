@@ -203,7 +203,7 @@
                             android:background="@drawable/edit_round"
                             android:fontFamily="@font/sen_regular"
                             android:hint="Quantity"
-                            android:inputType="text"
+                            android:inputType="number"
                             android:textColor="@color/black"
                             android:textSize="20sp" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -227,7 +227,7 @@
                             android:background="@drawable/edit_round"
                             android:fontFamily="@font/sen_regular"
                             android:hint="Fee"
-                            android:inputType="text"
+                            android:inputType="number"
                             android:textColor="@color/black"
                             android:textSize="20sp" />
                     </com.google.android.material.textfield.TextInputLayout>

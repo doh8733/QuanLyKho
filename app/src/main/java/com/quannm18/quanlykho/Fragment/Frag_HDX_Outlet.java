@@ -26,7 +26,9 @@ import com.quannm18.quanlykho.Model.HoaDonNhap;
 import com.quannm18.quanlykho.Model.HoaDonXuat;
 import com.quannm18.quanlykho.R;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.logging.SimpleFormatter;
 
@@ -37,12 +39,13 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Frag_HDX_Outlet extends Fragment {
-    TextInputEditText hdx_maHDX_add,hdx_ngayNhap_add, hdx_ngayXuat_add, hdx_thanhtien_add, hdx_trangthai_add, hdx_descriptions_add;
+    TextInputEditText hdx_maHDX_add, hdx_ngayXuat_add, hdx_thanhtien_add, hdx_trangthai_add, hdx_descriptions_add;
     FloatingActionButton fla_HDX_outlet;
     RecyclerView rcvHDX;
     FragHDX_Adapter fragHDX_adapter;
     List<HoaDonXuat> listHDX=new ArrayList<>();
-
+    Calendar calendar = Calendar.getInstance();
+    SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -66,7 +69,6 @@ public class Frag_HDX_Outlet extends Fragment {
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 dialog.show();
                 hdx_maHDX_add = view1.findViewById(R.id.hdx_maHDX_add);
-//                hdx_ngayNhap_add = view1.findViewById(R.id.hdx_ngayNhap_add);
                 hdx_ngayXuat_add = view1.findViewById(R.id.hdx_ngayXuat_add);
                 hdx_thanhtien_add = view1.findViewById(R.id.hdx_thanhtien_add);
                 hdx_trangthai_add = view1.findViewById(R.id.hdx_trangthai_add);
@@ -97,9 +99,10 @@ public class Frag_HDX_Outlet extends Fragment {
 
     public void InsertDataHDX() {
         HoaDonXuat hoaDonXuat = new HoaDonXuat();
+        String datatime = format.format(calendar.getTime());
+
         hoaDonXuat.setMaHDX(hdx_maHDX_add.getText().toString());
-//        hoaDonXuat.setNgayNhap(hdx_ngayNhap_add.getText().toString());
-        hoaDonXuat.setNgayXuat(hdx_ngayXuat_add.getText().toString());
+        hoaDonXuat.setNgayXuat(datatime);
         hoaDonXuat.setThanhTien(Integer.parseInt(hdx_thanhtien_add.getText().toString()));
         hoaDonXuat.setTrangThai(hdx_trangthai_add.getText().toString());
         hoaDonXuat.setMoTa(hdx_descriptions_add.getText().toString());

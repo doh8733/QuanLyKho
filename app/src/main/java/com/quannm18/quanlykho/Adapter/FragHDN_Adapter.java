@@ -67,8 +67,6 @@ public class FragHDN_Adapter extends RecyclerView.Adapter<FragHDN_Adapter.FragHD
         holder.hdn_txt_maHDN.setText( hoaDonNhap.getMaHoaDonNhap());
         holder.hdn_txt_product.setText( hoaDonNhap.getTenSP());
         holder.hdn_txt_product_type.setText( hoaDonNhap.getLoaiSP());
-//        holder.hdn_txt_hang.setText( hoaDonNhap.getHang());
-//        holder.hdn_txt_cot.setText( hoaDonNhap.getCot());
         holder.hdn_txt_vitri.setText(hoaDonNhap.getViTri());
         holder.hdn_txt_quantity.setText( String.valueOf(hoaDonNhap.getSoLuong()));
         holder.hdn_txt_ngayNhap.setText(String.format(datatime, hoaDonNhap.getNgayNhap()));
@@ -89,8 +87,6 @@ public class FragHDN_Adapter extends RecyclerView.Adapter<FragHDN_Adapter.FragHD
                 dialog.show();
                 String maHDN=holder.hdn_txt_maHDN.getText().toString();
                 String LoaiSP=holder.hdn_txt_product_type.getText().toString();
-//                String Hang=holder.hdn_txt_hang.getText().toString();
-//                String Cot=holder.hdn_txt_cot.getText().toString();
                 String ViTri=holder.hdn_txt_vitri.getText().toString();
                 String TenSP=holder.hdn_txt_product.getText().toString();
                 int SoLuong= Integer.parseInt(holder.hdn_txt_quantity.getText().toString());
@@ -101,8 +97,6 @@ public class FragHDN_Adapter extends RecyclerView.Adapter<FragHDN_Adapter.FragHD
                 TextView hdn_txt_maHDN_CT = view1.findViewById(R.id.hdn_txt_maHDN_CT);
                 TextView hdn_txt_product_CT = view1.findViewById(R.id.hdn_txt_product_CT);
                 TextView hdn_txt_product_type_CT = view1.findViewById(R.id.hdn_txt_product_type_CT);
-//                TextView hdn_txt_hang_CT = view1.findViewById(R.id.hdn_txt_hang_CT);
-//                TextView hdn_txt_cot_CT = view1.findViewById(R.id.hdn_txt_cot_CT);
                 TextView hdn_txt_vitri_CT = view1.findViewById(R.id.hdn_txt_vitri_CT);
                 TextView hdn_txt_quantity_CT = view1.findViewById(R.id.hdn_txt_quantity_CT);
                 TextView hdn_txt_ngayNhap_CT = view1.findViewById(R.id.hdn_txt_ngayNhap_CT);
@@ -114,8 +108,6 @@ public class FragHDN_Adapter extends RecyclerView.Adapter<FragHDN_Adapter.FragHD
                 hdn_txt_maHDN_CT.setText(maHDN);
                 hdn_txt_product_CT.setText(TenSP);
                 hdn_txt_product_type_CT.setText(LoaiSP);
-//                hdn_txt_hang_CT.setText(Hang);
-//                hdn_txt_cot_CT.setText(Cot);
                 hdn_txt_vitri_CT.setText(ViTri);
                 hdn_txt_ngayNhap_CT.setText(NgayNhap);
                 hdn_txt_quantity_CT.setText(SoLuong+"");
@@ -137,7 +129,20 @@ public class FragHDN_Adapter extends RecyclerView.Adapter<FragHDN_Adapter.FragHD
         holder.cv_hdn_CT.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-                deleteHDN();
+                AlertDialog.Builder builder1 = new AlertDialog.Builder(view.getContext());
+                View view1 = LayoutInflater.from(view.getContext()).inflate(R.layout.custom_delete, null);
+                builder1.setView(view1);
+                AlertDialog alertDialog1 = builder1.create();
+                alertDialog1.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                alertDialog1.show();
+                AppCompatButton button = view1.findViewById(R.id.btn_delete);
+                button.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        deleteHDN();
+                        alertDialog1.dismiss();
+                    }
+                });
                 return true;
             }
         });
@@ -158,8 +163,6 @@ public class FragHDN_Adapter extends RecyclerView.Adapter<FragHDN_Adapter.FragHD
             hdn_txt_maHDN = itemView.findViewById(R.id.hdn_txt_maHDN);
             hdn_txt_product = itemView.findViewById(R.id.hdn_txt_product);
             hdn_txt_product_type = itemView.findViewById(R.id.hdn_txt_product_type);
-//            hdn_txt_hang = itemView.findViewById(R.id.hdn_txt_hang);
-//            hdn_txt_cot = itemView.findViewById(R.id.hdn_txt_cot);
             hdn_txt_vitri = itemView.findViewById(R.id.hdn_txt_vitri);
             hdn_txt_quantity = itemView.findViewById(R.id.hdn_txt_quantity);
             hdn_txt_ngayNhap = itemView.findViewById(R.id.hdn_txt_ngayNhap);
@@ -170,37 +173,21 @@ public class FragHDN_Adapter extends RecyclerView.Adapter<FragHDN_Adapter.FragHD
         }
     }
     private void deleteHDN() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle("Are you sure?");
-        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+        ApiInterface.ApiInterface.deleteHDN(hoaDonNhap.getId()).enqueue(new Callback<String>() {
             @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                ApiInterface.ApiInterface.deleteHDN(hoaDonNhap.getId()).enqueue(new Callback<String>() {
-                    @Override
-                    public void onResponse(Call<String> call, Response<String> response) {
-                        listHDN.clear();
-                        GetDataHDN();
-                        notifyDataSetChanged();
-                    }
+            public void onResponse(Call<String> call, Response<String> response) {
+                listHDN.clear();
+                GetDataHDN();
+                notifyDataSetChanged();
+            }
 
-                    @Override
-                    public void onFailure(Call<String> call, Throwable t) {
-                        listHDN.clear();
-                        GetDataHDN();
-                        notifyDataSetChanged();
-                    }
-                });
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+                listHDN.clear();
+                GetDataHDN();
+                notifyDataSetChanged();
             }
         });
-        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-
-            }
-        });
-
-        AlertDialog dialog = builder.create();
-        dialog.show();
     }
     public void GetDataHDN() {
         Retrofit retrofit = new Retrofit.Builder()
