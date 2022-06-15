@@ -47,8 +47,10 @@
         <entry key="..\:/QuanLyKho/app/src/main/res/layout/activity_profile.xml" value="0.18848167539267016" />
         <entry key="..\:/QuanLyKho/app/src/main/res/layout/activity_test_admin.xml" value="0.1" />
         <entry key="..\:/QuanLyKho/app/src/main/res/layout/activity_tong_quat_kho.xml" value="0.264" />
+        <entry key="..\:/QuanLyKho/app/src/main/res/layout/custom_bill_entry_chitiet.xml" value="0.25416666666666665" />
         <entry key="..\:/QuanLyKho/app/src/main/res/layout/custom_bill_outlet.xml" value="0.21784420289855072" />
         <entry key="..\:/QuanLyKho/app/src/main/res/layout/custom_bill_outlet_chitiet.xml" value="0.25416666666666665" />
+        <entry key="..\:/QuanLyKho/app/src/main/res/layout/custom_delete.xml" value="0.25416666666666665" />
         <entry key="..\:/QuanLyKho/app/src/main/res/layout/dialog_add_depot.xml" value="0.21784420289855072" />
         <entry key="..\:/QuanLyKho/app/src/main/res/layout/dialog_edit_depot.xml" value="0.25416666666666665" />
         <entry key="..\:/QuanLyKho/app/src/main/res/layout/frag_hdx_outlet.xml" value="0.25416666666666665" />
