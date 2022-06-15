@@ -1,6 +1,8 @@
 package com.quannm18.quanlykho.Adapter;
 
+import android.content.Intent;
 import android.graphics.Color;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +12,9 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.quannm18.quanlykho.ChooseDepotActivity;
 import com.quannm18.quanlykho.Model.Depot;
+import com.quannm18.quanlykho.Model.KhoHangModel;
 import com.quannm18.quanlykho.R;
 
 import java.util.List;
@@ -41,6 +45,7 @@ public class SubChooseAdapter extends RecyclerView.Adapter<SubChooseAdapter.Choo
                 current_index = holder.getAdapterPosition();
                 floor_size = floorList.get(holder.getAdapterPosition());
                 notifyDataSetChanged();
+                ChooseDepotActivity.getInstance().setNewList(floor);
             }
         });
         if (current_index== position){
@@ -48,6 +53,7 @@ public class SubChooseAdapter extends RecyclerView.Adapter<SubChooseAdapter.Choo
         }else {
             holder.bgSubRow.setBackgroundResource(0);
         }
+
     }
 
     @Override

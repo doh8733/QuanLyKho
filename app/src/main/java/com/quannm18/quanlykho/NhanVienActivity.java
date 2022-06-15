@@ -14,6 +14,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.textfield.TextInputLayout;
 import com.quannm18.quanlykho.Adapter.VpAdapter;
+import com.quannm18.quanlykho.Fragment.Frag_HDN_Entry;
 
 public class NhanVienActivity extends AppCompatActivity {
     private BottomNavigationView navView;
@@ -47,7 +48,6 @@ public class NhanVienActivity extends AppCompatActivity {
                 return false;
             }
         });
-
     }
 
     private void setUpViewPager() {

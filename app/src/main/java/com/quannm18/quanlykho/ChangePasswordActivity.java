@@ -98,7 +98,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
                     tilnewPassword.setErrorEnabled(false);
                     return;
                 }
-                else if(oldPass!=(psswd)){
+                else if(!oldPass.equals(psswd)){
                     tilRetyPassword.setErrorEnabled(false);
                     tiloldPassword.setErrorEnabled(true);
                     tiloldPassword.setError("Old password is wrong!");

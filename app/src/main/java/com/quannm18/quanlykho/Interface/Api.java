@@ -3,6 +3,7 @@ package com.quannm18.quanlykho.Interface;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.quannm18.quanlykho.Model.NhanVien;
+import com.quannm18.quanlykho.Model.Position;
 import com.quannm18.quanlykho.POST.LoginRespone;
 
 import retrofit2.Call;
@@ -36,4 +37,6 @@ public interface Api {
             @Field("password") String password,
             @Field("newPassword")String newPassword
     );
+
+
 }

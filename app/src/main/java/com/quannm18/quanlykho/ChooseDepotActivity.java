@@ -38,10 +38,13 @@ public class ChooseDepotActivity extends AppCompatActivity {
     private ImageView btnBackChooseDepot;
     private List<Position> positionList;
     private int row;
-    private int floor;
+    private int col;
+    public static int floor;
     private String id;
 
     private static ChooseDepotActivity instance;
+    List<Position> poss;
+    private List<Position> temPositionList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,6 +58,7 @@ public class ChooseDepotActivity extends AppCompatActivity {
         KhoHangModel khoHangModel = (KhoHangModel) depot.getSerializable("depot");
         row = Integer.parseInt(khoHangModel.getRow());
         floor = Integer.parseInt(khoHangModel.getFloors());
+        col = Integer.parseInt(khoHangModel.getPosition());
         id = (khoHangModel.get_id());
         rcvChoose = (RecyclerView) findViewById(R.id.rcvChoose);
         subRCVChoose = (RecyclerView) findViewById(R.id.subRCVChoose);
@@ -62,7 +66,7 @@ public class ChooseDepotActivity extends AppCompatActivity {
         rcvChoose.getBackground().setAlpha(100);
         positionList = new ArrayList<>();
         adapter = new ChooseAdapter(positionList);
-        getListPos(ChooseDepotActivity.this,id);
+        getListPos(ChooseDepotActivity.this,id, khoHangModel);
         GridLayoutManager layoutManager = new GridLayoutManager(ChooseDepotActivity.this,row);
         rcvChoose.setLayoutManager(layoutManager);
         rcvChoose.setAdapter(adapter);
@@ -84,22 +88,46 @@ public class ChooseDepotActivity extends AppCompatActivity {
         });
 
     }
-    public void getListPos(Context context, String id){
+    public void getListPos(Context context, String id, KhoHangModel depot){
 
         GetListPosition.getListPosition.postGetListPosition(id).enqueue(new Callback<List<Position>>() {
             @Override
             public void onResponse(Call<List<Position>> call, Response<List<Position>> response) {
-                List<Position> poss = response.body();
-                if (poss.size()!=0) {
-                    for (int i = 0; i < poss.size(); i++) {
-                        positionList.add(poss.get(i));
-                        adapter.notifyDataSetChanged();
+                poss = response.body();
+                if (response.isSuccessful()){
+                    if (poss.size()!=0) {
+                        try {
+                            temPositionList = new ArrayList<>();
+//                            int row = Integer.parseInt(depot.getRow());
+//                            int col = Integer.parseInt(depot.getPosition());
+//                            int floor = Integer.parseInt(depot.getFloors());
+                            int a = row * col;
+                            int x = floor;
+                            if (x>1){
+                                x --;
+                                for (int i =  a*(x-1); i <= a*x-1; i++) {
+                                    temPositionList.add(poss.get(i));
+                                    adapter.notifyDataSetChanged();
+                                }
+                            }else {
+                                for (int i =  a*(x-1); i <= a*x-1; i++) {
+                                    temPositionList.add(poss.get(i));
+                                    adapter.notifyDataSetChanged();
+                                }
+                            }
+                            GridLayoutManager layoutManager = new GridLayoutManager(ChooseDepotActivity.this,row);
+                            rcvChoose.setLayoutManager(layoutManager);
+                            adapter = new ChooseAdapter(temPositionList);
+                            rcvChoose.setAdapter(adapter);
+                            Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show();
+                        }catch (Exception e){
+                            e.printStackTrace();
+                        }
+
+                    }else {
+                        Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
+
                     }
-//                    Toast.makeText(context, "Have data", Toast.LENGTH_SHORT).show();
-
-                }else {
-//                    Toast.makeText(context, "Data not found", Toast.LENGTH_SHORT).show();
-
                 }
             }
 
@@ -109,19 +137,34 @@ public class ChooseDepotActivity extends AppCompatActivity {
             }
         });
     }
-
-    public void setAdapterForRCV(){
-        positionList =new ArrayList<>();
-        getListPos(ChooseDepotActivity.this,id);
-        adapter = new ChooseAdapter(positionList);
+    public void setPositionList(List<Position> positionList) {
+        positionList.clear();
+        this.positionList = positionList;
         adapter.notifyDataSetChanged();
-        adapter.notifyItemRangeChanged(0,positionList.size());
-//                subAdapter = new SubChooseAdapter(floorList);
+    }
+
+    public static ChooseDepotActivity getInstance() {
+        return instance;
+    }
+    public void finishAc(){
+        finish();
+    }
+
+    public static void setFloor(int floor) {
+        ChooseDepotActivity.floor = floor;
+    }
+
+    public void setNewList(int floor){
+        temPositionList.clear();
+        int a = row * col;
+        int x = floor;
+        for (int i =  a*(x-1); i <= a*x-1; i++) {
+            temPositionList.add(poss.get(i));
+            adapter.notifyDataSetChanged();
+        }
         GridLayoutManager layoutManager = new GridLayoutManager(ChooseDepotActivity.this,row);
         rcvChoose.setLayoutManager(layoutManager);
         rcvChoose.setAdapter(adapter);
-    }
-    public static ChooseDepotActivity getInstance() {
-        return instance;
+        adapter.notifyDataSetChanged();
     }
 }

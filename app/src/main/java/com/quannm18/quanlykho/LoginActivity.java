@@ -98,7 +98,7 @@ public class LoginActivity extends AppCompatActivity {
                                     SharedPreferences.Editor editor = sharedPreferences.edit();
                                     editor.clear();
                                     editor.putString("ID",loginRespone.getNhanVien().get_id());
-                                    editor.putString("PASSWORD",loginRespone.getNhanVien().getPassword());
+                                    editor.putString("PASSWORD",tilPassword.getEditText().getText()+"");
                                     editor.putString("ROLE",loginRespone.getNhanVien().getRole());
                                     editor.putString("NAME",loginRespone.getNhanVien().getFullName());
                                     editor.putString("GENDER",loginRespone.getNhanVien().getGender());
@@ -111,7 +111,7 @@ public class LoginActivity extends AppCompatActivity {
                                     SharedPreferences.Editor editor = sharedPreferences.edit();
                                     editor.clear();
                                     editor.putString("ID",loginRespone.getNhanVien().get_id());
-                                    editor.putString("PASSWORD",loginRespone.getNhanVien().getPassword());
+                                    editor.putString("PASSWORD",tilPassword.getEditText().getText()+"");
                                     editor.putString("ROLE",loginRespone.getNhanVien().getRole());
                                     editor.putString("NAME",loginRespone.getNhanVien().getFullName());
                                     editor.putString("GENDER",loginRespone.getNhanVien().getGender());

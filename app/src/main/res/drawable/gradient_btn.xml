@@ -12,7 +12,7 @@
                         android:endColor="#29BB8F"/>
                 </shape>
             </item>
-            <item android:drawable="@drawable/ic_add"  android:gravity="center" />
+            <item android:drawable="@drawable/ic_add"  android:gravity="center" android:width="32dp" android:height="32dp" />
         </layer-list>
     </item>
 </ripple>

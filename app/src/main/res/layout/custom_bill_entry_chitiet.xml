@@ -10,9 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="42dp"
-        android:layout_marginEnd="16dp"
         android:layout_marginBottom="20dp"
         android:backgroundTint="#D7EEE8"
         app:cardCornerRadius="24dp"
@@ -55,7 +52,7 @@
                     android:layout_weight="1.4"
                     android:fontFamily="@font/sen_bold"
                     android:gravity="left"
-                    android:text="Ma HDN: "
+                    android:text="ID: "
                     android:textColor="#000000"
                     android:textSize="16sp" />
 
@@ -89,7 +86,7 @@
                     android:layout_weight="1.4"
                     android:fontFamily="@font/sen_bold"
                     android:gravity="left"
-                    android:text="Product: "
+                    android:text="Name's roduct: "
                     android:textColor="#000000"
                     android:textSize="16sp" />
 
@@ -124,7 +121,7 @@
                     android:layout_weight="1.4"
                     android:fontFamily="@font/sen_bold"
                     android:gravity="left"
-                    android:text="Product type: "
+                    android:text="Type's product: "
                     android:textColor="#000000"
                     android:textSize="16sp" />
 
@@ -145,82 +142,6 @@
                     android:textSize="16sp" />
 
             </LinearLayout>
-
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="48dp"-->
-<!--                android:orientation="horizontal"-->
-<!--                android:weightSum="3">-->
-
-<!--                <TextView-->
-<!--                    android:layout_width="0dp"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginLeft="16dp"-->
-<!--                    android:layout_marginTop="12dp"-->
-<!--                    android:layout_marginRight="16dp"-->
-<!--                    android:layout_marginBottom="2dp"-->
-<!--                    android:layout_weight="1.4"-->
-<!--                    android:fontFamily="@font/sen_bold"-->
-<!--                    android:gravity="left"-->
-<!--                    android:text="Row: "-->
-<!--                    android:textColor="#000000"-->
-<!--                    android:textSize="16sp" />-->
-
-<!--                <TextView-->
-<!--                    android:id="@+id/hdn_txt_hang_CT"-->
-<!--                    android:layout_width="0dp"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_alignParentLeft="true"-->
-<!--                    android:layout_alignParentTop="true"-->
-<!--                    android:layout_marginTop="12dp"-->
-<!--                    android:layout_marginRight="16dp"-->
-<!--                    android:layout_marginBottom="2dp"-->
-<!--                    android:layout_weight="1.6"-->
-<!--                    android:fontFamily="@font/sen_regular"-->
-<!--                    android:gravity="left"-->
-<!--                    android:text="Hang: "-->
-<!--                    android:textColor="#000000"-->
-<!--                    android:textSize="16sp" />-->
-<!--            </LinearLayout>-->
-
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="48dp"-->
-<!--                android:orientation="horizontal"-->
-<!--                android:weightSum="3">-->
-
-<!--                <TextView-->
-<!--                    android:layout_width="0dp"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginLeft="16dp"-->
-<!--                    android:layout_marginTop="12dp"-->
-<!--                    android:layout_marginRight="16dp"-->
-<!--                    android:layout_marginBottom="2dp"-->
-<!--                    android:layout_weight="1.4"-->
-<!--                    android:fontFamily="@font/sen_bold"-->
-<!--                    android:gravity="left"-->
-<!--                    android:text="Column: "-->
-<!--                    android:textColor="#000000"-->
-<!--                    android:textSize="16sp" />-->
-
-<!--                <TextView-->
-<!--                    android:id="@+id/hdn_txt_cot_CT"-->
-<!--                    android:layout_width="0dp"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_alignParentLeft="true"-->
-<!--                    android:layout_alignParentTop="true"-->
-<!--                    android:layout_marginTop="12dp"-->
-<!--                    android:layout_marginRight="16dp"-->
-<!--                    android:layout_marginBottom="2dp"-->
-<!--                    android:layout_weight="1.6"-->
-<!--                    android:fontFamily="@font/sen_regular"-->
-<!--                    android:gravity="left"-->
-<!--                    android:text="Cot: "-->
-<!--                    android:textColor="#000000"-->
-<!--                    android:textSize="16sp" />-->
-
-<!--            </LinearLayout>-->
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
@@ -273,7 +194,7 @@
                     android:layout_weight="1.4"
                     android:fontFamily="@font/sen_bold"
                     android:gravity="left"
-                    android:text="Amount: "
+                    android:text="Quantity: "
                     android:textColor="#000000"
                     android:textSize="16sp" />
 
@@ -310,7 +231,7 @@
                     android:layout_weight="1.4"
                     android:fontFamily="@font/sen_bold"
                     android:gravity="left"
-                    android:text="Ngay nhap: "
+                    android:text="Time: "
                     android:textColor="#000000"
                     android:textSize="16sp" />
 
@@ -385,7 +306,7 @@
                     android:layout_weight="1.4"
                     android:fontFamily="@font/sen_bold"
                     android:gravity="left"
-                    android:text="Descriptions: "
+                    android:text="Description: "
                     android:textColor="#000000"
                     android:textSize="16sp" />
 

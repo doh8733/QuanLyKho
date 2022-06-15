@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder;
 import com.quannm18.quanlykho.Model.HoaDonNhap;
 import com.quannm18.quanlykho.Model.HoaDonXuat;
 import com.quannm18.quanlykho.Model.NhanVien;
+import com.quannm18.quanlykho.Model.Position;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +33,9 @@ public interface ApiInterface {
     Call<HoaDonNhap> postHDN(@Body HoaDonNhap HDN);
     @GET("warehouse")
     Call<List<HoaDonNhap>>  getHDN();
+
+    @POST("warehouse/{id}")
+    Call<List<HoaDonNhap>> getHDNFromPosition(@Path("id") String id);
 
     @Headers("Content-Type: application/x-www-form-urlencoded")
     @POST("/delete/{id}")

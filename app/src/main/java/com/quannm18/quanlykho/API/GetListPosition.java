@@ -35,11 +35,14 @@ public interface GetListPosition {
     @Headers("Content-Type: application/x-www-form-urlencoded")
     @FormUrlEncoded
     @POST("edit/{id}")
-    Call<Position> postUpdateStatus (@Path("id") String id,
-                                       @Field("status") String status,
-                                     @Field("namePosition") String namePosition);
+    Call<Position> postUpdateStatus(@Path("id") String id,
+                                            @Field("status") String status,
+                                            @Field("namePosition") String namePosition);
 
 
     @GET("{id}")
     Call<List<Position>> postGetListPosition (@Path("id") String id);
+
+
+
 }
