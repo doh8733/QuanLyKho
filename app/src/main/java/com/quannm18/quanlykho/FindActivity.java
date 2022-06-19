@@ -68,17 +68,18 @@ public class FindActivity extends AppCompatActivity {
                             findList.add(hangModelList.get(j));
                             pos = j;
                         }
-                        if (pos !=-1){
-                            Toast.makeText(FindActivity.this, "Đã tìm thấy " + name, Toast.LENGTH_SHORT).show();
-                            LinearLayoutManager layoutManager = new LinearLayoutManager(FindActivity.this);
-                            rcvFind.setLayoutManager(layoutManager);
-                            DepotAdapter depotAdapter = new DepotAdapter(FindActivity.this,findList);
-                            rcvFind.setAdapter(depotAdapter);
-                        }
-                        else {
-                            Toast.makeText(FindActivity.this, "Khong the tim thay" + name, Toast.LENGTH_SHORT).show();
-                            
-                        }
+
+                    }
+                    if (pos !=-1){
+                        Toast.makeText(FindActivity.this, "Found " + name, Toast.LENGTH_SHORT).show();
+                        LinearLayoutManager layoutManager = new LinearLayoutManager(FindActivity.this);
+                        rcvFind.setLayoutManager(layoutManager);
+                        DepotAdapter depotAdapter = new DepotAdapter(FindActivity.this,findList);
+                        rcvFind.setAdapter(depotAdapter);
+                    }
+                    else {
+                        Toast.makeText(FindActivity.this, "Find not found " + name, Toast.LENGTH_SHORT).show();
+
                     }
                 }
 

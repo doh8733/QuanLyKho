@@ -66,22 +66,28 @@ public class FindHDXFragment extends Fragment {
                 int pos =-1;
                 if (actionId == EditorInfo.IME_ACTION_SEARCH){
                     for (int i = 0; i < findHDXList.size(); i++) {
-                        if (name.equalsIgnoreCase(findHDXList.get(i).getMaHDX())){
+                        if (name.equalsIgnoreCase(findHDXList.get(i).getMaHDX())||(findHDXList.get(i).getMaHDX()).contains(name)){
                             findlist.clear();
                             findlist.add(findHDXList.get(i));
                             pos = i;
                         }
-                        if (pos !=-1){
-                            Toast.makeText(getContext(), "Đã tìm thấy " + name, Toast.LENGTH_SHORT).show();
-                            LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
-                            rcvFindHDX.setLayoutManager(layoutManager);
-                            FragmentFindHDX_Adapter depotAdapter = new FragmentFindHDX_Adapter(getContext(),findlist);
-                            rcvFindHDX.setAdapter(depotAdapter);
-                        }
-                        else {
-                            Toast.makeText(getContext(), "Khong the tim thay" + name, Toast.LENGTH_SHORT).show();
 
-                        }
+                    }
+                    if (pos !=-1){
+                        Toast.makeText(getContext(), "Found " + name, Toast.LENGTH_SHORT).show();
+                        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+                        rcvFindHDX.setLayoutManager(layoutManager);
+                        FragmentFindHDX_Adapter depotAdapter = new FragmentFindHDX_Adapter(getContext(),findlist);
+                        rcvFindHDX.setAdapter(depotAdapter);
+                    }
+                    else {
+
+                        findlist.clear();
+                        Toast.makeText(getContext(), "Find not found" + name, Toast.LENGTH_SHORT).show();
+                        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+                        rcvFindHDX.setLayoutManager(layoutManager);
+                        FragmentFindHDX_Adapter depotAdapter = new FragmentFindHDX_Adapter(getContext(),findlist);
+                        rcvFindHDX.setAdapter(depotAdapter);
                     }
                 }
                 return false;

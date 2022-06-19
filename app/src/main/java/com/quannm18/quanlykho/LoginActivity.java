@@ -40,10 +40,10 @@ public class LoginActivity extends AppCompatActivity {
     private TextInputEditText edtUsername;
     private TextInputLayout textInputLayout2;
     private TextInputEditText edtPassword;
-    private AppCompatCheckBox checkBox;
+//    private AppCompatCheckBox checkBox;
     private TextInputLayout tilUsername;
     private TextInputLayout tilPassword;
-    private TextView textView9;
+//    private TextView textView9;
     private TextView forget;
     private AppCompatButton btnSignIn;
     private List<NhanVien> nhanVienList;
@@ -62,8 +62,8 @@ public class LoginActivity extends AppCompatActivity {
         edtUsername = (TextInputEditText) findViewById(R.id.edtUsername);
         tilPassword = (TextInputLayout) findViewById(R.id.tilPassword);
         edtPassword = (TextInputEditText) findViewById(R.id.edtPassword);
-        checkBox = (AppCompatCheckBox) findViewById(R.id.checkBox);
-        textView9 = (TextView) findViewById(R.id.textView9);
+//        checkBox = (AppCompatCheckBox) findViewById(R.id.checkBox);
+//        textView9 = (TextView) findViewById(R.id.textView9);
         btnSignIn = (AppCompatButton) findViewById(R.id.btnSignIn);
         tv = (TextView) findViewById(R.id.tv);
 
