@@ -40,7 +40,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Frag_HDX_Outlet extends Fragment {
     TextInputEditText hdx_maHDX_add, hdx_ngayXuat_add, hdx_thanhtien_add, hdx_trangthai_add, hdx_descriptions_add;
-    FloatingActionButton fla_HDX_outlet;
+//    FloatingActionButton fla_HDX_outlet;
     RecyclerView rcvHDX;
     FragHDX_Adapter fragHDX_adapter;
     List<HoaDonXuat> listHDX=new ArrayList<>();
@@ -50,7 +50,7 @@ public class Frag_HDX_Outlet extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.frag_hdx_outlet, container, false);
-        fla_HDX_outlet = view.findViewById(R.id.fla_HDX_outlet);
+//        fla_HDX_outlet = view.findViewById(R.id.fla_HDX_outlet);
         rcvHDX = view.findViewById(R.id.rcvHDX);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
@@ -58,40 +58,40 @@ public class Frag_HDX_Outlet extends Fragment {
         fragHDX_adapter = new FragHDX_Adapter(getContext(), listHDX);
 
         GetDataHDX();
-        fla_HDX_outlet.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-                View view1 = LayoutInflater.from(getContext()).inflate(R.layout.activity_add_new_outlet, null);
-                builder.setView(view1);
-                builder.setCancelable(true);
-                AlertDialog dialog = builder.create();
-                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                dialog.show();
-                hdx_maHDX_add = view1.findViewById(R.id.hdx_maHDX_add);
-                hdx_ngayXuat_add = view1.findViewById(R.id.hdx_ngayXuat_add);
-                hdx_thanhtien_add = view1.findViewById(R.id.hdx_thanhtien_add);
-                hdx_trangthai_add = view1.findViewById(R.id.hdx_trangthai_add);
-                hdx_descriptions_add = view1.findViewById(R.id.hdx_descriptions_add);
-                AppCompatButton hdx_btn_add = view1.findViewById(R.id.hdx_btn_add);
-                AppCompatButton hdx_btn_close = view1.findViewById(R.id.hdx_btn_close);
-
-                hdx_btn_add.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        InsertDataHDX();
-                        Toast.makeText(getContext(), "Them HDX", Toast.LENGTH_SHORT).show();
-                        dialog.dismiss();
-                    }
-                });
-                hdx_btn_close.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        dialog.dismiss();
-                    }
-                });
-            }
-        });
+//        fla_HDX_outlet.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+//                View view1 = LayoutInflater.from(getContext()).inflate(R.layout.activity_add_new_outlet, null);
+//                builder.setView(view1);
+//                builder.setCancelable(true);
+//                AlertDialog dialog = builder.create();
+//                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+//                dialog.show();
+//                hdx_maHDX_add = view1.findViewById(R.id.hdx_maHDX_add);
+//                hdx_ngayXuat_add = view1.findViewById(R.id.hdx_ngayXuat_add);
+//                hdx_thanhtien_add = view1.findViewById(R.id.hdx_thanhtien_add);
+//                hdx_trangthai_add = view1.findViewById(R.id.hdx_trangthai_add);
+//                hdx_descriptions_add = view1.findViewById(R.id.hdx_descriptions_add);
+//                AppCompatButton hdx_btn_add = view1.findViewById(R.id.hdx_btn_add);
+//                AppCompatButton hdx_btn_close = view1.findViewById(R.id.hdx_btn_close);
+//
+//                hdx_btn_add.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View view) {
+//                        InsertDataHDX();
+//                        Toast.makeText(getContext(), "Them HDX", Toast.LENGTH_SHORT).show();
+//                        dialog.dismiss();
+//                    }
+//                });
+//                hdx_btn_close.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View view) {
+//                        dialog.dismiss();
+//                    }
+//                });
+//            }
+//        });
         return view;
 
 

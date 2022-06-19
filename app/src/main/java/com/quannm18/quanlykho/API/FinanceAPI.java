@@ -12,6 +12,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
@@ -34,7 +35,7 @@ public interface FinanceAPI {
 
     @Headers("Content-Type: application/x-www-form-urlencoded")
     @FormUrlEncoded
-    @POST("quanLy")
+    @POST("quanLy/month")
     Call<Finance> getStatisticMonth (@Field("gte") Date gte,
                                             @Field("lte") Date lte);
 }

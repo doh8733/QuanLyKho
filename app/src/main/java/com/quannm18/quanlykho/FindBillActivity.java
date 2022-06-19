@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -28,6 +29,7 @@ public class FindBillActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find_bill);
 
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
 
         imvBackFindbill = (ImageView) findViewById(R.id.imv_backFindbill);
@@ -40,16 +42,6 @@ public class FindBillActivity extends AppCompatActivity {
         imvBackFindbill.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                SharedPreferences sdf = getSharedPreferences("USER_FILE", MODE_PRIVATE);
-//                String name = sdf.getString("USER", "");
-//                Intent intent;
-//                if (name.equalsIgnoreCase("admin")) {
-//                    intent = new Intent(FindBillActivity.this, AdminActivity.class);
-//                }
-//                else {
-//                    intent = new Intent(FindBillActivity.this, NhanVienActivity.class);
-//                }
-//                startActivity(intent);
                 onBackPressed();
             }
         });

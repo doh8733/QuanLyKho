@@ -45,7 +45,7 @@ public class Frag_HDN_Entry extends Fragment {
     TextInputEditText txt_hdn_maHDN_add, txt_hdn_name_add, txt_hdn_productType_add, txt_hdn_hang_add, txt_hdn_cot_add,
             txt_hdn_vitri_add, txt_hdn_quantity_add,
             txt_hdn_free_add,  txt_hdn_descriptions_add;
-    FloatingActionButton fla_HDN_entry;
+//    FloatingActionButton fla_HDN_entry;
     RecyclerView rcvHDN;
     FragHDN_Adapter fragHDN_adapter;
     List<HoaDonNhap> listHDN = new ArrayList<>();
@@ -57,7 +57,7 @@ public class Frag_HDN_Entry extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.frag_hdn_entry, container, false);
-        fla_HDN_entry = view.findViewById(R.id.fla_HDN_entry);
+//        fla_HDN_entry = view.findViewById(R.id.fla_HDN_entry);
         rcvHDN = view.findViewById(R.id.rcvHDN);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
@@ -66,52 +66,52 @@ public class Frag_HDN_Entry extends Fragment {
 
         GetDataHDN();
 
-        fla_HDN_entry.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-                View view1 = LayoutInflater.from(getContext()).inflate(R.layout.activity_add_new_entry, null);
-                builder.setView(view1);
-                builder.setCancelable(false);
-                AlertDialog dialog = builder.create();
-                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                dialog.show();
-                txt_hdn_maHDN_add = view1.findViewById(R.id.txt_hdn_maHDN_add);
-                txt_hdn_name_add = view1.findViewById(R.id.txt_hdn_name_add);
-                txt_hdn_productType_add = view1.findViewById(R.id.txt_hdn_productType_add);
-                txt_hdn_vitri_add = view1.findViewById(R.id.txt_hdn_pos_add);
-                txt_hdn_quantity_add = view1.findViewById(R.id.txt_hdn_quantity_add);
-                txt_hdn_free_add = view1.findViewById(R.id.txt_hdn_free_add);
-                txt_hdn_descriptions_add = view1.findViewById(R.id.txt_hdn_descriptions_add);
-                AppCompatButton hdn_btn_add = view1.findViewById(R.id.hdn_btn_add);
-                AppCompatButton hdn_btn_close_add = view1.findViewById(R.id.hdn_btn_close_add);
-                hdn_btn_add.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        if (txt_hdn_maHDN_add.getText().toString().isEmpty() && txt_hdn_name_add.getText().toString().isEmpty() &&
-                                txt_hdn_productType_add.getText().toString().isEmpty()
-                                 && txt_hdn_vitri_add.getText().toString().isEmpty()
-                                && txt_hdn_free_add.getText().toString().isEmpty() && txt_hdn_quantity_add.getText().toString().isEmpty()
-                                && txt_hdn_descriptions_add.getText().toString().isEmpty()) {
-                            Toast.makeText(getContext(), "Dữ liệu không được để trống", Toast.LENGTH_SHORT).show();
-                        }else {
-                            InsertDataHDN();
-                            Toast.makeText(getContext(), "Them HDN", Toast.LENGTH_SHORT).show();
-                            dialog.dismiss();
-                        }
-
-                    }
-                });
-
-
-                hdn_btn_close_add.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        dialog.dismiss();
-                    }
-                });
-            }
-        });
+//        fla_HDN_entry.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+//                View view1 = LayoutInflater.from(getContext()).inflate(R.layout.activity_add_new_entry, null);
+//                builder.setView(view1);
+//                builder.setCancelable(false);
+//                AlertDialog dialog = builder.create();
+//                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+//                dialog.show();
+//                txt_hdn_maHDN_add = view1.findViewById(R.id.txt_hdn_maHDN_add);
+//                txt_hdn_name_add = view1.findViewById(R.id.txt_hdn_name_add);
+//                txt_hdn_productType_add = view1.findViewById(R.id.txt_hdn_productType_add);
+//                txt_hdn_vitri_add = view1.findViewById(R.id.txt_hdn_pos_add);
+//                txt_hdn_quantity_add = view1.findViewById(R.id.txt_hdn_quantity_add);
+//                txt_hdn_free_add = view1.findViewById(R.id.txt_hdn_free_add);
+//                txt_hdn_descriptions_add = view1.findViewById(R.id.txt_hdn_descriptions_add);
+//                AppCompatButton hdn_btn_add = view1.findViewById(R.id.hdn_btn_add);
+//                AppCompatButton hdn_btn_close_add = view1.findViewById(R.id.hdn_btn_close_add);
+//                hdn_btn_add.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View view) {
+//                        if (txt_hdn_maHDN_add.getText().toString().isEmpty() && txt_hdn_name_add.getText().toString().isEmpty() &&
+//                                txt_hdn_productType_add.getText().toString().isEmpty()
+//                                 && txt_hdn_vitri_add.getText().toString().isEmpty()
+//                                && txt_hdn_free_add.getText().toString().isEmpty() && txt_hdn_quantity_add.getText().toString().isEmpty()
+//                                && txt_hdn_descriptions_add.getText().toString().isEmpty()) {
+//                            Toast.makeText(getContext(), "Dữ liệu không được để trống", Toast.LENGTH_SHORT).show();
+//                        }else {
+//                            InsertDataHDN();
+//                            Toast.makeText(getContext(), "Them HDN", Toast.LENGTH_SHORT).show();
+//                            dialog.dismiss();
+//                        }
+//
+//                    }
+//                });
+//
+//
+//                hdn_btn_close_add.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View view) {
+//                        dialog.dismiss();
+//                    }
+//                });
+//            }
+//        });
         return view;
 
 
@@ -141,6 +141,7 @@ public class Frag_HDN_Entry extends Fragment {
                 listHDN.clear();
                 GetDataHDN();
                 fragHDN_adapter.notifyDataSetChanged();
+
             }
 
             @Override
@@ -161,6 +162,9 @@ public class Frag_HDN_Entry extends Fragment {
         call.enqueue(new Callback<List<HoaDonNhap>>() {
             @Override
             public void onResponse(Call<List<HoaDonNhap>> call, Response<List<HoaDonNhap>> response) {
+                if (response.body()==null){
+                    Toast.makeText(getContext(), "Empty!", Toast.LENGTH_SHORT).show();
+                }
                 if (response.isSuccessful() && response.body() != null) {
                     listHDN.addAll(response.body());
                     fragHDN_adapter.setDataHDN(listHDN);

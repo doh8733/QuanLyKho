@@ -126,41 +126,43 @@ public class MonthlyFinanceFragment extends Fragment {
                     public void onResponse(Call<Finance> call, Response<Finance> response) {
                         final Finance finance = response.body();
 
-                        Log.e("fin",finance.getTongXuat()+"");
-                        Log.e("fin",finance.getTongNhap()+"");
-                        totalEntry = finance.getTongNhap();
-                        totalX = finance.getTongXuat();
+                        if (response.isSuccessful()){
+                            Log.e("fin",finance.getTongXuat()+"");
+                            Log.e("fin",finance.getTongNhap()+"");
+                            totalEntry = finance.getTongNhap();
+                            totalX = finance.getTongXuat();
 
-                        if (totalEntry!=1|| totalX!=1){
-                            pieEntryList.clear();
+                            if (totalEntry!=1|| totalX!=1){
+                                pieEntryList.clear();
 
-                            PieEntry pieEntry = new PieEntry(totalEntry,"Thu");
-                            pieEntryList.add(pieEntry);
-                            PieEntry pieEntry1 = new PieEntry(totalX,"Chi");
-                            pieEntryList.add(pieEntry1);
+                                PieEntry pieEntry = new PieEntry(totalEntry,"Thu");
+                                pieEntryList.add(pieEntry);
+                                PieEntry pieEntry1 = new PieEntry(totalX,"Chi");
+                                pieEntryList.add(pieEntry1);
 
-                            tvBoxDamageValue.setText(totalX+"");
-                            tvBoxRevenueValue.setText(totalEntry+"");
+                                tvBoxDamageValue.setText(totalX+"");
+                                tvBoxRevenueValue.setText(totalEntry+"");
 
-                            chartMonthly.notifyDataSetChanged();
-                            chartMonthly.invalidate();
-                            Toast.makeText(getContext(), "Show", Toast.LENGTH_SHORT).show();
+                                chartMonthly.notifyDataSetChanged();
+                                chartMonthly.invalidate();
+                                Toast.makeText(getContext(), "Show", Toast.LENGTH_SHORT).show();
 
-                        }
-                        if (totalEntry==0|| totalX==0){
-                            pieEntryList.clear();
+                            }
+                            if (totalEntry==0|| totalX==0){
+                                pieEntryList.clear();
 
-                            PieEntry pieEntry = new PieEntry(1,"Thu");
-                            pieEntryList.add(pieEntry);
-                            PieEntry pieEntry1 = new PieEntry(1,"Chi");
-                            pieEntryList.add(pieEntry1);
+                                PieEntry pieEntry = new PieEntry(1,"Thu");
+                                pieEntryList.add(pieEntry);
+                                PieEntry pieEntry1 = new PieEntry(1,"Chi");
+                                pieEntryList.add(pieEntry1);
 
-                            tvBoxDamageValue.setText(totalX+"");
-                            tvBoxRevenueValue.setText(totalEntry+"");
+                                tvBoxDamageValue.setText(totalX+"");
+                                tvBoxRevenueValue.setText(totalEntry+"");
 
-                            chartMonthly.notifyDataSetChanged();
-                            chartMonthly.invalidate();
-                            Toast.makeText(getContext(), "Show", Toast.LENGTH_SHORT).show();
+                                chartMonthly.notifyDataSetChanged();
+                                chartMonthly.invalidate();
+                                Toast.makeText(getContext(), "Show", Toast.LENGTH_SHORT).show();
+                            }
                         }
 
                     }

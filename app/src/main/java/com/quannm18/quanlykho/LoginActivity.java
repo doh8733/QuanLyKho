@@ -64,7 +64,6 @@ public class LoginActivity extends AppCompatActivity {
         edtPassword = (TextInputEditText) findViewById(R.id.edtPassword);
         checkBox = (AppCompatCheckBox) findViewById(R.id.checkBox);
         textView9 = (TextView) findViewById(R.id.textView9);
-        forget = (TextView) findViewById(R.id.forget);
         btnSignIn = (AppCompatButton) findViewById(R.id.btnSignIn);
         tv = (TextView) findViewById(R.id.tv);
 

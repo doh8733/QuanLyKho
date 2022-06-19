@@ -91,10 +91,8 @@
       android:layout_height="24dp"
       android:layout_marginStart="32dp"
       android:layout_marginTop="28dp"
-      android:button="@drawable/custom_checkbox"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/tilPassword"
-      tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
+      app:layout_constraintTop_toBottomOf="@+id/tilPassword"/>
 
   <TextView
       android:id="@+id/textView9"
@@ -107,19 +105,6 @@
       android:textColor="#000000"
       android:textSize="20sp"
       app:layout_constraintStart_toEndOf="@+id/checkBox"
-      app:layout_constraintTop_toBottomOf="@+id/tilPassword" />
-
-  <TextView
-      android:id="@+id/forget"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="32dp"
-      android:layout_marginEnd="32dp"
-      android:fontFamily="@font/sen_regular"
-      android:text="Forget password?"
-      android:textColor="#969696"
-      android:textSize="14sp"
-      app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/tilPassword" />
 
   <androidx.appcompat.widget.AppCompatButton
